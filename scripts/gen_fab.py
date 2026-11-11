@@ -6,7 +6,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 FAB = os.path.join(HERE, "..", "fab")
 b = pcbnew.LoadBoard(os.path.join(HERE, "..", f"{design.PROJECT}.kicad_pcb"))
 parts = {p["ref"]: p for p in design.PARTS}
-HAND = {r for r, p in parts.items() if p.get("tht")}       # WAGO terminals: hand-solder
+HAND = {r for r, p in parts.items() if p.get("tht") or p.get("virtual")}  # hand-solder / net ties: not in JLC BOM
 
 groups = {}
 for r, p in parts.items():

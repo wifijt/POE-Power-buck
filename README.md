@@ -32,6 +32,9 @@ Silkscreen, left to right along the top edge: **OUT 12V (+ -)** then **IN (+ -)*
    * Layers: **4**, thickness **1.6 mm**
    * **Outer copper weight: 2 oz**. Inner copper weight: 0.5 oz (default; 1 oz is fine too)
    * Surface finish: ENIG recommended for the 0.5 mm-pitch U1 pads (HASL also works). Impedance control: off
+   * **Via covering: Epoxy Filled & Capped** (a paid option on 4 layers). U1 has six 0.2 mm-drill
+     vias inside its PGND and VOUT center pads; open vias there would wick solder away from the QFN.
+     Set **min via hole size to 0.2 mm** (0.35 mm diameter) in the quote.
 
    The board is sized for 2 oz outer copper: the planned load (two Raspberry Pi 5s and an
    Orange Pi 5 on PoE) is about 40-55 W, close to the 60 W rating. The layout already meets
@@ -105,6 +108,11 @@ KiCad 10 notes: the `pcbnew` scripts print harmless wxWidgets assert lines. Don'
 * **Copper**: 2 oz outer layers, 0.2 mm minimum track and clearance throughout.
 * **Layers**: top = parts, switch-node and power pours. Inner 1 = solid GND. Inner 2 = VOUT
   plane (left) and VIN plane (right). Bottom = GND plus the DR1H and EN traces.
+* **U1 grounding** (TI SLVSFC5 sec. 10.1): three filled-and-capped vias in each of U1's center pads
+  (PGND to the In1 ground plane, VOUT to the In2 VOUT plane) for heat and current. Analog ground
+  (U1 AGND and MODE pins, R7, R9, C12 and C13) is its own AGND net, routed as traces and joined
+  to power ground only at C14's ground terminal through net tie NT1. R4, R5 and C11 stay on the
+  main ground plane.
 * **Reverse polarity**: Q3 (low-side N-FET, gate from VIN through R12, 12 V zener clamp D3).
 * **Values** (FB 100k/11k = 12.1 V; the reference used 102k/11.3k, FSW 49.9k, ILIM 22.1k (was 26.7k), UVLO 100k/28.7k (was 26.1k), compensation 15k + 10 nF + 100 pF, VCC 22 µF,
   6.8 µH inductor, external CSD17577Q3A buck FETs) follow two published TPS552882/TPS55288

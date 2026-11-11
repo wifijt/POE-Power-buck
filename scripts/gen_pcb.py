@@ -31,6 +31,7 @@ PL = {
     "R6": (8.75, 28.3, 270), "R7": (8.4, 29.55, 180), "R9": (8.4, 31.5, 180),
     "R10": (8.4, 32.5, 180), "C13": (8.4, 33.45, 180), "C12": (6.3, 32.5, 180),
     "C15": (9.9, 35.0, 270), "C14": (6.0, 35.6, 270),
+    "NT1": (4.6, 37.075, 0),                       # AGND star point: pad 2 sits on C14's GND pad
     # bootstrap
     "C9": (11.3, 34.0, 270), "C8": (13.35, 34.0, 0),
     # east of U1
@@ -53,8 +54,9 @@ assert set(part) == set(PL), set(part) ^ set(PL)
 ds = B.b.GetDesignSettings()
 ds.m_TrackMinWidth = pcbnew.FromMM(0.2)
 ds.m_MinClearance = pcbnew.FromMM(0.2)      # JLC 2 oz outer copper: 8 mil
-ds.m_ViasMinSize = pcbnew.FromMM(0.45)
-ds.m_MinThroughDrill = pcbnew.FromMM(0.25)
+ds.m_ViasMinSize = pcbnew.FromMM(0.35)      # 0.35/0.2 via-in-pad under U1 (JLC: filled & capped)
+ds.m_MinThroughDrill = pcbnew.FromMM(0.2)
+ds.m_ViasMinAnnularWidth = pcbnew.FromMM(0.075)  # JLC multilayer min via 0.15/0.25 -> 0.05 ring
 ds.m_CopperEdgeClearance = pcbnew.FromMM(0.3)
 ns = ds.m_NetSettings
 nc = ns.GetDefaultNetclass() if hasattr(ns, "GetDefaultNetclass") else ns.m_DefaultNetClass  # KiCad 8+ / 7
@@ -98,7 +100,18 @@ T("SW1", [P("C8", "2"), (14.4, 34.15), (24.2, 34.15)], 0.3)
 T("FB", [P("U1", "14"), (9.9, 30.0), (9.45, 29.55), P("R7", "1")], 0.2)
 T("FB", [P("R6", "2"), P("R7", "1")], 0.2)
 T("VOUT", [P("R6", "1"), (9.4, 27.45), P("C17", "1")], 0.25)
-T("GND", [P("U1", "15"), (9.3, 30.5)], 0.2)
+# AGND: MODE + R7/R9 returns on a spine at x=7.0, C12/C13 loop, star point NT1 at C14
+T("AGND", [P("U1", "15"), (9.3, 30.5), (7.0, 30.5)], 0.25)
+T("AGND", [P("R7", "2"), (7.0, 29.55), (7.0, 31.5), P("R9", "2")], 0.25)
+T("AGND", [(7.0, 31.5), (5.0, 31.5), (5.0, 32.5), P("C12", "2")], 0.25)
+T("AGND", [P("C12", "2"), (5.82, 33.15), (7.6, 33.15), P("C13", "2")], 0.25)
+T("AGND", [(5.0, 32.5), (4.1, 33.4), P("NT1", "1")], 0.25)
+T("GND", [P("NT1", "2"), P("C14", "2")], 0.4)
+# U1 AGND pin 10 -> via -> bottom layer -> spine via at (7.0, 30.5)
+T("AGND", [P("U1", "10"), (12.525, 28.3)], 0.2)
+Vv("AGND", 12.525, 28.3)
+Vv("AGND", 7.0, 30.5)
+T("AGND", [(12.525, 28.3), (8.8, 28.3), (7.0, 30.1), (7.0, 30.5)], 0.25, "B")
 T("ILIM", [P("U1", "17"), P("R9", "1")], 0.2)
 T("COMP", [P("U1", "18"), (9.9, 32.0), (9.45, 32.5), P("R10", "1")], 0.2)
 T("COMP", [P("R10", "1"), P("C13", "1")], 0.2)
@@ -120,7 +133,11 @@ T("VOUT", [P("U1", "26"), P("U1", "11")], 0.3)
 T("VOUT", [P("U1", "11"), P("U1", "12")], 0.25)
 T("VOUT", [P("U1", "12"), P("U1", "13")], 0.25)
 T("GND", [P("U1", "24"), P("U1", "9")], 0.3)
-T("GND", [P("U1", "9"), P("U1", "10")], 0.25)
+# thermal / current vias inside U1's centre bars (TI sec. 10.1): PGND bar -> In1 GND,
+# VOUT bar -> In2 VOUT plane.  0.2 mm drill, must be ordered epoxy-filled & capped.
+for y in (30.53, 31.0, 31.47):
+    Vv("GND", P("U1", "24")[0], y, d=0.35, drill=0.2)
+    Vv("VOUT", P("U1", "26")[0], y, d=0.35, drill=0.2)
 T("SW2", [(12.4, 31.6), (12.15, 32.1), P("U1", "21")], 0.3)
 
 # ------------------------------------------------------------------ pours
@@ -142,8 +159,8 @@ Z("GND", "B", [(0.3, 0.3), (W - 0.3, 0.3), (W - 0.3, H - 0.3), (0.3, H - 0.3)], 
 
 # ------------------------------------------------------------------ stitching vias
 GV = [  # GND
-    (12.75, 28.2), (14.6, 27.2), (14.6, 24.0), (14.6, 20.5), (17.75, 28.3), (17.75, 29.45), (18.0, 31.4),
-    (7.0, 29.0), (7.0, 30.5), (7.0, 31.5), (5.0, 32.5), (8.9, 36.0), (6.0, 37.4),
+    (14.6, 27.2), (14.6, 24.0), (14.6, 20.5), (17.75, 28.3), (17.75, 29.45), (18.0, 31.4),
+    (8.9, 36.0), (6.0, 37.4),
     (6.2, 26.0), (6.2, 22.7), (5.4, 24.4), (15.4, 17.5), (17.2, 22.0), (18.6, 22.0),
     (20.2, 32.0), (21.4, 32.4),
     (29.2, 22.6), (28.0, 22.6), (29.3, 33.9), (31.6, 33.9), (35.0, 26.6),

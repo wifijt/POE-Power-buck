@@ -53,7 +53,10 @@ def main(pcb, out, layer="F", rats=True):
         for p in f.Pads():
             if not p.IsOnCopperLayer():
                 continue
-            poly = p.GetEffectivePolygon()
+            try:
+                poly = p.GetEffectivePolygon()
+            except TypeError:                        # KiCad 8+: per-layer
+                poly = p.GetEffectivePolygon(L, pcbnew.ERROR_INSIDE)
             for i in range(poly.OutlineCount()):
                 o = poly.Outline(i)
                 d.polygon([P(o.CPoint(j)) for j in range(o.PointCount())], fill=col(p.GetNetname() or "nc", 230), outline=(0, 0, 0, 255))
