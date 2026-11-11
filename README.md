@@ -9,7 +9,7 @@ coprocessors alive when the battery sags below 9 V under heavy drive load.
 
 | | |
 |---|---|
-| Board | 36.0 x 49.5 mm, 4 layers, 1.6 mm, rounded corners |
+| Board | 36.0 x 49.5 mm, 4 layers, 1.6 mm, **2 oz outer copper**, rounded corners |
 | Input | 6-16 V (starts at ~5.9 V rising; 16 V TVS clamp), reverse-polarity protected |
 | Output | 12.0 V, 5 A continuous (60 W). Below ~7 V input it is limited by the ~12.4 A inductor-current limit |
 | Converter | TI **TPS552882** 4-switch buck-boost (standalone, no I2C), 400 kHz |
@@ -28,8 +28,14 @@ Silkscreen, left to right along the top edge: **OUT 12V (+ -)** then **IN (+ -)*
 
 ## Ordering (JLCPCB PCB + assembly)
 
-1. **PCB**: upload `fab/gerbers_JLCPCB.zip` with 4 layers, 1.6 mm, 1 oz outer / 0.5 oz inner.
-   2 oz outer copper is a worthwhile upgrade if you plan to run near 60 W.
+1. **PCB**: upload `fab/gerbers_JLCPCB.zip` with these options:
+   * Layers: **4**, thickness **1.6 mm**
+   * **Outer copper weight: 2 oz**. Inner copper weight: 0.5 oz (default; 1 oz is fine too)
+   * Surface finish: ENIG recommended for the 0.5 mm-pitch U1 pads (HASL also works). Impedance control: off
+
+   The board is sized for 2 oz outer copper: the planned load (two Raspberry Pi 5s and an
+   Orange Pi 5 on PoE) is about 40-55 W, close to the 60 W rating. The layout already meets
+   JLC's 2 oz rules (0.2 mm minimum track and spacing), so their DFM check should pass.
 2. **Assembly**: top side only. Upload `fab/BOM_JLCPCB.csv` and `fab/CPL_JLCPCB.csv`.
    * MPNs are given for every part. Only L1's LCSC number (C41422303) is filled in, so let JLC
      match the rest by MPN or value and footprint.
@@ -70,6 +76,7 @@ python3 scripts/gen_sch.py
 
 ## Design notes
 
+* **Copper**: 2 oz outer layers, 0.2 mm minimum track and clearance throughout.
 * **Layers**: top = parts, switch-node and power pours. Inner 1 = solid GND. Inner 2 = VOUT
   plane (left) and VIN plane (right). Bottom = GND plus the DR1H and EN traces.
 * **Reverse polarity**: Q3 (low-side N-FET, gate from VIN through R12, 12 V zener clamp D3).

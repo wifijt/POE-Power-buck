@@ -51,13 +51,13 @@ assert set(part) == set(PL), set(part) ^ set(PL)
 
 # ------------------------------------------------------------------ rules
 ds = B.b.GetDesignSettings()
-ds.m_TrackMinWidth = pcbnew.FromMM(0.15)
-ds.m_MinClearance = pcbnew.FromMM(0.127)
+ds.m_TrackMinWidth = pcbnew.FromMM(0.2)
+ds.m_MinClearance = pcbnew.FromMM(0.2)      # JLC 2 oz outer copper: 8 mil
 ds.m_ViasMinSize = pcbnew.FromMM(0.45)
 ds.m_MinThroughDrill = pcbnew.FromMM(0.25)
 ds.m_CopperEdgeClearance = pcbnew.FromMM(0.3)
 nc = ds.m_NetSettings.m_DefaultNetClass
-nc.SetClearance(pcbnew.FromMM(0.13)); nc.SetTrackWidth(pcbnew.FromMM(0.2))
+nc.SetClearance(pcbnew.FromMM(0.2)); nc.SetTrackWidth(pcbnew.FromMM(0.2))
 nc.SetViaDiameter(pcbnew.FromMM(0.5)); nc.SetViaDrill(pcbnew.FromMM(0.3))
 
 T, Vv, Z = B.track, B.via, B.zone
@@ -92,7 +92,7 @@ xb2, yb2 = P("U1", "20")
 T("BOOT2", [(xb2, yb2), (xb2, 33.0), P("C9", "1")], 0.25)
 T("BOOT1", [P("U1", "22"), (12.65, 33.3), P("C8", "1")], 0.25)
 T("SW1", [P("U1", "23"), (13.45, 33.3), P("C8", "2")], 0.25)
-T("SW1", [P("C8", "2"), (14.4, 34.0), (24.2, 34.0)], 0.3)
+T("SW1", [P("C8", "2"), (14.4, 34.15), (24.2, 34.15)], 0.3)
 # west: FB, MODE(GND), ILIM, COMP, VCC
 T("FB", [P("U1", "14"), (9.9, 30.0), (9.45, 29.55), P("R7", "1")], 0.2)
 T("FB", [P("R6", "2"), P("R7", "1")], 0.2)
@@ -102,7 +102,7 @@ T("ILIM", [P("U1", "17"), P("R9", "1")], 0.2)
 T("COMP", [P("U1", "18"), (9.9, 32.0), (9.45, 32.5), P("R10", "1")], 0.2)
 T("COMP", [P("R10", "1"), P("C13", "1")], 0.2)
 T("COMP_RC", [P("R10", "2"), P("C12", "1")], 0.2)
-T("VCC", [(10.65, 32.8), (10.65, 34.1), (10.2, 34.52), P("C15", "1")], 0.3)
+T("VCC", [(10.6, 32.8), (10.6, 34.1), (10.2, 34.52), P("C15", "1")], 0.3)
 T("VCC", [P("C15", "1"), (6.6, 34.52), P("C14", "1")], 0.3)
 # LED
 T("LED_A", [P("R11", "2"), P("D2", "2")], 0.2)
