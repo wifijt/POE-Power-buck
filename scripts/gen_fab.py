@@ -15,12 +15,19 @@ for r, p in parts.items():
     key = (p["value"], p["fp"].split(":")[1], p["mpn"], p.get("lcsc", ""))
     groups.setdefault(key, []).append(r)
 natural = lambda r: (r.rstrip("0123456789"), int("".join(c for c in r if c.isdigit())))
+# JLC's matcher reads Comment + Footprint, so give it plain package names
+# (KiCad names like C_0402_1005Metric get misread as 01005).
+PKG = {"C_0402_1005Metric": "0402", "R_0402_1005Metric": "0402", "R_0603_1608Metric": "0603",
+       "LED_0603_1608Metric": "0603", "C_1206_3216Metric": "1206", "C_1210_3225Metric": "1210",
+       "CP_Elec_6.3x7.7": "SMD,D6.3xL7.7mm", "D_SMB": "SMB(DO-214AA)", "D_SOD-123": "SOD-123",
+       "NexFET_SON-8_3.3x3.3mm": "VSONP-8(3.3x3.3)", "TI_RPM0026A_VQFN-HR-26_4x3.5mm": "VQFN-26-HR(4x3.5)",
+       "L_TaiTech_TMPC1265_13.5x12.5mm": "SMD,13.5x12.8mm"}
 with open(os.path.join(FAB, "BOM_JLCPCB.csv"), "w", newline="") as f:
     w = csv.writer(f)
-    w.writerow(["Comment", "Designator", "Footprint", "MPN", "LCSC Part #", "Qty"])
+    w.writerow(["Comment", "Designator", "Footprint", "JLCPCB Part #", "MPN", "Qty"])
     for (val, fp, mpn, lcsc), refs in sorted(groups.items(), key=lambda kv: natural(sorted(kv[1], key=natural)[0])):
         refs = sorted(refs, key=natural)
-        w.writerow([val, ",".join(refs), fp, mpn, lcsc, len(refs)])
+        w.writerow([val, ",".join(refs), PKG[fp], lcsc, mpn, len(refs)])
 with open(os.path.join(FAB, "BOM_hand_solder.csv"), "w", newline="") as f:
     w = csv.writer(f)
     w.writerow(["Designator", "Part", "Qty", "Note"])

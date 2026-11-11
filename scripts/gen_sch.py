@@ -92,11 +92,11 @@ PLACE = {
 }
 
 NOTES = [
-    (20, 25, "FRC 12 V PoE-switch supply  -  TPS552882 4-switch buck-boost, 6-16 V in -> 12.0 V / 5 A out", 2.5),
+    (20, 25, "FRC 12 V PoE-switch supply  -  TPS552882 4-switch buck-boost, 6-16 V in -> 12.1 V / 5 A out", 2.5),
     (20, 32, "Input: WAGO J1 from a PDH/PDP breaker slot (10-20 A).  Q3 = low-side reverse-polarity FET, D1 = 16 V TVS.", 1.6),
     (160, 32, "Buck leg uses external FETs Q1/Q2; boost leg FETs are inside U1.", 1.6),
     (60, 105, "UVLO rising = 1.23 V x (1 + R3/R4) = 5.9 V    FSW: R5 49.9k = 400 kHz    ILIM: R9 26.7k ~ 12.4 A    MODE: R8 0R = internal LDO, forced PWM", 1.6),
-    (60, 205, "VOUT = 1.2 V x (1 + R6/R7) = 12.03 V.   ISP/ISN tied to VOUT (output current sense unused).   PG, CC_N, CDC not used.", 1.6),
+    (60, 205, "VOUT = 1.2 V x (1 + R6/R7) = 12.1 V.   ISP/ISN tied to VOUT (output current sense unused).   PG, CC_N, CDC not used.", 1.6),
     (255, 105, "Output: to Linovision POE-Switch0504GDF PWR1 (DC 9-57 V).  At 12 V input the switch's PoE budget is 60 W.", 1.6),
 ]
 
