@@ -61,6 +61,7 @@ Silkscreen, left to right along the top edge: **OUT 12V (+ -)** then **IN (+ -)*
 ```
 frc-poe-buckboost.kicad_pro / .kicad_sch / .kicad_pcb   KiCad 7 project
 frc_poe.pretty/      TPS552882 VQFN-HR-26, WAGO 2604-3102, NexFET SON3x3 footprints
+enclosure/           3D-printable case (OpenSCAD source + tray/lid STLs), see enclosure/README.md
 fab/                 Gerbers + drill (zip), JLC BOM, JLC CPL, hand-solder BOM
 docs/                schematic.pdf, board_top.png, board_layers.png
 scripts/             generators - design.py is the single source of truth
