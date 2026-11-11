@@ -9,7 +9,8 @@ coprocessors alive when the battery sags below 9 V under heavy drive load.
 
 | | |
 |---|---|
-| Board | 36.0 x 49.5 mm, 4 layers, 1.6 mm, 1 oz outer copper, rounded corners |
+| Board | 36.0 x 57.0 mm, 4 layers, 1.6 mm, 1 oz outer copper, rounded corners |
+| Mounting | 3x M3 (3.2 mm, non-plated, no copper within 3.3 mm): top-left at (2.9, 3.4) mm, bottom corners at (3.5, 53.4) and (32.5, 53.4) mm from the top-left corner. Isolated from every net, as FRC requires for the robot frame |
 | Input | 6-16 V (starts at ~5.5 V rising, stops at ~5.0 V; 16 V TVS clamp), reverse-polarity protected |
 | Output | 12.1 V, 5 A continuous (60 W). Full power down to about 5.3 V input (14.9 A typ / 12.7 A min average inductor-current limit) |
 | Converter | TI **TPS552882** 4-switch buck-boost (standalone, no I2C), 400 kHz |

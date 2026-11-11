@@ -142,9 +142,24 @@ class Board:
             t.SetMirrored(True)
         self.b.Add(t)
 
-    def hole(self, x, y, d):
+    def hole(self, ref, x, y, keepout_r=3.3):
+        """Non-plated M3 mounting hole with a no-copper ring on every layer, so a screw
+        can't touch any net (FRC: the power system must be isolated from the frame)."""
         f = pcbnew.FootprintLoad(os.path.join(SYSFP, "MountingHole.pretty"), "MountingHole_3.2mm_M3")
+        f.SetFPID(pcbnew.LIB_ID("MountingHole", "MountingHole_3.2mm_M3"))
+        f.SetReference(ref); f.Reference().SetVisible(False)
         self.b.Add(f); f.SetPosition(V(x, y))
+        z = pcbnew.ZONE(self.b)
+        z.SetIsRuleArea(True)
+        z.SetLayerSet(pcbnew.LSET.AllCuMask())
+        z.SetDoNotAllowTracks(True); z.SetDoNotAllowVias(True); z.SetDoNotAllowPads(False)  # the hole itself is an NPTH pad
+        (z.SetDoNotAllowZoneFills if hasattr(z, "SetDoNotAllowZoneFills") else z.SetDoNotAllowCopperPour)(True)
+        z.SetDoNotAllowFootprints(False)
+        ol = z.Outline(); ol.NewOutline()
+        for i in range(32):
+            a = 2 * math.pi * i / 32
+            ol.Append(FromMM(O[0] + x + keepout_r * math.cos(a)), FromMM(O[1] + y + keepout_r * math.sin(a)))
+        self.b.Add(z)
         return f
 
     def fill(self):

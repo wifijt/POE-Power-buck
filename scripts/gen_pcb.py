@@ -1,4 +1,4 @@
-"""Build frc-poe-buckboost.kicad_pcb (4-layer, 36 x 49.5 mm) from design.py.
+"""Build frc-poe-buckboost.kicad_pcb (4-layer, 36 x 57 mm) from design.py.
 Run with KiCad's own Python (the one that can import pcbnew); see README.
 
 Stack-up: F.Cu  parts, power pours, short signals
@@ -12,7 +12,7 @@ import design
 from pcblib import Board, PROJ
 import pcbnew
 
-W, H = 36.0, 49.5
+W, H = 36.0, 57.0          # 49.5 mm of circuit + a 7.5 mm strip for mounting holes and the label
 B = Board(W, H)
 part = {p["ref"]: p for p in design.PARTS}
 
@@ -165,7 +165,7 @@ GV = [  # GND
     (20.2, 32.0), (21.4, 32.4),
     (29.2, 22.6), (28.0, 22.6), (29.3, 33.9), (31.6, 33.9), (35.0, 26.6),
     (31.3, 36.2), (34.6, 36.2), (2.0, 30.0), (2.0, 36.0), (2.0, 48.0), (9.0, 48.6), (26.6, 48.6), (34.6, 48.0),
-    (34.6, 16.0), (1.4, 12.0), (19.6, 12.0), (34.6, 9.0), (1.4, 3.0), (19.6, 3.0),
+    (34.6, 16.0), (1.4, 12.0), (19.6, 12.0), (34.6, 9.0), (19.6, 3.0),
     (13.8, 24.2), (13.8, 21.0), (7.2, 20.0), (9.4, 39.0), (26.6, 39.0),
 ]
 for x, y in GV:
@@ -187,10 +187,15 @@ SWV = []
 
 # ------------------------------------------------------------------ silkscreen
 SILK = pcbnew.F_SilkS
-B.text("OUT 12V", 4.6, 9.4, 1.0, rot=90)
+B.text("OUT 12V", 4.6, 11.0, 1.0, rot=90)
 B.text("+", 10.4, 1.6, 1.4, bold=True); B.text("-", 15.4, 1.6, 1.4, bold=True)
 B.text("+", 24.9, 1.6, 1.4, bold=True); B.text("-", 29.9, 1.6, 1.4, bold=True)
 B.text("IN 6-16V", 20.15, 9.4, 0.9, rot=90)
+# mounting holes: M3, non-plated, copper-free ring.  Top-left corner beside J2, two in the bottom strip
+for ref, (x, y) in {"H1": (2.9, 3.4), "H2": (3.5, 53.4), "H3": (32.5, 53.4)}.items():
+    B.hole(ref, x, y)
+B.text("Turner Vision POE Buck Boost", 18.0, 51.7, 0.9, bold=True)
+B.text("6-16V IN   12V 5A OUT", 18.0, 53.9, 1.0, bold=True)
 B.text("FRC PoE 12V  rev A", 18.0, 48.6, 0.8, layer=pcbnew.B_SilkS, mirror=True)
 B.text("TPS552882 buck-boost", 18.0, 47.2, 0.8, layer=pcbnew.B_SilkS, mirror=True)
 B.text("IN: PDH breaker 10-20A", 18.0, 45.8, 0.8, layer=pcbnew.B_SilkS, mirror=True)

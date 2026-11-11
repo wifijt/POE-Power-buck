@@ -33,13 +33,14 @@ with open(os.path.join(FAB, "BOM_hand_solder.csv"), "w", newline="") as f:
     w.writerow(["Designator", "Part", "Qty", "Note"])
     w.writerow(["J1,J2", "WAGO 2604-3102", 2, "2-pole 5.0 mm lever terminal, solder by hand after PCBA"])
 
-ox, oy = 100.0, 100.0 + 49.5   # JLC CPL: origin at board lower-left, +Y up
+_org = b.GetDesignSettings().GetAuxOrigin()   # board lower-left (set in gen_pcb.py); gerbers use it too
+ox, oy = pcbnew.ToMM(_org.x), pcbnew.ToMM(_org.y)   # JLC CPL: +Y up
 with open(os.path.join(FAB, "CPL_JLCPCB.csv"), "w", newline="") as f:
     w = csv.writer(f)
     w.writerow(["Designator", "Mid X", "Mid Y", "Layer", "Rotation"])
     for fp in sorted(b.GetFootprints(), key=lambda x: natural(x.GetReference())):
         r = fp.GetReference()
-        if r in HAND:
+        if r in HAND or r not in parts:      # hand-solder parts, mounting holes
             continue
         pos = fp.GetPosition()
         x = pcbnew.ToMM(pos.x) - ox
