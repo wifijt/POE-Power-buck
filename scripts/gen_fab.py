@@ -1,4 +1,4 @@
-"""Write JLCPCB BOM + CPL from the finished board.  /usr/bin/python3 scripts/gen_fab.py"""
+"""Write JLCPCB BOM + CPL from the finished board.  <kicad-python> scripts/gen_fab.py"""
 import csv, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pcbnew, design

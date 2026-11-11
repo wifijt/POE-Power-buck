@@ -59,23 +59,43 @@ Silkscreen, left to right along the top edge: **OUT 12V (+ -)** then **IN (+ -)*
 ## What's in here
 
 ```
-frc-poe-buckboost.kicad_pro / .kicad_sch / .kicad_pcb   KiCad 7 project
+frc-poe-buckboost.kicad_pro / .kicad_sch / .kicad_pcb   KiCad 10 project
 frc_poe.pretty/      TPS552882 VQFN-HR-26, WAGO 2604-3102, NexFET SON3x3 footprints
 fab/                 Gerbers + drill (zip), JLC BOM, JLC CPL, hand-solder BOM
 docs/                schematic.pdf, board_top.png, board_layers.png
 scripts/             generators - design.py is the single source of truth
 ```
 
-Regenerate everything after editing `scripts/design.py` (needs KiCad 7 and its
-`pcbnew` Python module):
+Regenerate everything after editing `scripts/design.py`. The PCB scripts need KiCad's own
+Python (the one that can `import pcbnew`). Tested with KiCad 10.0.6 on macOS; the scripts also
+still handle KiCad 7 on Linux (`/usr/bin/python3`, libraries in `/usr/share/kicad`). Set
+`KICAD_SHARE` if the stock symbol/footprint libraries live somewhere else.
 
 ```bash
+KPY=/Applications/KiCad/KiCad.app/Contents/Frameworks/Python.framework/Versions/3.9/bin/python3
+KCLI=/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli
+
 python3 scripts/gen_footprints.py
 python3 scripts/gen_sch.py
-/usr/bin/python3 scripts/gen_pcb.py
-/usr/bin/python3 scripts/fill_drc.py
-/usr/bin/python3 scripts/gen_fab.py
+$KPY scripts/gen_pcb.py            # placement, tracks, zones (unfilled)
+$KPY scripts/fill_drc.py           # reload, fill zones, save, DRC report -> drc.rpt
+$KPY scripts/gen_fab.py            # BOM / CPL / hand-solder BOM
+
+# gerbers + drill -> fab/gerbers_JLCPCB.zip
+rm -f fab/gerbers/* fab/gerbers_JLCPCB.zip
+$KCLI pcb export gerbers -o fab/gerbers/ \
+  -l F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts frc-poe-buckboost.kicad_pcb
+$KCLI pcb export drill -o fab/gerbers/ --format excellon -u mm --excellon-separate-th frc-poe-buckboost.kicad_pcb
+(cd fab/gerbers && zip -q ../gerbers_JLCPCB.zip *)
+
+# check the schematic against design.py
+$KCLI sch export netlist -o /tmp/frc.net frc-poe-buckboost.kicad_sch
+python3 scripts/check_netlist.py /tmp/frc.net
 ```
+
+KiCad 10 notes: the `pcbnew` scripts print harmless wxWidgets assert lines. Don't call
+`pcbnew.WriteDRCReport()` from a script; it segfaults outside the GUI, which is why
+`fill_drc.py` runs DRC through `kicad-cli`.
 
 ## Design notes
 

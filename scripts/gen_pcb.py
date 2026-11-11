@@ -1,5 +1,5 @@
 """Build frc-poe-buckboost.kicad_pcb (4-layer, 36 x 49.5 mm) from design.py.
-Run with the python that has KiCad 7's pcbnew module:  /usr/bin/python3 scripts/gen_pcb.py
+Run with KiCad's own Python (the one that can import pcbnew); see README.
 
 Stack-up: F.Cu  parts, power pours, short signals
           In1   solid GND
@@ -56,7 +56,8 @@ ds.m_MinClearance = pcbnew.FromMM(0.2)      # JLC 2 oz outer copper: 8 mil
 ds.m_ViasMinSize = pcbnew.FromMM(0.45)
 ds.m_MinThroughDrill = pcbnew.FromMM(0.25)
 ds.m_CopperEdgeClearance = pcbnew.FromMM(0.3)
-nc = ds.m_NetSettings.m_DefaultNetClass
+ns = ds.m_NetSettings
+nc = ns.GetDefaultNetclass() if hasattr(ns, "GetDefaultNetclass") else ns.m_DefaultNetClass  # KiCad 8+ / 7
 nc.SetClearance(pcbnew.FromMM(0.2)); nc.SetTrackWidth(pcbnew.FromMM(0.2))
 nc.SetViaDiameter(pcbnew.FromMM(0.5)); nc.SetViaDrill(pcbnew.FromMM(0.3))
 

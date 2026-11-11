@@ -6,7 +6,18 @@ from pcbnew import VECTOR2I, FromMM, ToMM
 O = (100.0, 100.0)          # board origin on the KiCad page (mm)
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROJ = os.path.join(HERE, "..")
-SYSFP = "/usr/share/kicad/footprints"
+
+
+def _kicad_share(sub):
+    """Stock KiCad library dir: $KICAD_SHARE, Linux /usr/share/kicad, or macOS KiCad.app."""
+    for base in (os.environ.get("KICAD_SHARE"), "/usr/share/kicad",
+                 "/Applications/KiCad/KiCad.app/Contents/SharedSupport"):
+        if base and os.path.isdir(os.path.join(base, sub)):
+            return os.path.join(base, sub)
+    raise SystemExit(f"KiCad {sub} library not found; set KICAD_SHARE")
+
+
+SYSFP = _kicad_share("footprints")
 
 
 def V(x, y):
@@ -46,8 +57,11 @@ class Board:
             if n:
                 pad.SetNet(self.net(n))
         for k in ("MPN", "LCSC"):
-            if part.get(k.lower()):
-                f.SetField(k, part[k.lower()]) if hasattr(f, "SetField") else None
+            if part.get(k.lower()) and hasattr(f, "SetField"):   # KiCad 8+ only
+                f.SetField(k, part[k.lower()])
+                fld = (f.GetFieldByName if hasattr(f, "GetFieldByName") else f.GetField)(k)  # new fields default to visible F.SilkS text
+                fld.SetVisible(False)
+                fld.SetLayer(pcbnew.F_Fab)
         self.fp[part["ref"]] = f
         return f
 

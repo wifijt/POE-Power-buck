@@ -5,44 +5,67 @@
   (lib_symbols
     (symbol "Connector:Screw_Terminal_01x02"
   (pin_names
-    (offset 1.016) hide)
+    (offset 1.016)
+    (hide yes))
+  (exclude_from_sim no)
   (in_bom yes)
   (on_board yes)
+  (in_pos_files yes)
+  (duplicate_pin_numbers_are_jumpers no)
   (property "Reference" "J"
     (at 0 2.54 0)
+    (show_name no)
+    (do_not_autoplace no)
     (effects
       (font
         (size 1.27 1.27))))
   (property "Value" "Screw_Terminal_01x02"
     (at 0 -5.08 0)
+    (show_name no)
+    (do_not_autoplace no)
     (effects
       (font
         (size 1.27 1.27))))
   (property "Footprint" ""
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
-  (property "Datasheet" "~"
+        (size 1.27 1.27))))
+  (property "Datasheet" ""
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
+  (property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
   (property "ki_keywords" "screw terminal"
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
-  (property "ki_description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-    (at 0 0 0)
-    (effects
-      (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
   (property "ki_fp_filters" "TerminalBlock*:*"
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
   (symbol "Screw_Terminal_01x02_1_1"
     (rectangle
       (start -1.27 1.27)
@@ -52,9 +75,10 @@
         (type default))
       (fill
         (type background)))
-    (circle
-      (center 0 -2.54)
-      (radius 0.635)
+    (polyline
+      (pts
+        (xy -0.5334 0.3302)
+        (xy 0.3302 -0.508))
       (stroke
         (width 0.1524)
         (type default))
@@ -71,8 +95,8 @@
         (type none)))
     (polyline
       (pts
-        (xy -0.5334 0.3302)
-        (xy 0.3302 -0.508))
+        (xy -0.3556 0.508)
+        (xy 0.508 -0.3302))
       (stroke
         (width 0.1524)
         (type default))
@@ -87,17 +111,16 @@
         (type default))
       (fill
         (type none)))
-    (polyline
-      (pts
-        (xy -0.3556 0.508)
-        (xy 0.508 -0.3302))
+    (circle
+      (center 0 0)
+      (radius 0.635)
       (stroke
         (width 0.1524)
         (type default))
       (fill
         (type none)))
     (circle
-      (center 0 0)
+      (center 0 -2.54)
       (radius 0.635)
       (stroke
         (width 0.1524)
@@ -125,55 +148,79 @@
       (number "2"
         (effects
           (font
-            (size 1.27 1.27)))))))
+            (size 1.27 1.27))))))
+  (embedded_fonts no))
     (symbol "Device:C"
-  (pin_numbers hide)
+  (pin_numbers
+    (hide yes))
   (pin_names
     (offset 0.254))
+  (exclude_from_sim no)
   (in_bom yes)
   (on_board yes)
+  (in_pos_files yes)
+  (duplicate_pin_numbers_are_jumpers no)
   (property "Reference" "C"
     (at 0.635 2.54 0)
+    (show_name no)
+    (do_not_autoplace no)
     (effects
       (font
         (size 1.27 1.27))
       (justify left)))
   (property "Value" "C"
     (at 0.635 -2.54 0)
+    (show_name no)
+    (do_not_autoplace no)
     (effects
       (font
         (size 1.27 1.27))
       (justify left)))
   (property "Footprint" ""
     (at 0.9652 -3.81 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
-  (property "Datasheet" "~"
+        (size 1.27 1.27))))
+  (property "Datasheet" ""
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
+  (property "Description" "Unpolarized capacitor"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
   (property "ki_keywords" "cap capacitor"
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
-  (property "ki_description" "Unpolarized capacitor"
-    (at 0 0 0)
-    (effects
-      (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
   (property "ki_fp_filters" "C_*"
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
   (symbol "C_0_1"
     (polyline
       (pts
-        (xy -2.032 -0.762)
-        (xy 2.032 -0.762))
+        (xy -2.032 0.762)
+        (xy 2.032 0.762))
       (stroke
         (width 0.508)
         (type default))
@@ -181,8 +228,8 @@
         (type none)))
     (polyline
       (pts
-        (xy -2.032 0.762)
-        (xy 2.032 0.762))
+        (xy -2.032 -0.762)
+        (xy 2.032 -0.762))
       (stroke
         (width 0.508)
         (type default))
@@ -192,7 +239,7 @@
     (pin passive line
       (at 0 3.81 270)
       (length 2.794)
-      (name "~"
+      (name ""
         (effects
           (font
             (size 1.27 1.27))))
@@ -203,57 +250,81 @@
     (pin passive line
       (at 0 -3.81 90)
       (length 2.794)
-      (name "~"
+      (name ""
         (effects
           (font
             (size 1.27 1.27))))
       (number "2"
         (effects
           (font
-            (size 1.27 1.27)))))))
+            (size 1.27 1.27))))))
+  (embedded_fonts no))
     (symbol "Device:C_Polarized"
-  (pin_numbers hide)
+  (pin_numbers
+    (hide yes))
   (pin_names
     (offset 0.254))
+  (exclude_from_sim no)
   (in_bom yes)
   (on_board yes)
+  (in_pos_files yes)
+  (duplicate_pin_numbers_are_jumpers no)
   (property "Reference" "C"
     (at 0.635 2.54 0)
+    (show_name no)
+    (do_not_autoplace no)
     (effects
       (font
         (size 1.27 1.27))
       (justify left)))
   (property "Value" "C_Polarized"
     (at 0.635 -2.54 0)
+    (show_name no)
+    (do_not_autoplace no)
     (effects
       (font
         (size 1.27 1.27))
       (justify left)))
   (property "Footprint" ""
     (at 0.9652 -3.81 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
-  (property "Datasheet" "~"
+        (size 1.27 1.27))))
+  (property "Datasheet" ""
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
+  (property "Description" "Polarized capacitor"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
   (property "ki_keywords" "cap capacitor"
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
-  (property "ki_description" "Polarized capacitor"
-    (at 0 0 0)
-    (effects
-      (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
   (property "ki_fp_filters" "CP_*"
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
   (symbol "C_Polarized_0_1"
     (rectangle
       (start -2.286 0.508)
@@ -293,7 +364,7 @@
     (pin passive line
       (at 0 3.81 270)
       (length 2.794)
-      (name "~"
+      (name ""
         (effects
           (font
             (size 1.27 1.27))))
@@ -304,65 +375,81 @@
     (pin passive line
       (at 0 -3.81 90)
       (length 2.794)
-      (name "~"
+      (name ""
         (effects
           (font
             (size 1.27 1.27))))
       (number "2"
         (effects
           (font
-            (size 1.27 1.27)))))))
+            (size 1.27 1.27))))))
+  (embedded_fonts no))
     (symbol "Device:D_Zener"
-  (pin_numbers hide)
+  (pin_numbers
+    (hide yes))
   (pin_names
-    (offset 1.016) hide)
+    (offset 1.016)
+    (hide yes))
+  (exclude_from_sim no)
   (in_bom yes)
   (on_board yes)
+  (in_pos_files yes)
+  (duplicate_pin_numbers_are_jumpers no)
   (property "Reference" "D"
     (at 0 2.54 0)
+    (show_name no)
+    (do_not_autoplace no)
     (effects
       (font
         (size 1.27 1.27))))
   (property "Value" "D_Zener"
     (at 0 -2.54 0)
+    (show_name no)
+    (do_not_autoplace no)
     (effects
       (font
         (size 1.27 1.27))))
   (property "Footprint" ""
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
-  (property "Datasheet" "~"
+        (size 1.27 1.27))))
+  (property "Datasheet" ""
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
+  (property "Description" "Zener diode"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
   (property "ki_keywords" "diode"
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
-  (property "ki_description" "Zener diode"
-    (at 0 0 0)
-    (effects
-      (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
   (property "ki_fp_filters" "TO-???* *_Diode_* *SingleDiode* D_*"
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
   (symbol "D_Zener_0_1"
-    (polyline
-      (pts
-        (xy 1.27 0)
-        (xy -1.27 0))
-      (stroke
-        (width 0)
-        (type default))
-      (fill
-        (type none)))
     (polyline
       (pts
         (xy -1.27 -1.27)
@@ -370,6 +457,15 @@
         (xy -0.762 1.27))
       (stroke
         (width 0.254)
+        (type default))
+      (fill
+        (type none)))
+    (polyline
+      (pts
+        (xy 1.27 0)
+        (xy -1.27 0))
+      (stroke
+        (width 0)
         (type default))
       (fill
         (type none)))
@@ -406,70 +502,77 @@
       (number "2"
         (effects
           (font
-            (size 1.27 1.27)))))))
+            (size 1.27 1.27))))))
+  (embedded_fonts no))
     (symbol "Device:L"
-  (pin_numbers hide)
+  (pin_numbers
+    (hide yes))
   (pin_names
-    (offset 1.016) hide)
+    (offset 1.016)
+    (hide yes))
+  (exclude_from_sim no)
   (in_bom yes)
   (on_board yes)
+  (in_pos_files yes)
+  (duplicate_pin_numbers_are_jumpers no)
   (property "Reference" "L"
     (at -1.27 0 90)
+    (show_name no)
+    (do_not_autoplace no)
     (effects
       (font
         (size 1.27 1.27))))
   (property "Value" "L"
     (at 1.905 0 90)
+    (show_name no)
+    (do_not_autoplace no)
     (effects
       (font
         (size 1.27 1.27))))
   (property "Footprint" ""
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
-  (property "Datasheet" "~"
+        (size 1.27 1.27))))
+  (property "Datasheet" ""
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
+  (property "Description" "Inductor"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
   (property "ki_keywords" "inductor choke coil reactor magnetic"
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
-  (property "ki_description" "Inductor"
-    (at 0 0 0)
-    (effects
-      (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
   (property "ki_fp_filters" "Choke_* *Coil* Inductor_* L_*"
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
   (symbol "L_0_1"
     (arc
-      (start 0 -2.54)
-      (mid 0.6323 -1.905)
-      (end 0 -1.27)
-      (stroke
-        (width 0)
-        (type default))
-      (fill
-        (type none)))
-    (arc
-      (start 0 -1.27)
-      (mid 0.6323 -0.635)
-      (end 0 0)
-      (stroke
-        (width 0)
-        (type default))
-      (fill
-        (type none)))
-    (arc
-      (start 0 0)
-      (mid 0.6323 0.635)
+      (start 0 2.54)
+      (mid 0.6323 1.905)
       (end 0 1.27)
       (stroke
         (width 0)
@@ -478,8 +581,26 @@
         (type none)))
     (arc
       (start 0 1.27)
-      (mid 0.6323 1.905)
-      (end 0 2.54)
+      (mid 0.6323 0.635)
+      (end 0 0)
+      (stroke
+        (width 0)
+        (type default))
+      (fill
+        (type none)))
+    (arc
+      (start 0 0)
+      (mid 0.6323 -0.635)
+      (end 0 -1.27)
+      (stroke
+        (width 0)
+        (type default))
+      (fill
+        (type none)))
+    (arc
+      (start 0 -1.27)
+      (mid 0.6323 -1.905)
+      (end 0 -2.54)
       (stroke
         (width 0)
         (type default))
@@ -507,78 +628,82 @@
       (number "2"
         (effects
           (font
-            (size 1.27 1.27)))))))
+            (size 1.27 1.27))))))
+  (embedded_fonts no))
     (symbol "Device:LED"
-  (pin_numbers hide)
+  (pin_numbers
+    (hide yes))
   (pin_names
-    (offset 1.016) hide)
+    (offset 1.016)
+    (hide yes))
+  (exclude_from_sim no)
   (in_bom yes)
   (on_board yes)
+  (in_pos_files yes)
+  (duplicate_pin_numbers_are_jumpers no)
   (property "Reference" "D"
     (at 0 2.54 0)
+    (show_name no)
+    (do_not_autoplace no)
     (effects
       (font
         (size 1.27 1.27))))
   (property "Value" "LED"
     (at 0 -2.54 0)
+    (show_name no)
+    (do_not_autoplace no)
     (effects
       (font
         (size 1.27 1.27))))
   (property "Footprint" ""
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
-  (property "Datasheet" "~"
+        (size 1.27 1.27))))
+  (property "Datasheet" ""
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
+  (property "Description" "Light emitting diode"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
+  (property "Sim.Pins" "1=K 2=A"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
   (property "ki_keywords" "LED diode"
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
-  (property "ki_description" "Light emitting diode"
-    (at 0 0 0)
-    (effects
-      (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
   (property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*"
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
   (symbol "LED_0_1"
-    (polyline
-      (pts
-        (xy -1.27 -1.27)
-        (xy -1.27 1.27))
-      (stroke
-        (width 0.254)
-        (type default))
-      (fill
-        (type none)))
-    (polyline
-      (pts
-        (xy -1.27 0)
-        (xy 1.27 0))
-      (stroke
-        (width 0)
-        (type default))
-      (fill
-        (type none)))
-    (polyline
-      (pts
-        (xy 1.27 -1.27)
-        (xy 1.27 1.27)
-        (xy -1.27 0)
-        (xy 1.27 -1.27))
-      (stroke
-        (width 0.254)
-        (type default))
-      (fill
-        (type none)))
     (polyline
       (pts
         (xy -3.048 -0.762)
@@ -600,6 +725,35 @@
         (xy -3.302 -1.524))
       (stroke
         (width 0)
+        (type default))
+      (fill
+        (type none)))
+    (polyline
+      (pts
+        (xy -1.27 0)
+        (xy 1.27 0))
+      (stroke
+        (width 0)
+        (type default))
+      (fill
+        (type none)))
+    (polyline
+      (pts
+        (xy -1.27 -1.27)
+        (xy -1.27 1.27))
+      (stroke
+        (width 0.254)
+        (type default))
+      (fill
+        (type none)))
+    (polyline
+      (pts
+        (xy 1.27 -1.27)
+        (xy 1.27 1.27)
+        (xy -1.27 0)
+        (xy 1.27 -1.27))
+      (stroke
+        (width 0.254)
         (type default))
       (fill
         (type none))))
@@ -625,48 +779,72 @@
       (number "2"
         (effects
           (font
-            (size 1.27 1.27)))))))
+            (size 1.27 1.27))))))
+  (embedded_fonts no))
     (symbol "Device:R"
-  (pin_numbers hide)
+  (pin_numbers
+    (hide yes))
   (pin_names
     (offset 0))
+  (exclude_from_sim no)
   (in_bom yes)
   (on_board yes)
+  (in_pos_files yes)
+  (duplicate_pin_numbers_are_jumpers no)
   (property "Reference" "R"
     (at 2.032 0 90)
+    (show_name no)
+    (do_not_autoplace no)
     (effects
       (font
         (size 1.27 1.27))))
   (property "Value" "R"
     (at 0 0 90)
+    (show_name no)
+    (do_not_autoplace no)
     (effects
       (font
         (size 1.27 1.27))))
   (property "Footprint" ""
     (at -1.778 0 90)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
-  (property "Datasheet" "~"
+        (size 1.27 1.27))))
+  (property "Datasheet" ""
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
+  (property "Description" "Resistor"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
   (property "ki_keywords" "R res resistor"
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
-  (property "ki_description" "Resistor"
-    (at 0 0 0)
-    (effects
-      (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
   (property "ki_fp_filters" "R_*"
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
   (symbol "R_0_1"
     (rectangle
       (start -1.016 -2.54)
@@ -680,7 +858,7 @@
     (pin passive line
       (at 0 3.81 270)
       (length 1.27)
-      (name "~"
+      (name ""
         (effects
           (font
             (size 1.27 1.27))))
@@ -691,67 +869,76 @@
     (pin passive line
       (at 0 -3.81 90)
       (length 1.27)
-      (name "~"
+      (name ""
         (effects
           (font
             (size 1.27 1.27))))
       (number "2"
         (effects
           (font
-            (size 1.27 1.27)))))))
+            (size 1.27 1.27))))))
+  (embedded_fonts no))
     (symbol "Transistor_FET:CSD17577Q3A"
-  (pin_names hide)
+  (pin_names
+    (offset 0)
+    (hide yes))
+  (exclude_from_sim no)
   (in_bom yes)
   (on_board yes)
+  (in_pos_files yes)
+  (duplicate_pin_numbers_are_jumpers no)
   (property "Reference" "Q"
     (at 5.08 1.905 0)
+    (show_name no)
+    (do_not_autoplace no)
     (effects
       (font
         (size 1.27 1.27))
       (justify left)))
   (property "Value" "CSD17577Q3A"
     (at 5.08 0 0)
+    (show_name no)
+    (do_not_autoplace no)
     (effects
       (font
         (size 1.27 1.27))
       (justify left)))
   (property "Footprint" "Package_SON:VSON-8_3.3x3.3mm_P0.65mm_NexFET"
     (at 5.08 -1.905 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27) italic)
-      (justify left) hide))
-  (property "Datasheet" "http://www.ti.com/lit/ds/symlink/csd19537q3.pdf"
+        (size 1.27 1.27)
+        (italic yes))
+      (justify left)))
+  (property "Datasheet" "https://www.ti.com/lit/ds/symlink/csd17577q3a.pdf"
     (at 5.08 -3.81 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
         (size 1.27 1.27))
-      (justify left) hide))
+      (justify left)))
+  (property "Description" "35A Id, 30V Vds, NexFET N-Channel Power MOSFET, 4.0mOhm Ron, Qg Typ 12nC, VSON-8 3.3x3.3mm"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27))))
   (property "ki_keywords" "NexFET Power MOSFET N-MOS"
     (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
     (effects
       (font
-        (size 1.27 1.27)) hide))
-  (property "ki_description" "50A Id, 100V Vds, NexFET N-Channel Power MOSFET, 13mOhm Ron, Qg Typ 16.0nC, VSON8 3.3x3.3mm"
-    (at 0 0 0)
-    (effects
-      (font
-        (size 1.27 1.27)) hide))
-  (property "ki_fp_filters" "VSON*3.3x3.3mm*P0.65mm*NexFET*"
-    (at 0 0 0)
-    (effects
-      (font
-        (size 1.27 1.27)) hide))
+        (size 1.27 1.27))))
   (symbol "CSD17577Q3A_0_1"
-    (polyline
-      (pts
-        (xy 0.254 0)
-        (xy -2.54 0))
-      (stroke
-        (width 0)
-        (type default))
-      (fill
-        (type none)))
     (polyline
       (pts
         (xy 0.254 1.905)
@@ -763,8 +950,17 @@
         (type none)))
     (polyline
       (pts
-        (xy 0.762 -1.27)
-        (xy 0.762 -2.286))
+        (xy 0.254 0)
+        (xy -2.54 0))
+      (stroke
+        (width 0)
+        (type default))
+      (fill
+        (type none)))
+    (polyline
+      (pts
+        (xy 0.762 2.286)
+        (xy 0.762 1.27))
       (stroke
         (width 0.254)
         (type default))
@@ -781,29 +977,10 @@
         (type none)))
     (polyline
       (pts
-        (xy 0.762 2.286)
-        (xy 0.762 1.27))
+        (xy 0.762 -1.27)
+        (xy 0.762 -2.286))
       (stroke
         (width 0.254)
-        (type default))
-      (fill
-        (type none)))
-    (polyline
-      (pts
-        (xy 2.54 2.54)
-        (xy 2.54 1.778))
-      (stroke
-        (width 0)
-        (type default))
-      (fill
-        (type none)))
-    (polyline
-      (pts
-        (xy 2.54 -2.54)
-        (xy 2.54 0)
-        (xy 0.762 0))
-      (stroke
-        (width 0)
         (type default))
       (fill
         (type none)))
@@ -829,6 +1006,49 @@
         (type default))
       (fill
         (type outline)))
+    (circle
+      (center 1.651 0)
+      (radius 2.794)
+      (stroke
+        (width 0.254)
+        (type default))
+      (fill
+        (type none)))
+    (polyline
+      (pts
+        (xy 2.54 2.54)
+        (xy 2.54 1.778))
+      (stroke
+        (width 0)
+        (type default))
+      (fill
+        (type none)))
+    (circle
+      (center 2.54 1.778)
+      (radius 0.254)
+      (stroke
+        (width 0)
+        (type default))
+      (fill
+        (type outline)))
+    (circle
+      (center 2.54 -1.778)
+      (radius 0.254)
+      (stroke
+        (width 0)
+        (type default))
+      (fill
+        (type outline)))
+    (polyline
+      (pts
+        (xy 2.54 -2.54)
+        (xy 2.54 0)
+        (xy 0.762 0))
+      (stroke
+        (width 0)
+        (type default))
+      (fill
+        (type none)))
     (polyline
       (pts
         (xy 2.794 0.508)
@@ -850,31 +1070,7 @@
         (width 0)
         (type default))
       (fill
-        (type none)))
-    (circle
-      (center 1.651 0)
-      (radius 2.794)
-      (stroke
-        (width 0.254)
-        (type default))
-      (fill
-        (type none)))
-    (circle
-      (center 2.54 -1.778)
-      (radius 0.254)
-      (stroke
-        (width 0)
-        (type default))
-      (fill
-        (type outline)))
-    (circle
-      (center 2.54 1.778)
-      (radius 0.254)
-      (stroke
-        (width 0)
-        (type default))
-      (fill
-        (type outline))))
+        (type none))))
   (symbol "CSD17577Q3A_1_1"
     (pin passive line
       (at 2.54 -5.08 90)
@@ -889,7 +1085,8 @@
             (size 1.27 1.27)))))
     (pin passive line
       (at 2.54 -5.08 90)
-      (length 2.54) hide
+      (length 2.54)
+      (hide yes)
       (name "S"
         (effects
           (font
@@ -900,7 +1097,8 @@
             (size 1.27 1.27)))))
     (pin passive line
       (at 2.54 -5.08 90)
-      (length 2.54) hide
+      (length 2.54)
+      (hide yes)
       (name "S"
         (effects
           (font
@@ -909,9 +1107,9 @@
         (effects
           (font
             (size 1.27 1.27)))))
-    (pin passive line
+    (pin input line
       (at -5.08 0 0)
-      (length 2.54)
+      (length 5.08)
       (name "G"
         (effects
           (font
@@ -930,7 +1128,16 @@
       (number "5"
         (effects
           (font
-            (size 1.27 1.27)))))))
+            (size 1.27 1.27))))))
+  (embedded_fonts no)
+  (property "ki_fp_filters" "VSON*3.3x3.3mm*P0.65mm*NexFET*"
+    (at 0 0 0)
+    (show_name no)
+    (do_not_autoplace no)
+    (hide yes)
+    (effects
+      (font
+        (size 1.27 1.27)))))
     (symbol "frc_poe:TPS552882" (in_bom yes) (on_board yes)
       (property "Reference" "U" (at -12.7 20.32 0) (effects (font (size 1.27 1.27)) (justify left)))
       (property "Value" "TPS552882RPMR" (at 0 20.32 0) (effects (font (size 1.27 1.27)) (justify left)))
@@ -940,7 +1147,7 @@
       (symbol "TPS552882_1_1" (pin passive line (at -15.24 16.51 0) (length 2.54) (name "VIN" (effects (font (size 1.27 1.27)))) (number "3" (effects (font (size 1.27 1.27))))) (pin passive line (at -15.24 12.70 0) (length 2.54) (name "EN/UVLO" (effects (font (size 1.27 1.27)))) (number "4" (effects (font (size 1.27 1.27))))) (pin passive line (at -15.24 8.89 0) (length 2.54) (name "MODE" (effects (font (size 1.27 1.27)))) (number "15" (effects (font (size 1.27 1.27))))) (pin passive line (at -15.24 5.08 0) (length 2.54) (name "FSW" (effects (font (size 1.27 1.27)))) (number "8" (effects (font (size 1.27 1.27))))) (pin passive line (at -15.24 1.27 0) (length 2.54) (name "ILIM" (effects (font (size 1.27 1.27)))) (number "17" (effects (font (size 1.27 1.27))))) (pin passive line (at -15.24 -2.54 0) (length 2.54) (name "DITH/SYNC" (effects (font (size 1.27 1.27)))) (number "7" (effects (font (size 1.27 1.27))))) (pin passive line (at -15.24 -6.35 0) (length 2.54) (name "COMP" (effects (font (size 1.27 1.27)))) (number "18" (effects (font (size 1.27 1.27))))) (pin passive line (at -15.24 -10.16 0) (length 2.54) (name "CDC" (effects (font (size 1.27 1.27)))) (number "16" (effects (font (size 1.27 1.27))))) (pin passive line (at -15.24 -13.97 0) (length 2.54) (name "FB" (effects (font (size 1.27 1.27)))) (number "14" (effects (font (size 1.27 1.27))))) (pin passive line (at 15.24 16.51 180) (length 2.54) (name "DR1H" (effects (font (size 1.27 1.27)))) (number "2" (effects (font (size 1.27 1.27))))) (pin passive line (at 15.24 13.97 180) (length 2.54) (name "BOOT1" (effects (font (size 1.27 1.27)))) (number "22" (effects (font (size 1.27 1.27))))) (pin passive line (at 15.24 11.43 180) (length 2.54) (name "SW1" (effects (font (size 1.27 1.27)))) (number "23" (effects (font (size 1.27 1.27))))) (pin passive line (at 15.24 8.89 180) (length 2.54) (name "DR1L" (effects (font (size 1.27 1.27)))) (number "1" (effects (font (size 1.27 1.27))))) (pin passive line (at 15.24 6.35 180) (length 2.54) (name "SW2" (effects (font (size 1.27 1.27)))) (number "21" (effects (font (size 1.27 1.27))))) (pin passive line (at 15.24 3.81 180) (length 2.54) (name "SW2" (effects (font (size 1.27 1.27)))) (number "25" (effects (font (size 1.27 1.27))))) (pin passive line (at 15.24 1.27 180) (length 2.54) (name "BOOT2" (effects (font (size 1.27 1.27)))) (number "20" (effects (font (size 1.27 1.27))))) (pin passive line (at 15.24 -1.27 180) (length 2.54) (name "VOUT" (effects (font (size 1.27 1.27)))) (number "11" (effects (font (size 1.27 1.27))))) (pin passive line (at 15.24 -3.81 180) (length 2.54) (name "VOUT" (effects (font (size 1.27 1.27)))) (number "26" (effects (font (size 1.27 1.27))))) (pin passive line (at 15.24 -6.35 180) (length 2.54) (name "ISP" (effects (font (size 1.27 1.27)))) (number "12" (effects (font (size 1.27 1.27))))) (pin passive line (at 15.24 -8.89 180) (length 2.54) (name "ISN" (effects (font (size 1.27 1.27)))) (number "13" (effects (font (size 1.27 1.27))))) (pin passive line (at 15.24 -11.43 180) (length 2.54) (name "VCC" (effects (font (size 1.27 1.27)))) (number "19" (effects (font (size 1.27 1.27))))) (pin passive line (at 15.24 -13.97 180) (length 2.54) (name "PG" (effects (font (size 1.27 1.27)))) (number "5" (effects (font (size 1.27 1.27))))) (pin passive line (at 15.24 -16.51 180) (length 2.54) (name "CC_N" (effects (font (size 1.27 1.27)))) (number "6" (effects (font (size 1.27 1.27))))) (pin passive line (at -5.08 -21.59 90) (length 2.54) (name "PGND" (effects (font (size 1.27 1.27)))) (number "9" (effects (font (size 1.27 1.27))))) (pin passive line (at 0.00 -21.59 90) (length 2.54) (name "PGND" (effects (font (size 1.27 1.27)))) (number "24" (effects (font (size 1.27 1.27))))) (pin passive line (at 5.08 -21.59 90) (length 2.54) (name "AGND" (effects (font (size 1.27 1.27)))) (number "10" (effects (font (size 1.27 1.27)))))))
   )
   (symbol (lib_id "Connector:Screw_Terminal_01x02") (at 25.40 50.80 180) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 1f68dee0-04a4-457f-8076-25a5a44213f4)
+    (uuid 1898a620-f5ac-4c7c-b1bf-f6f52ca90004)
     (property "Reference" "J1" (at 28.90 49.30 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "IN 6-16V (WAGO 2604-3102)" (at 28.90 52.30 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "frc_poe:WAGO_2604-3102_1x02_P5.00mm" (at 25.40 55.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -948,16 +1155,16 @@
     (property "MPN" "WAGO 2604-3102" (at 25.40 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "" (at 25.40 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "PCB terminal block, lever, 2-pole, 5.0 mm, 4 mm2 / 12 AWG" (at 25.40 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 7228d04e-be9d-4d80-9e20-17cba97008c7))
-    (pin "2" (uuid 3cc6a6c6-c8fc-47dd-8155-43a4c9e8ba3b))
+    (pin "1" (uuid 8386f4c9-9017-4a62-9609-d79cb8e52288))
+    (pin "2" (uuid 6ee8b1f0-11cd-4732-b4ce-cf6b937bcfa5))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "J1") (unit 1))))
   )
-  (wire (pts (xy 30.48 50.80) (xy 33.02 50.80)) (stroke (width 0) (type default)) (uuid 0468e1e2-44b5-439c-9adc-7f41691a6be5))
-  (label "VIN" (at 33.02 50.80 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 02b58b61-314b-4f2e-86a6-ffb9510b354f))
-  (wire (pts (xy 30.48 48.26) (xy 33.02 48.26)) (stroke (width 0) (type default)) (uuid 5d33bb2e-dfa0-422b-beb9-352f35b60ba9))
-  (label "GND_IN" (at 33.02 48.26 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 9801d454-7c68-4d99-ba1c-d6d407912344))
+  (wire (pts (xy 30.48 50.80) (xy 33.02 50.80)) (stroke (width 0) (type default)) (uuid 7b695f34-ff47-49e6-959a-da25c6d17b8d))
+  (label "VIN" (at 33.02 50.80 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid c77822ea-99cb-4c4c-a2ab-5998b415fc2c))
+  (wire (pts (xy 30.48 48.26) (xy 33.02 48.26)) (stroke (width 0) (type default)) (uuid 1ee4824e-3b02-47e7-bab2-dcee2d34e0b0))
+  (label "GND_IN" (at 33.02 48.26 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid a989606f-d6f4-48ef-9232-a7bf7bd8d45c))
   (symbol (lib_id "Connector:Screw_Terminal_01x02") (at 370.84 119.38 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 6a0615ca-71b4-4365-8164-d4387871fb3f)
+    (uuid 9b40cb0d-a549-4a29-978c-905299219795)
     (property "Reference" "J2" (at 374.34 117.88 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "OUT 12V (WAGO 2604-3102)" (at 374.34 120.88 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "frc_poe:WAGO_2604-3102_1x02_P5.00mm" (at 370.84 124.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -965,16 +1172,16 @@
     (property "MPN" "WAGO 2604-3102" (at 370.84 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "" (at 370.84 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "PCB terminal block, lever, 2-pole, 5.0 mm, 4 mm2 / 12 AWG" (at 370.84 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid bf693381-890c-4e66-bf49-8e55d8eaf941))
-    (pin "2" (uuid a7c07b47-ebe3-478e-92c3-49d9f79156d7))
+    (pin "1" (uuid 83c6dc94-df49-4bc8-9c61-69667291b005))
+    (pin "2" (uuid e1c28633-37b2-48d3-832e-e5ab01535a97))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "J2") (unit 1))))
   )
-  (wire (pts (xy 365.76 119.38) (xy 363.22 119.38)) (stroke (width 0) (type default)) (uuid a504270c-29d4-48b6-9e9c-9851ed07e7ad))
-  (label "VOUT" (at 363.22 119.38 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 0863da8b-c211-4b99-823c-66a9f582eb97))
-  (wire (pts (xy 365.76 121.92) (xy 363.22 121.92)) (stroke (width 0) (type default)) (uuid 83ff2516-6ff4-4419-8de4-ec80083d90f4))
-  (label "GND" (at 363.22 121.92 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 332c9ea0-00da-4cb3-bb55-34b684ac8f9c))
+  (wire (pts (xy 365.76 119.38) (xy 363.22 119.38)) (stroke (width 0) (type default)) (uuid a940749c-d8de-4c22-ab3b-344b7133d091))
+  (label "VOUT" (at 363.22 119.38 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 55cfa6b2-9881-4573-a624-ec2fb09d3dd0))
+  (wire (pts (xy 365.76 121.92) (xy 363.22 121.92)) (stroke (width 0) (type default)) (uuid 6584048d-6f4a-4045-b7ba-17043657188b))
+  (label "GND" (at 363.22 121.92 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 7902f707-e3a0-44f0-85f8-2f8abae32fec))
   (symbol (lib_id "Transistor_FET:CSD17577Q3A") (at 55.88 76.20 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid c0d4f46a-dd83-498c-b30f-abfe65d6505e)
+    (uuid f8af6c52-f498-4243-8e15-441c6a08e1f9)
     (property "Reference" "Q3" (at 59.38 74.70 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "CSD17577Q3A" (at 59.38 77.70 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "frc_poe:NexFET_SON-8_3.3x3.3mm" (at 55.88 81.20 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -982,21 +1189,21 @@
     (property "MPN" "CSD17577Q3A" (at 55.88 76.20 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C201632" (at 55.88 76.20 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "30V N-MOSFET, SON3x3 - reverse-polarity switch" (at 55.88 76.20 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid eadacf0e-2ec3-4931-b961-60efe0bc84e4))
-    (pin "2" (uuid 511f7555-7ca5-4ac9-b8a9-d933e4871306))
-    (pin "3" (uuid 99548f7f-ddaa-4ed5-af17-d850360ab42b))
-    (pin "4" (uuid b21b7d1b-ee8d-4799-ae3f-a6497623e737))
-    (pin "5" (uuid 519eef5f-2a91-46f9-858e-34d461991be1))
+    (pin "1" (uuid ee0efff0-95ae-459c-a5d6-ff73f39ae7df))
+    (pin "2" (uuid ea600c68-f36e-408f-9924-9ed047750f30))
+    (pin "3" (uuid a4d5c3c5-7c1b-4cfc-b0b7-f0676252de98))
+    (pin "4" (uuid 80d42e17-1349-425a-bec5-a1ec14474716))
+    (pin "5" (uuid 2b84b7c8-9c66-4b14-9fae-dfd4034f0396))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "Q3") (unit 1))))
   )
-  (wire (pts (xy 58.42 81.28) (xy 58.42 83.82)) (stroke (width 0) (type default)) (uuid 7dd63c7c-c62f-424f-81de-32efe067c290))
-  (label "GND" (at 58.42 83.82 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 9bae6dda-097b-49f9-aa67-fb16be0ca635))
-  (wire (pts (xy 50.80 76.20) (xy 48.26 76.20)) (stroke (width 0) (type default)) (uuid 9174f599-9230-41e2-8be6-f626cdd0596b))
-  (label "Q3G" (at 48.26 76.20 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 835ef415-9759-40aa-ba73-cfbc5e280b4b))
-  (wire (pts (xy 58.42 71.12) (xy 58.42 68.58)) (stroke (width 0) (type default)) (uuid 3894fc6e-22a7-435e-bcd4-c51e4cb00350))
-  (label "GND_IN" (at 58.42 68.58 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 9381d2b2-9f7d-42d2-9cd0-5dc6d7f71522))
+  (wire (pts (xy 58.42 81.28) (xy 58.42 83.82)) (stroke (width 0) (type default)) (uuid 431c67cd-cd7d-41ab-a902-38ef999dcaae))
+  (label "GND" (at 58.42 83.82 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid b3358daa-6fa4-47e9-abda-ecd0765dee5c))
+  (wire (pts (xy 50.80 76.20) (xy 48.26 76.20)) (stroke (width 0) (type default)) (uuid b35b2d8a-8f92-48bb-abff-66e681e00963))
+  (label "Q3G" (at 48.26 76.20 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 08c7bd72-2616-43ff-8400-520e6f6afe53))
+  (wire (pts (xy 58.42 71.12) (xy 58.42 68.58)) (stroke (width 0) (type default)) (uuid 3497ffdd-68e2-499c-9cff-39a4801cc8f0))
+  (label "GND_IN" (at 58.42 68.58 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 50450543-085e-4855-b5d7-35d031d534d7))
   (symbol (lib_id "Device:R") (at 40.64 66.04 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 38bbba46-23e9-43e3-9ad4-0e5faec98313)
+    (uuid a8239266-4026-4a5e-b1e0-34abc8c35854)
     (property "Reference" "R12" (at 44.14 64.54 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "10k" (at 44.14 67.54 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 40.64 71.04 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1004,16 +1211,16 @@
     (property "MPN" "0402WGF1002TCE" (at 40.64 66.04 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C25744" (at 40.64 66.04 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "10k 1% 0402" (at 40.64 66.04 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 48e35cbc-92e0-45a9-b110-a91cc5190bb8))
-    (pin "2" (uuid 73e8ca19-6b77-4747-a3ff-8fa72cc69824))
+    (pin "1" (uuid 497a8efe-f56c-4662-aee5-9aa85d353cd2))
+    (pin "2" (uuid 309e3ba2-63e8-4832-ad5b-2f64369a2176))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "R12") (unit 1))))
   )
-  (wire (pts (xy 40.64 62.23) (xy 40.64 59.69)) (stroke (width 0) (type default)) (uuid 8a03e5cd-5a8f-473d-86e1-38151c7ed77c))
-  (label "VIN" (at 40.64 59.69 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid ea17ebce-1c71-46a4-8983-20994c4b04bf))
-  (wire (pts (xy 40.64 69.85) (xy 40.64 72.39)) (stroke (width 0) (type default)) (uuid 6e77087a-caf2-4f74-846c-a6003032a8ed))
-  (label "Q3G" (at 40.64 72.39 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 96cf53d8-e136-40b2-8051-96891cac547f))
+  (wire (pts (xy 40.64 62.23) (xy 40.64 59.69)) (stroke (width 0) (type default)) (uuid 9a174d9f-dc2d-401b-b4ad-e583141c14c0))
+  (label "VIN" (at 40.64 59.69 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 5f2b1a2a-13e7-427f-bcde-beb7b451cf85))
+  (wire (pts (xy 40.64 69.85) (xy 40.64 72.39)) (stroke (width 0) (type default)) (uuid 288ab856-4d2f-499b-aba3-ecb6ad37b726))
+  (label "Q3G" (at 40.64 72.39 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 350fcd04-f0ba-44a4-a68e-c126a6606e31))
   (symbol (lib_id "Device:R") (at 45.72 86.36 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 219031be-7729-4bbe-978a-ef55facc8dae)
+    (uuid 8bb29873-86ee-4f65-ba9a-c924ba7d0808)
     (property "Reference" "R13" (at 49.22 84.86 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "100k" (at 49.22 87.86 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 45.72 91.36 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1021,16 +1228,16 @@
     (property "MPN" "0402WGF1003TCE" (at 45.72 86.36 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C25741" (at 45.72 86.36 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "100k 1% 0402" (at 45.72 86.36 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 2676ae78-c74a-4687-8947-928c1c0f5160))
-    (pin "2" (uuid 4c642cb8-6a11-41da-91c2-4ec67debf794))
+    (pin "1" (uuid faac1e91-b473-400e-9468-eb894b851273))
+    (pin "2" (uuid b932d4e7-442c-42ab-989a-3d4a2fc23ac1))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "R13") (unit 1))))
   )
-  (wire (pts (xy 45.72 82.55) (xy 45.72 80.01)) (stroke (width 0) (type default)) (uuid 2307fbbd-59b0-4aef-bf30-915334b8350d))
-  (label "Q3G" (at 45.72 80.01 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 8a6a312e-16ba-4a8f-9087-13b3cf16f157))
-  (wire (pts (xy 45.72 90.17) (xy 45.72 92.71)) (stroke (width 0) (type default)) (uuid 22513045-9c06-4e37-9886-d2772c8ee341))
-  (label "GND" (at 45.72 92.71 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 62c2b97a-86f3-43dc-aead-a2fe1cfd44fe))
+  (wire (pts (xy 45.72 82.55) (xy 45.72 80.01)) (stroke (width 0) (type default)) (uuid 2d522391-1a45-415a-8dab-102855039ce1))
+  (label "Q3G" (at 45.72 80.01 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 536c08e7-0a28-4955-b261-a9c93722d93d))
+  (wire (pts (xy 45.72 90.17) (xy 45.72 92.71)) (stroke (width 0) (type default)) (uuid 431c1ddc-2d81-4967-9e5a-75dc2b43e61f))
+  (label "GND" (at 45.72 92.71 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 7153f053-b3b4-438f-abfb-2ca46957fa73))
   (symbol (lib_id "Device:D_Zener") (at 40.64 91.44 90) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 4ed3c06b-5864-48d6-aeb5-1303c5856c52)
+    (uuid 7cc2c88a-7663-4c74-a105-f809489c8fe8)
     (property "Reference" "D3" (at 44.14 89.94 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "BZT52C12" (at 44.14 92.94 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Diode_SMD:D_SOD-123" (at 40.64 96.44 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1038,16 +1245,16 @@
     (property "MPN" "BZT52C12" (at 40.64 91.44 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C19077410" (at 40.64 91.44 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "12V zener, SOD-123 - Q3 gate clamp" (at 40.64 91.44 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 5e975a5f-4adb-4dd9-9611-a2f5f40f7dca))
-    (pin "2" (uuid 6d6073fb-a85f-498d-b739-51345cf97f03))
+    (pin "1" (uuid 349176cc-45d7-429f-8cb9-07765f4f0673))
+    (pin "2" (uuid bfcaaaa8-772e-49f5-b129-d5001f8590c6))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "D3") (unit 1))))
   )
-  (wire (pts (xy 40.64 95.25) (xy 40.64 97.79)) (stroke (width 0) (type default)) (uuid 2445c5d5-32fa-47fe-a8b1-fa85ccee92a4))
-  (label "Q3G" (at 40.64 97.79 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid adec6eba-c1f1-413c-955f-683c6bb76c65))
-  (wire (pts (xy 40.64 87.63) (xy 40.64 85.09)) (stroke (width 0) (type default)) (uuid 657c4ab9-a930-48e1-933e-2a5e4f203315))
-  (label "GND" (at 40.64 85.09 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid f8c9dbca-dd4c-4e4d-b9c2-b592574b1c94))
+  (wire (pts (xy 40.64 95.25) (xy 40.64 97.79)) (stroke (width 0) (type default)) (uuid 17ce3d64-9683-46f1-87bd-f986b73dbfd7))
+  (label "Q3G" (at 40.64 97.79 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid c3d84bcb-56b8-4291-937a-4b3df55dfebe))
+  (wire (pts (xy 40.64 87.63) (xy 40.64 85.09)) (stroke (width 0) (type default)) (uuid 2befbee8-6b71-49f9-bb80-4b97b5ce1812))
+  (label "GND" (at 40.64 85.09 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid c130ad4d-bfad-49e0-a538-182352d80b2c))
   (symbol (lib_id "Device:D_Zener") (at 68.58 50.80 90) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 07fcef41-eb21-43d4-acba-437ef881cf32)
+    (uuid 265e0e8c-9d43-49e9-8806-74690c412baf)
     (property "Reference" "D1" (at 72.08 49.30 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "SMBJ16A" (at 72.08 52.30 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Diode_SMD:D_SMB" (at 68.58 55.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1055,16 +1262,16 @@
     (property "MPN" "SMBJ16A" (at 68.58 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C19077571" (at 68.58 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "TVS 16V standoff unidirectional, SMB" (at 68.58 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 99a60a4d-151e-49bd-b2e5-c29e987a2715))
-    (pin "2" (uuid 81f4c91a-acdc-4382-98a3-e3fa599d216e))
+    (pin "1" (uuid b3a330d9-fbda-448a-9b4b-95f2ed18ec49))
+    (pin "2" (uuid bf64df1a-fb3c-4851-a9aa-f5c02494c749))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "D1") (unit 1))))
   )
-  (wire (pts (xy 68.58 54.61) (xy 68.58 57.15)) (stroke (width 0) (type default)) (uuid e0395278-cc69-4eb2-8f01-415a699f7b1e))
-  (label "VIN" (at 68.58 57.15 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 43f1d97d-ac6c-4eaa-b992-c7a385685bf8))
-  (wire (pts (xy 68.58 46.99) (xy 68.58 44.45)) (stroke (width 0) (type default)) (uuid 7725d745-690d-49e4-8026-ab6b8018877f))
-  (label "GND" (at 68.58 44.45 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 4ead9129-6366-4702-be71-57be2f94f3fe))
+  (wire (pts (xy 68.58 54.61) (xy 68.58 57.15)) (stroke (width 0) (type default)) (uuid 88d7ddd1-83cb-497d-b12c-d032828200ba))
+  (label "VIN" (at 68.58 57.15 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid eaa15156-fb40-453a-ab03-bc3c7db2cb76))
+  (wire (pts (xy 68.58 46.99) (xy 68.58 44.45)) (stroke (width 0) (type default)) (uuid 2f48881d-6b2c-45d9-afc7-5a7d61a3d846))
+  (label "GND" (at 68.58 44.45 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 6a17d9d9-d43b-4b5b-ac5c-e31043de9a82))
   (symbol (lib_id "Device:C_Polarized") (at 81.28 50.80 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 62af0404-34ce-4b9e-bac5-7fe69d78038d)
+    (uuid 86b89f4f-6748-471b-bfa2-33a0a6d96e6a)
     (property "Reference" "C1" (at 84.78 49.30 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "100uF 35V hybrid" (at 84.78 52.30 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:CP_Elec_6.3x7.7" (at 81.28 55.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1072,16 +1279,16 @@
     (property "MPN" "EEH-ZK1V101XP" (at 81.28 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C454360" (at 81.28 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "100uF 35V polymer-hybrid, 6.3x7.7 (input bulk / damping)" (at 81.28 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid deb01493-dcc5-460b-822e-c4f4ed0257a0))
-    (pin "2" (uuid 308079ac-f963-48fc-ba40-7550a0d5df10))
+    (pin "1" (uuid cdff7523-b833-446b-82be-3c17a2e66b46))
+    (pin "2" (uuid 318ca8b6-d122-416b-8f43-1e3aa611d8d2))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "C1") (unit 1))))
   )
-  (wire (pts (xy 81.28 46.99) (xy 81.28 44.45)) (stroke (width 0) (type default)) (uuid 346d9db1-9d7e-49cb-a6ea-e4da04bbe0c1))
-  (label "VIN" (at 81.28 44.45 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 54d097d2-9157-4637-8d0b-28291ce0275b))
-  (wire (pts (xy 81.28 54.61) (xy 81.28 57.15)) (stroke (width 0) (type default)) (uuid d8fa4104-49ee-451a-bf65-41ca9f0b5d8e))
-  (label "GND" (at 81.28 57.15 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 64f66d09-c56d-48c1-9493-57b200688a20))
+  (wire (pts (xy 81.28 46.99) (xy 81.28 44.45)) (stroke (width 0) (type default)) (uuid 28d204d4-98b5-4f64-ad53-a5c9c657ccbf))
+  (label "VIN" (at 81.28 44.45 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 09a049b5-c659-4048-be9f-e76efb6bbf20))
+  (wire (pts (xy 81.28 54.61) (xy 81.28 57.15)) (stroke (width 0) (type default)) (uuid 832bc91e-14e6-4185-a805-2cd63e8a501e))
+  (label "GND" (at 81.28 57.15 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid bd6e6cbe-3220-4737-b359-c94301448929))
   (symbol (lib_id "Device:C") (at 93.98 50.80 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 8f5ac868-1460-49c4-9c14-2db53ceb2d22)
+    (uuid e3556674-8dec-44d1-9b16-1344fff99db4)
     (property "Reference" "C2" (at 97.48 49.30 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "10uF 50V X5R" (at 97.48 52.30 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_1206_3216Metric" (at 93.98 55.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1089,16 +1296,16 @@
     (property "MPN" "CL31A106KBHNNNE" (at 93.98 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C13585" (at 93.98 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "10uF 50V X5R 1206" (at 93.98 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 3c0d2122-453a-4b47-b85a-efeb9e8841e1))
-    (pin "2" (uuid 9a7cef0d-5354-414f-bca6-28dd71739e55))
+    (pin "1" (uuid c76e9d6a-223d-47f1-b6a4-40bf6c2c12a5))
+    (pin "2" (uuid 6dfecd9f-b3ce-466c-8828-12875fe3923b))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "C2") (unit 1))))
   )
-  (wire (pts (xy 93.98 46.99) (xy 93.98 44.45)) (stroke (width 0) (type default)) (uuid c300813e-35f6-4408-b301-a9be5cb1d170))
-  (label "VIN" (at 93.98 44.45 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid e756e940-58f7-4939-905b-396808f6c087))
-  (wire (pts (xy 93.98 54.61) (xy 93.98 57.15)) (stroke (width 0) (type default)) (uuid aa19dd73-84db-439e-a8f7-03386e3836b4))
-  (label "GND" (at 93.98 57.15 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid f01c33cf-652d-4801-a03c-aa601b53a307))
+  (wire (pts (xy 93.98 46.99) (xy 93.98 44.45)) (stroke (width 0) (type default)) (uuid 009b7999-9bf4-4c58-be10-d07ce910c791))
+  (label "VIN" (at 93.98 44.45 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 8b698d0e-c27c-4bc9-a376-b728b93dab91))
+  (wire (pts (xy 93.98 54.61) (xy 93.98 57.15)) (stroke (width 0) (type default)) (uuid cffa7b06-8332-42f4-947b-dfc40621bdb5))
+  (label "GND" (at 93.98 57.15 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 74e78c93-d439-4a6d-83ee-b5af40ca04e2))
   (symbol (lib_id "Device:C") (at 104.14 50.80 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid a9784aa6-9eba-42e6-bf50-9fdd1d3d803f)
+    (uuid 27f612e3-5e1c-4896-9821-51af05b1feb8)
     (property "Reference" "C3" (at 107.64 49.30 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "10uF 50V X5R" (at 107.64 52.30 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_1206_3216Metric" (at 104.14 55.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1106,16 +1313,16 @@
     (property "MPN" "CL31A106KBHNNNE" (at 104.14 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C13585" (at 104.14 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "10uF 50V X5R 1206" (at 104.14 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid d0d1fd11-8116-43c8-8984-caaf0393cc5f))
-    (pin "2" (uuid 59d776b9-6069-4e16-ba4a-2555748dd8c8))
+    (pin "1" (uuid b8164300-e7c9-4a0c-8dcf-379e992c9861))
+    (pin "2" (uuid 44602e88-c016-47aa-8a60-d2b3b94d2fdf))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "C3") (unit 1))))
   )
-  (wire (pts (xy 104.14 46.99) (xy 104.14 44.45)) (stroke (width 0) (type default)) (uuid 350e617c-53db-4d49-8507-a28b23d91002))
-  (label "VIN" (at 104.14 44.45 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 17340564-2ce5-419d-92c5-47bf2a164687))
-  (wire (pts (xy 104.14 54.61) (xy 104.14 57.15)) (stroke (width 0) (type default)) (uuid 2dae648b-ccdd-435d-85b0-d7daa2dd73bd))
-  (label "GND" (at 104.14 57.15 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 3ac9d2da-32eb-487d-9447-902072f6bc42))
+  (wire (pts (xy 104.14 46.99) (xy 104.14 44.45)) (stroke (width 0) (type default)) (uuid 4b3458d2-3ca5-43fd-83fb-5f9f2bbd3a03))
+  (label "VIN" (at 104.14 44.45 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 801aafef-6a4f-4a0a-8bf5-9e1388f1f7c9))
+  (wire (pts (xy 104.14 54.61) (xy 104.14 57.15)) (stroke (width 0) (type default)) (uuid e02b0767-5b8c-46b5-a861-0257f170c9b8))
+  (label "GND" (at 104.14 57.15 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid f82d8138-fd15-4170-95bf-f94df685ace9))
   (symbol (lib_id "Device:C") (at 114.30 50.80 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid f3983731-c7a9-440e-8e11-0eec1fcf1e90)
+    (uuid 94434c86-b85d-4348-aa76-abeb9b77759b)
     (property "Reference" "C4" (at 117.80 49.30 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "10uF 50V X5R" (at 117.80 52.30 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_1206_3216Metric" (at 114.30 55.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1123,16 +1330,16 @@
     (property "MPN" "CL31A106KBHNNNE" (at 114.30 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C13585" (at 114.30 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "10uF 50V X5R 1206" (at 114.30 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 217aa961-5473-46db-8045-7dad13e9f8a6))
-    (pin "2" (uuid feff7893-a4ef-41c6-bdbd-4d53b8627d3f))
+    (pin "1" (uuid 2db18d22-ea39-45e1-97c4-2a46f8e27a9c))
+    (pin "2" (uuid 294d9a6d-1a62-4ca5-ae71-3413b2f5c323))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "C4") (unit 1))))
   )
-  (wire (pts (xy 114.30 46.99) (xy 114.30 44.45)) (stroke (width 0) (type default)) (uuid 45061c25-3c61-44b2-8721-aab7edd1353b))
-  (label "VIN" (at 114.30 44.45 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 3d9d71ef-3ca5-4ad5-ac40-04d939367512))
-  (wire (pts (xy 114.30 54.61) (xy 114.30 57.15)) (stroke (width 0) (type default)) (uuid fa090538-93ee-4e77-b829-c15dbd0be73c))
-  (label "GND" (at 114.30 57.15 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 1bac9091-14a4-4df8-8af0-c64965cfeb35))
+  (wire (pts (xy 114.30 46.99) (xy 114.30 44.45)) (stroke (width 0) (type default)) (uuid de8ae1b7-59d9-40fb-864c-4180a69e577e))
+  (label "VIN" (at 114.30 44.45 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 4a7a18d7-27b2-4cfd-9346-2382a310a40c))
+  (wire (pts (xy 114.30 54.61) (xy 114.30 57.15)) (stroke (width 0) (type default)) (uuid 232cc16d-dfbb-428a-896c-fb0cc0759bb4))
+  (label "GND" (at 114.30 57.15 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 110e4bf3-b5a2-4014-8d1a-80a776851caf))
   (symbol (lib_id "Device:C") (at 124.46 50.80 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid b2e5b815-edf6-4603-b631-e5bd71f8038f)
+    (uuid 49c2d015-ffa3-49bc-b3d6-ca8409626c2d)
     (property "Reference" "C5" (at 127.96 49.30 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "10uF 50V X5R" (at 127.96 52.30 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_1206_3216Metric" (at 124.46 55.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1140,16 +1347,16 @@
     (property "MPN" "CL31A106KBHNNNE" (at 124.46 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C13585" (at 124.46 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "10uF 50V X5R 1206" (at 124.46 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 8c62797f-bc5c-4448-97a0-c5b51f1f9ec9))
-    (pin "2" (uuid 9aca98fd-2e8f-40a2-8ab9-57c07d0acac2))
+    (pin "1" (uuid 916e76dc-9e17-4777-a6d8-f9c21b46013f))
+    (pin "2" (uuid 68262862-cdaf-4c3e-9da0-e88be2bdbb44))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "C5") (unit 1))))
   )
-  (wire (pts (xy 124.46 46.99) (xy 124.46 44.45)) (stroke (width 0) (type default)) (uuid 066c486f-e5e3-49b4-b444-7ec482f13966))
-  (label "VIN" (at 124.46 44.45 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid c7ff8f19-ebc5-4b17-9c09-380ef261dd3d))
-  (wire (pts (xy 124.46 54.61) (xy 124.46 57.15)) (stroke (width 0) (type default)) (uuid 6a6c3de6-e7d9-49b9-8bac-2e66b5575c35))
-  (label "GND" (at 124.46 57.15 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid a76d6006-625b-4213-9b78-d580010bab19))
+  (wire (pts (xy 124.46 46.99) (xy 124.46 44.45)) (stroke (width 0) (type default)) (uuid 50a67da4-9af8-4890-8af0-a553fdff8eee))
+  (label "VIN" (at 124.46 44.45 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid e2c43d55-c4a3-4253-8ac1-13d6943ed7f1))
+  (wire (pts (xy 124.46 54.61) (xy 124.46 57.15)) (stroke (width 0) (type default)) (uuid 78501f2e-843c-43ce-9eed-b7f9cc32aa9f))
+  (label "GND" (at 124.46 57.15 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 13eb6f71-ff30-4fd4-994f-359f54b9f21f))
   (symbol (lib_id "Device:C") (at 144.78 50.80 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid a8f99ba3-f88c-4884-aa40-ba3d41635f80)
+    (uuid 1b3e3204-ec05-41ef-a9e0-813f9509daba)
     (property "Reference" "C7" (at 148.28 49.30 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "100nF 50V" (at 148.28 52.30 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 144.78 55.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1157,16 +1364,16 @@
     (property "MPN" "CL05B104KB54PNC" (at 144.78 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C307331" (at 144.78 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "100nF 50V X7R 0402" (at 144.78 50.80 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid df2f92fc-1731-4b46-9d4b-227f5fb380aa))
-    (pin "2" (uuid 82dc28c8-cf51-4cd4-9aa7-2fb6b2ef2c2b))
+    (pin "1" (uuid d46f0eae-3706-468d-a3af-61cbb848a09e))
+    (pin "2" (uuid b7ae6431-3281-4d64-b653-d324d6d71ef0))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "C7") (unit 1))))
   )
-  (wire (pts (xy 144.78 46.99) (xy 144.78 44.45)) (stroke (width 0) (type default)) (uuid c8f9744c-8343-4c53-adca-1b101ef0722e))
-  (label "VIN" (at 144.78 44.45 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 0e2301b5-39bd-4fa3-837b-1a7f9f630ab6))
-  (wire (pts (xy 144.78 54.61) (xy 144.78 57.15)) (stroke (width 0) (type default)) (uuid 770bcca6-8fbb-4517-ab69-4007473160fc))
-  (label "GND" (at 144.78 57.15 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 17feeb12-7be2-4109-8246-b318858fc98a))
+  (wire (pts (xy 144.78 46.99) (xy 144.78 44.45)) (stroke (width 0) (type default)) (uuid 7f8172fc-a51a-41d7-bfad-7e42e78c408e))
+  (label "VIN" (at 144.78 44.45 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 055593d2-d7aa-4b81-8fb5-f5e31be3912f))
+  (wire (pts (xy 144.78 54.61) (xy 144.78 57.15)) (stroke (width 0) (type default)) (uuid 02abc93f-8884-4a4b-9572-3500264be2e0))
+  (label "GND" (at 144.78 57.15 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid fefab263-5abf-4f11-8a07-792ca1b0442a))
   (symbol (lib_id "Transistor_FET:CSD17577Q3A") (at 190.50 45.72 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 4efa8a6e-e806-4d81-a4be-96c0074bd4f1)
+    (uuid 476b5c76-fc5c-44c6-96f4-7504a22c0fed)
     (property "Reference" "Q1" (at 194.00 44.22 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "CSD17577Q3A" (at 194.00 47.22 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "frc_poe:NexFET_SON-8_3.3x3.3mm" (at 190.50 50.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1174,21 +1381,21 @@
     (property "MPN" "CSD17577Q3A" (at 190.50 45.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C201632" (at 190.50 45.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "30V N-MOSFET, SON3x3 - buck high side" (at 190.50 45.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid f2381587-30a9-4c40-b33a-7f5e41f47ae4))
-    (pin "2" (uuid af747dec-d803-49e7-8a2b-9c5c6a5c68da))
-    (pin "3" (uuid 33cc3398-df39-4337-9ba8-d518338df233))
-    (pin "4" (uuid da948587-5fbe-41a3-bf54-e2c3c73d0817))
-    (pin "5" (uuid de00adff-6f87-4e2a-9753-ba0283f49f38))
+    (pin "1" (uuid 9ca15df5-4d7d-4996-b5ec-98a71385b346))
+    (pin "2" (uuid 0efda0cd-d247-40bf-b4c2-521286308f1a))
+    (pin "3" (uuid 852dc35b-a70a-47d5-b427-905888ae504e))
+    (pin "4" (uuid 29117fe3-b33e-4e8f-b011-c9abce3b83b3))
+    (pin "5" (uuid a320b2ae-83d8-4450-8fa1-3fbc2755bf00))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "Q1") (unit 1))))
   )
-  (wire (pts (xy 193.04 50.80) (xy 193.04 53.34)) (stroke (width 0) (type default)) (uuid d3d984a1-5d5d-4d2a-a662-6f59f3024eb9))
-  (label "SW1" (at 193.04 53.34 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid ee586f0b-c1f8-4aac-89e8-41fe5932583b))
-  (wire (pts (xy 185.42 45.72) (xy 182.88 45.72)) (stroke (width 0) (type default)) (uuid 4f0e2f5e-a59c-479d-a000-bff629605898))
-  (label "HSG" (at 182.88 45.72 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid f2d2b637-f12e-412b-9b56-594ca5dedb2f))
-  (wire (pts (xy 193.04 40.64) (xy 193.04 38.10)) (stroke (width 0) (type default)) (uuid 541b51b3-d824-4d3c-afed-7219f6338f68))
-  (label "VIN" (at 193.04 38.10 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid f31da013-c555-47b5-9f30-799c2332370b))
+  (wire (pts (xy 193.04 50.80) (xy 193.04 53.34)) (stroke (width 0) (type default)) (uuid b1edfd0c-79c9-4797-9ed0-2f02266cc68d))
+  (label "SW1" (at 193.04 53.34 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 099c088c-fad5-4114-a0e6-0e66fbb3fd5b))
+  (wire (pts (xy 185.42 45.72) (xy 182.88 45.72)) (stroke (width 0) (type default)) (uuid 1c34783d-04c9-48ef-9b0e-31f269d8201f))
+  (label "HSG" (at 182.88 45.72 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 69742847-f7f9-405e-a4a5-63970e9eadf0))
+  (wire (pts (xy 193.04 40.64) (xy 193.04 38.10)) (stroke (width 0) (type default)) (uuid 189d5872-8f42-45c3-92e3-4a48098c7109))
+  (label "VIN" (at 193.04 38.10 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 32cb0bf3-dc1b-457b-9162-cf8794bd3aaf))
   (symbol (lib_id "Transistor_FET:CSD17577Q3A") (at 190.50 76.20 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid ba56382c-4c0f-4e6f-a2e6-b20d5e0a1fae)
+    (uuid a5c95504-e642-4341-9530-d148f16e153e)
     (property "Reference" "Q2" (at 194.00 74.70 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "CSD17577Q3A" (at 194.00 77.70 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "frc_poe:NexFET_SON-8_3.3x3.3mm" (at 190.50 81.20 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1196,21 +1403,21 @@
     (property "MPN" "CSD17577Q3A" (at 190.50 76.20 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C201632" (at 190.50 76.20 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "30V N-MOSFET, SON3x3 - buck low side" (at 190.50 76.20 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 4cee8b82-d159-4802-9dd1-daaa6ac6839b))
-    (pin "2" (uuid a3d06d47-6286-4842-8d2b-acfc865ad67e))
-    (pin "3" (uuid 68283c10-ef0d-464a-b400-b7524481ba24))
-    (pin "4" (uuid 717d5243-9cb9-4404-a567-dd8a3d30cb94))
-    (pin "5" (uuid b73193c2-eeb5-41f2-a74f-8db8e55b7fbe))
+    (pin "1" (uuid 111b66cc-6123-46ed-9978-3d93c11a34a9))
+    (pin "2" (uuid 2a27c26b-c513-4932-a511-8bcaf1315530))
+    (pin "3" (uuid d3855e68-ee96-4aae-986e-2bfd671a58a3))
+    (pin "4" (uuid 7042761a-f9ed-4636-9b56-a56b4b3b7208))
+    (pin "5" (uuid 0fa37005-8f89-4eae-b43d-3f3433bdaa0f))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "Q2") (unit 1))))
   )
-  (wire (pts (xy 193.04 81.28) (xy 193.04 83.82)) (stroke (width 0) (type default)) (uuid f8c2fc9f-aaa2-4601-95c5-b4c09abac904))
-  (label "GND" (at 193.04 83.82 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid ce145e10-1259-4631-87ac-f5d296aaf67b))
-  (wire (pts (xy 185.42 76.20) (xy 182.88 76.20)) (stroke (width 0) (type default)) (uuid ab85d178-4f14-46dc-abe3-50a1f22d5bb0))
-  (label "LSG" (at 182.88 76.20 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid c865034c-9dfe-4104-8e07-5c3c0749f39d))
-  (wire (pts (xy 193.04 71.12) (xy 193.04 68.58)) (stroke (width 0) (type default)) (uuid c7ec2090-147a-4d18-bc85-961e1d070156))
-  (label "SW1" (at 193.04 68.58 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid c130af3c-dcc4-49df-bf9c-bf1461d6a0ca))
+  (wire (pts (xy 193.04 81.28) (xy 193.04 83.82)) (stroke (width 0) (type default)) (uuid 2db6f992-a46f-41b8-bbb4-6fde4d78d678))
+  (label "GND" (at 193.04 83.82 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid a9790fc1-e030-4522-86e4-12a730c58c78))
+  (wire (pts (xy 185.42 76.20) (xy 182.88 76.20)) (stroke (width 0) (type default)) (uuid cbbd1fd0-6281-4e8f-a62b-95a19360ee30))
+  (label "LSG" (at 182.88 76.20 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 2d2b95a6-ac3a-4f02-81de-f5d5a792402a))
+  (wire (pts (xy 193.04 71.12) (xy 193.04 68.58)) (stroke (width 0) (type default)) (uuid 37ded6f1-7038-4d1b-a718-a035c40b1168))
+  (label "SW1" (at 193.04 68.58 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 48a9964f-400d-4fde-b270-6c3e53554805))
   (symbol (lib_id "Device:R") (at 170.18 45.72 90) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 6c3bf642-c1ba-4c9d-9a44-7bfef4fabb59)
+    (uuid 8f31f8a4-efdb-45fc-9374-bdfa8793c15a)
     (property "Reference" "R1" (at 173.68 44.22 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "1R" (at 173.68 47.22 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 170.18 50.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1218,16 +1425,16 @@
     (property "MPN" "0402WGF100KTCE" (at 170.18 45.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C25086" (at 170.18 45.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "1R 1% 0402 gate resistor" (at 170.18 45.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid bfc6ac11-7dae-4bf7-a703-29d35d6d7d38))
-    (pin "2" (uuid b1a4de77-db99-4649-93a4-56cb823966f5))
+    (pin "1" (uuid f8b3ba1f-57b2-45e6-88b0-52865602aa6e))
+    (pin "2" (uuid 1c21b1d3-3a18-43e7-acbf-c814239c443d))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "R1") (unit 1))))
   )
-  (wire (pts (xy 166.37 45.72) (xy 163.83 45.72)) (stroke (width 0) (type default)) (uuid 60a07a41-bfae-4bbe-9c94-73a181933a1c))
-  (label "DR1H" (at 163.83 45.72 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid eb3ae17f-f0e7-41a6-a88b-21fd3c47145b))
-  (wire (pts (xy 173.99 45.72) (xy 176.53 45.72)) (stroke (width 0) (type default)) (uuid 0e9066dc-b7d6-42e2-bf58-327840cc2d18))
-  (label "HSG" (at 176.53 45.72 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid df87b5c2-81e1-400b-9265-450ef8f72a6b))
+  (wire (pts (xy 166.37 45.72) (xy 163.83 45.72)) (stroke (width 0) (type default)) (uuid 92bca013-e010-47c5-8f79-f524c28cfe2f))
+  (label "DR1H" (at 163.83 45.72 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 7634ef2f-23f8-456f-af85-a613e3c144df))
+  (wire (pts (xy 173.99 45.72) (xy 176.53 45.72)) (stroke (width 0) (type default)) (uuid b30036ca-825c-4093-abd0-c77885ac72aa))
+  (label "HSG" (at 176.53 45.72 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid f5822fe6-af63-4894-8915-1a928403ffd7))
   (symbol (lib_id "Device:R") (at 170.18 76.20 90) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 95dd482c-adf6-4712-8bbd-c076c6160f67)
+    (uuid e29673a3-d478-437b-a241-d65363eabd22)
     (property "Reference" "R2" (at 173.68 74.70 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "1R" (at 173.68 77.70 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 170.18 81.20 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1235,16 +1442,16 @@
     (property "MPN" "0402WGF100KTCE" (at 170.18 76.20 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C25086" (at 170.18 76.20 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "1R 1% 0402 gate resistor" (at 170.18 76.20 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 0919776f-1156-4262-af28-bb8a41306894))
-    (pin "2" (uuid 5a7532c6-08b6-4c48-a5ec-f27020fd1ac0))
+    (pin "1" (uuid c717d5e5-2d06-40bb-998d-079e6d21e23d))
+    (pin "2" (uuid a0abd996-83e6-4363-a406-9f442e8c78af))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "R2") (unit 1))))
   )
-  (wire (pts (xy 166.37 76.20) (xy 163.83 76.20)) (stroke (width 0) (type default)) (uuid 140c4b5b-e92e-484d-aabe-7abc3f439f5e))
-  (label "DR1L" (at 163.83 76.20 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid e205c731-5735-48e4-b644-004f10ae0bbc))
-  (wire (pts (xy 173.99 76.20) (xy 176.53 76.20)) (stroke (width 0) (type default)) (uuid b3ebd3b3-273d-4ee9-96f9-bff29c6f3f31))
-  (label "LSG" (at 176.53 76.20 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 4de60e5d-c7ea-44c1-8a37-0999eb3116e9))
+  (wire (pts (xy 166.37 76.20) (xy 163.83 76.20)) (stroke (width 0) (type default)) (uuid 81558582-72ba-4095-a175-fda61ef878d2))
+  (label "DR1L" (at 163.83 76.20 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid cd8a9e1f-5dbb-4659-a23d-3bbabacb3672))
+  (wire (pts (xy 173.99 76.20) (xy 176.53 76.20)) (stroke (width 0) (type default)) (uuid 14bd63d2-c148-4160-a75b-b3751f64a5df))
+  (label "LSG" (at 176.53 76.20 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid d5e017ce-0465-4cd0-ab69-bcc30c097db8))
   (symbol (lib_id "Device:L") (at 226.06 63.50 90) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 39618dac-93dc-4352-a59e-257601535e27)
+    (uuid 78865ed5-9551-47d2-a7d8-71d8d2e62158)
     (property "Reference" "L1" (at 229.56 62.00 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "6.8uH 20A" (at 229.56 65.00 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Inductor_SMD:L_TaiTech_TMPC1265_13.5x12.5mm" (at 226.06 68.50 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1252,16 +1459,16 @@
     (property "MPN" "ZEMS1265-6R8M" (at 226.06 63.50 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C41422303" (at 226.06 63.50 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "6.8uH molded, Isat 20A, Irms 12.5A, 14mOhm, 1265 size" (at 226.06 63.50 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid d81bb8e1-2061-4903-be5b-d09263b58a5f))
-    (pin "2" (uuid d27168ba-e4a1-4e93-99bc-1515a6961361))
+    (pin "1" (uuid 7bd73560-c754-4633-9a45-73cb2987e30e))
+    (pin "2" (uuid 54abc7e9-46e9-4c14-9ca4-e2e62bce96a5))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "L1") (unit 1))))
   )
-  (wire (pts (xy 222.25 63.50) (xy 219.71 63.50)) (stroke (width 0) (type default)) (uuid df60dba4-90b3-46b0-bdf8-9105ca4b2937))
-  (label "SW1" (at 219.71 63.50 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 377a00c0-d591-4649-b012-f93389974dd6))
-  (wire (pts (xy 229.87 63.50) (xy 232.41 63.50)) (stroke (width 0) (type default)) (uuid ff964b79-02a9-46a7-a69d-e8f2dab4d7d7))
-  (label "SW2" (at 232.41 63.50 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 361c7351-f04a-49a6-bfa4-da02563a05fb))
+  (wire (pts (xy 222.25 63.50) (xy 219.71 63.50)) (stroke (width 0) (type default)) (uuid 4a927923-beb2-428f-b911-584021184c9d))
+  (label "SW1" (at 219.71 63.50 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 2bc47ec5-1b94-48c0-a6f4-162c3859f386))
+  (wire (pts (xy 229.87 63.50) (xy 232.41 63.50)) (stroke (width 0) (type default)) (uuid 873aed23-c495-4dd2-ad2b-06693cdf21ab))
+  (label "SW2" (at 232.41 63.50 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid c6108edf-2940-4ede-aab4-300501226cb4))
   (symbol (lib_id "Device:C") (at 210.82 88.90 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 5bcb9f43-f74e-4578-ad53-7a8c86a86f91)
+    (uuid 4812e35e-9ce4-48dc-bafd-a128852e86fd)
     (property "Reference" "C8" (at 214.32 87.40 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "100nF 50V" (at 214.32 90.40 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 210.82 93.90 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1269,16 +1476,16 @@
     (property "MPN" "CL05B104KB54PNC" (at 210.82 88.90 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C307331" (at 210.82 88.90 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "100nF 50V X7R 0402 bootstrap" (at 210.82 88.90 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 261f7418-f0ca-472e-827f-f3987a72e331))
-    (pin "2" (uuid 3201246a-50fd-4141-a53c-2f8370f723af))
+    (pin "1" (uuid 4215912a-1be9-4805-a574-f18365ecb08c))
+    (pin "2" (uuid ccbef19b-bb2e-450c-92a8-a58bcda5882b))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "C8") (unit 1))))
   )
-  (wire (pts (xy 210.82 85.09) (xy 210.82 82.55)) (stroke (width 0) (type default)) (uuid 8f7f4425-9934-4838-a093-8734ccdf5707))
-  (label "BOOT1" (at 210.82 82.55 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 11677a5c-fad0-40c2-a225-9089239664bd))
-  (wire (pts (xy 210.82 92.71) (xy 210.82 95.25)) (stroke (width 0) (type default)) (uuid 605ff8e6-9e48-495e-a083-4d164dc6b3c9))
-  (label "SW1" (at 210.82 95.25 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 37dd7e6a-64bb-4d87-862a-9d48aa5519fb))
+  (wire (pts (xy 210.82 85.09) (xy 210.82 82.55)) (stroke (width 0) (type default)) (uuid 9cb13e03-2c37-4ab6-b655-0836c55ff3e5))
+  (label "BOOT1" (at 210.82 82.55 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid b173b6ac-cd2e-4b44-b5cf-63c4bbc130fc))
+  (wire (pts (xy 210.82 92.71) (xy 210.82 95.25)) (stroke (width 0) (type default)) (uuid 573fc2dd-5e64-42ff-89f7-7bc62bec12ab))
+  (label "SW1" (at 210.82 95.25 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 52777909-2385-48af-a07c-67a7e7166b1e))
   (symbol (lib_id "Device:C") (at 241.30 88.90 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 84d5a47a-8901-414a-af73-9698769d5bae)
+    (uuid 21a6e80e-a19e-4533-a2bf-1551a56279ac)
     (property "Reference" "C9" (at 244.80 87.40 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "100nF 50V" (at 244.80 90.40 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 241.30 93.90 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1286,16 +1493,16 @@
     (property "MPN" "CL05B104KB54PNC" (at 241.30 88.90 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C307331" (at 241.30 88.90 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "100nF 50V X7R 0402 bootstrap" (at 241.30 88.90 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 9e94d886-8c4a-4bab-83cf-f79daf33f741))
-    (pin "2" (uuid 4b6da743-62da-4074-9d9f-1572839f759d))
+    (pin "1" (uuid 00646836-6870-4469-9d84-1f83ee870a94))
+    (pin "2" (uuid 2a93571e-4f1e-415c-9205-56aedf95eaf5))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "C9") (unit 1))))
   )
-  (wire (pts (xy 241.30 85.09) (xy 241.30 82.55)) (stroke (width 0) (type default)) (uuid c629117c-b793-4b41-ac5a-0d426ed79896))
-  (label "BOOT2" (at 241.30 82.55 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid f84774d7-3638-43ad-9484-0437c531ad1c))
-  (wire (pts (xy 241.30 92.71) (xy 241.30 95.25)) (stroke (width 0) (type default)) (uuid 5966eb97-4fde-4699-a70d-aefd13943d29))
-  (label "SW2" (at 241.30 95.25 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 86005e33-7ea4-4e53-80ac-cf46b9fccbaf))
+  (wire (pts (xy 241.30 85.09) (xy 241.30 82.55)) (stroke (width 0) (type default)) (uuid 461b12dc-0ce7-44e2-bf5d-feca029b062a))
+  (label "BOOT2" (at 241.30 82.55 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 6e6c1608-e0fc-497b-93fc-a25e341ceb1e))
+  (wire (pts (xy 241.30 92.71) (xy 241.30 95.25)) (stroke (width 0) (type default)) (uuid 9c7ef09c-dcd7-43e8-a18d-a6e79ac6424a))
+  (label "SW2" (at 241.30 95.25 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 8edf673e-409c-4ebf-b0e5-4b52b300d74b))
   (symbol (lib_id "frc_poe:TPS552882") (at 167.64 147.32 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 296684a7-d7bd-4ab5-8d00-5fae18e39cce)
+    (uuid b366c315-561a-4481-96b9-861180617860)
     (property "Reference" "U1" (at 154.94 125.32 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "TPS552882RPMR" (at 167.64 125.32 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "frc_poe:TI_RPM0026A_VQFN-HR-26_4x3.5mm" (at 167.64 152.32 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1303,85 +1510,85 @@
     (property "MPN" "TPS552882RPMR" (at 167.64 147.32 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C3188898" (at 167.64 147.32 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "36V 16A buck-boost controller, standalone (no I2C)" (at 167.64 147.32 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "3" (uuid e9514e2e-f9ed-4f9a-b1d4-450d9317572f))
-    (pin "4" (uuid 91da7905-4936-409b-b948-be65155240f7))
-    (pin "15" (uuid 3322c744-8e09-434f-b649-5209f8f4ad7e))
-    (pin "8" (uuid 2ddaf5ef-3687-4cef-989b-0ec21f7a6192))
-    (pin "17" (uuid f4511073-6341-4ce3-9c52-79c1ab7d3bb4))
-    (pin "7" (uuid b5f57440-d403-414c-9382-e5ecdd491fce))
-    (pin "18" (uuid ad16a2b3-21a8-460a-b4e4-dd0130cc703b))
-    (pin "16" (uuid f20cf923-1537-4c73-9622-583f890f6e11))
-    (pin "14" (uuid 33c5d089-997c-45e1-b62e-4f9bcc7210c1))
-    (pin "2" (uuid 752e2064-d955-4209-bf1d-990f6c3e81b8))
-    (pin "22" (uuid 5666955f-fdc7-47af-b134-e96dcc7ebff0))
-    (pin "23" (uuid 0dcbdd77-bc5d-4671-9fef-348fae0b8a95))
-    (pin "1" (uuid d2067a1e-7c64-4291-a561-01cb361d082f))
-    (pin "21" (uuid d8a2118a-36cd-4702-af67-c095ad28dd92))
-    (pin "25" (uuid f4ef2c40-16b6-44a8-8156-4ff521a15313))
-    (pin "20" (uuid 4969f5f0-4949-4443-b22a-f2d430abe86e))
-    (pin "11" (uuid ed4df3d2-ce8a-45e8-bb6c-3fbbd4ff46d9))
-    (pin "26" (uuid cb8953a5-0ea6-460f-84cd-aea4bc35cc15))
-    (pin "12" (uuid 7d2eeafe-a13d-41f0-9372-6d6b945eea32))
-    (pin "13" (uuid 0d99f2c5-672b-47a2-ae45-5f9c8a3bd39c))
-    (pin "19" (uuid fbbc61ea-4c17-4128-8c94-0c547d43f375))
-    (pin "5" (uuid fd409dd6-710c-431f-9aaa-1c678f2e8cd9))
-    (pin "6" (uuid 083a2726-7ab5-40b5-af34-63c3eccd4150))
-    (pin "9" (uuid dd795501-637c-4aee-a365-62036d1cf7b4))
-    (pin "24" (uuid e82686d9-0860-4d1e-88a4-418198e36831))
-    (pin "10" (uuid 827235ae-3ca9-4bae-9d62-70d0f46b143c))
+    (pin "3" (uuid 377144fb-0b6c-4859-a493-0028f13a0583))
+    (pin "4" (uuid 1df91aea-4402-4899-bb90-f2075b8b797e))
+    (pin "15" (uuid 45b554a1-f957-40c8-ac8c-0cacff71ddbb))
+    (pin "8" (uuid 581d8527-e786-4800-b2f5-a3e74afcf566))
+    (pin "17" (uuid f5890234-5c17-48bd-aa49-843646ea0188))
+    (pin "7" (uuid 0abd28bb-6570-4fde-82f6-7c76fbe87150))
+    (pin "18" (uuid 8a25adf8-5df3-45da-8355-ab211f4ad8d0))
+    (pin "16" (uuid 4799f80e-bd47-4377-8926-729577a82870))
+    (pin "14" (uuid ef989161-9293-4aa5-b68c-f40f5af911c7))
+    (pin "2" (uuid f9488dc6-72de-4e9a-b4f1-a72dee9ba0a8))
+    (pin "22" (uuid ebef2998-9a68-48c1-823e-230136a67f10))
+    (pin "23" (uuid aefa403d-6887-47bd-ac1f-c6ae9eef3f64))
+    (pin "1" (uuid ad131f02-a156-4c98-9385-84e1ce76b79d))
+    (pin "21" (uuid 2dfe6e63-99a1-47f4-9d7c-ce22d0cd9fd8))
+    (pin "25" (uuid cc51d508-440f-42b0-82f2-23426220c22c))
+    (pin "20" (uuid 4553e011-82b8-4e6d-a501-dd84d6088c20))
+    (pin "11" (uuid ca3266c3-b571-4227-bde5-9c4eb26e2665))
+    (pin "26" (uuid a16e143a-7b1b-482b-b21f-4ad261845c1a))
+    (pin "12" (uuid 5583c8ad-5528-4bbb-811d-23b8cfd95135))
+    (pin "13" (uuid 83ae4039-da53-4648-8329-1223dc16637a))
+    (pin "19" (uuid 15566d2b-8a61-4e60-b210-e1fe2d958a2e))
+    (pin "5" (uuid 919438a9-ab2c-4fb1-828f-d585241dd919))
+    (pin "6" (uuid da934ddf-c0e9-472e-8a34-06cfdcdf448c))
+    (pin "9" (uuid 1f06936c-aeef-4cab-af5e-064be3bd31e7))
+    (pin "24" (uuid 68f9b034-52dc-4505-b94c-642a693d1a8b))
+    (pin "10" (uuid 872b5cda-5854-4c74-83eb-2b6747056045))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "U1") (unit 1))))
   )
-  (wire (pts (xy 152.40 130.81) (xy 149.86 130.81)) (stroke (width 0) (type default)) (uuid f66b6158-3cc3-4ee3-8093-52420bdd375b))
-  (label "VIN" (at 149.86 130.81 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 2e399b2c-6075-4b58-98dd-53347a5a9c26))
-  (wire (pts (xy 152.40 134.62) (xy 149.86 134.62)) (stroke (width 0) (type default)) (uuid 3c72c515-7acd-43da-bccf-e76122e12527))
-  (label "EN" (at 149.86 134.62 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid da333672-0c86-453f-8289-5dfa163f0781))
-  (wire (pts (xy 152.40 138.43) (xy 149.86 138.43)) (stroke (width 0) (type default)) (uuid 79856537-f860-4d75-bbb5-9edbb25ebf38))
-  (label "GND" (at 149.86 138.43 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid ba5bf473-9828-43e3-9d11-4690d546207b))
-  (wire (pts (xy 152.40 142.24) (xy 149.86 142.24)) (stroke (width 0) (type default)) (uuid 022c966a-1b66-4d2b-9466-dbfea5fd1614))
-  (label "FSW" (at 149.86 142.24 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 208e8146-5ffd-48ae-afa2-dd50cad02528))
-  (wire (pts (xy 152.40 146.05) (xy 149.86 146.05)) (stroke (width 0) (type default)) (uuid 4d72af02-eb97-4940-9a39-3ce9cd42e60f))
-  (label "ILIM" (at 149.86 146.05 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid cd4ead7e-f8b1-4940-9089-77c2b84a8ad4))
-  (wire (pts (xy 152.40 149.86) (xy 149.86 149.86)) (stroke (width 0) (type default)) (uuid c5e5376b-91f0-4c1d-825e-a051e9905e3a))
-  (label "DITH" (at 149.86 149.86 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 8f12fad4-f063-4d8c-be49-dbd1175254b7))
-  (wire (pts (xy 152.40 153.67) (xy 149.86 153.67)) (stroke (width 0) (type default)) (uuid 8464e8b6-7855-4d6b-a4ae-0036f78a0a89))
-  (label "COMP" (at 149.86 153.67 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid c886ec86-3326-4805-bed8-09b83408b14b))
-  (no_connect (at 152.40 157.48) (uuid 133212af-30d0-497d-a597-b7197d44a4c5))
-  (wire (pts (xy 152.40 161.29) (xy 149.86 161.29)) (stroke (width 0) (type default)) (uuid 77a79396-d376-4c83-9921-73daa44866df))
-  (label "FB" (at 149.86 161.29 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 29a4ff6c-9bf3-4ab2-9292-fda798ffd3f8))
-  (wire (pts (xy 182.88 130.81) (xy 185.42 130.81)) (stroke (width 0) (type default)) (uuid cf26a87d-ab4e-4600-9558-16e8ce1fc15c))
-  (label "DR1H" (at 185.42 130.81 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 45075363-670e-4d67-a3e9-9de866cc71d1))
-  (wire (pts (xy 182.88 133.35) (xy 185.42 133.35)) (stroke (width 0) (type default)) (uuid 36181c71-e742-4aa7-92ab-5c9ce7b4cbb4))
-  (label "BOOT1" (at 185.42 133.35 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 2981c3f5-6410-472a-a37a-ea87eee073b9))
-  (wire (pts (xy 182.88 135.89) (xy 185.42 135.89)) (stroke (width 0) (type default)) (uuid 0ca81bfa-863a-40c1-9fe7-3cbd2dfd2c5d))
-  (label "SW1" (at 185.42 135.89 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 3a2e478d-470e-4007-8461-74042baf76bd))
-  (wire (pts (xy 182.88 138.43) (xy 185.42 138.43)) (stroke (width 0) (type default)) (uuid b96df9f5-23dc-44f7-ad25-15453f166e57))
-  (label "DR1L" (at 185.42 138.43 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 35c26f8a-c61c-496e-ba16-231b34759e22))
-  (wire (pts (xy 182.88 140.97) (xy 185.42 140.97)) (stroke (width 0) (type default)) (uuid 8bd4f56f-7005-45ab-910b-499131f5acd0))
-  (label "SW2" (at 185.42 140.97 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 50391f2f-c503-48d4-bb59-d1f5f07dbebc))
-  (wire (pts (xy 182.88 143.51) (xy 185.42 143.51)) (stroke (width 0) (type default)) (uuid 763d5ced-560d-4a30-953a-cf5a04fecd2e))
-  (label "SW2" (at 185.42 143.51 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid abc7917a-e8a0-4141-b821-2ed9125e6627))
-  (wire (pts (xy 182.88 146.05) (xy 185.42 146.05)) (stroke (width 0) (type default)) (uuid de63175e-ca43-4302-8214-66aaad409c69))
-  (label "BOOT2" (at 185.42 146.05 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid b8e848b0-d5d2-4cf9-9bff-cb901fa3d0a0))
-  (wire (pts (xy 182.88 148.59) (xy 185.42 148.59)) (stroke (width 0) (type default)) (uuid d9413fb3-5e0d-48f4-9bc4-5ca820e05074))
-  (label "VOUT" (at 185.42 148.59 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 9f134149-bfba-45dd-bc8c-78eba8928af7))
-  (wire (pts (xy 182.88 151.13) (xy 185.42 151.13)) (stroke (width 0) (type default)) (uuid 69ac7071-4c73-4945-b7ae-0a5940000cae))
-  (label "VOUT" (at 185.42 151.13 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid e3e34762-1c29-4287-b3a1-5815aa9b3e85))
-  (wire (pts (xy 182.88 153.67) (xy 185.42 153.67)) (stroke (width 0) (type default)) (uuid fe6e754f-0bfb-47d4-8ef1-836bd41bcbfd))
-  (label "VOUT" (at 185.42 153.67 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid e792c1d6-3f27-4269-a4ab-0471a4bac031))
-  (wire (pts (xy 182.88 156.21) (xy 185.42 156.21)) (stroke (width 0) (type default)) (uuid 99f7635d-6fc0-46e1-9de6-3032a02708ce))
-  (label "VOUT" (at 185.42 156.21 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid a74c73b0-c7bf-4c35-aeed-928a6481c4ae))
-  (wire (pts (xy 182.88 158.75) (xy 185.42 158.75)) (stroke (width 0) (type default)) (uuid dccdee4f-cf78-42aa-afec-23b14862cdbe))
-  (label "VCC" (at 185.42 158.75 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 158267c6-4088-404c-8a2b-0a5af8e7696a))
-  (no_connect (at 182.88 161.29) (uuid fd8f1ce0-8267-4e34-9548-7cf9913b3dcc))
-  (no_connect (at 182.88 163.83) (uuid 435b8b1b-8a43-4c25-8ca6-cb308294f183))
-  (wire (pts (xy 162.56 168.91) (xy 162.56 171.45)) (stroke (width 0) (type default)) (uuid ef82ad97-94af-463c-b611-f516bad8d637))
-  (label "GND" (at 162.56 171.45 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 6175bc1e-94d0-446e-8781-cc431bbb01f3))
-  (wire (pts (xy 167.64 168.91) (xy 167.64 171.45)) (stroke (width 0) (type default)) (uuid 73ac1080-d014-4fd1-9cf2-d23a4d8dba67))
-  (label "GND" (at 167.64 171.45 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid d8ba6491-ede0-4f36-a604-6162da991fd9))
-  (wire (pts (xy 172.72 168.91) (xy 172.72 171.45)) (stroke (width 0) (type default)) (uuid b4fae937-9d72-4bb7-8bb1-d6c26ca0023f))
-  (label "GND" (at 172.72 171.45 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid b7a5ccfb-478e-48a9-8222-1c0a8656d0d1))
+  (wire (pts (xy 152.40 130.81) (xy 149.86 130.81)) (stroke (width 0) (type default)) (uuid e5040449-5af5-477a-89e5-a6acf5f857b7))
+  (label "VIN" (at 149.86 130.81 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 0c6fe0c8-ad4a-45d7-adba-25a18d8ab616))
+  (wire (pts (xy 152.40 134.62) (xy 149.86 134.62)) (stroke (width 0) (type default)) (uuid 718a890f-6312-4103-96e6-0f4c8940f5ed))
+  (label "EN" (at 149.86 134.62 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 4e5ae57f-0f20-4240-91ea-996ca0c423ad))
+  (wire (pts (xy 152.40 138.43) (xy 149.86 138.43)) (stroke (width 0) (type default)) (uuid d053bbd8-8d34-40e1-8563-ee25d32357ae))
+  (label "GND" (at 149.86 138.43 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid ef04504c-7549-4cd8-8520-935090f2eed0))
+  (wire (pts (xy 152.40 142.24) (xy 149.86 142.24)) (stroke (width 0) (type default)) (uuid f6c98243-a495-4bc6-ab03-841699185c5d))
+  (label "FSW" (at 149.86 142.24 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid ab32e791-37cd-412c-b516-bb4419d12b4a))
+  (wire (pts (xy 152.40 146.05) (xy 149.86 146.05)) (stroke (width 0) (type default)) (uuid 2ae513f0-0654-4a61-9e77-a6ceaecec0c5))
+  (label "ILIM" (at 149.86 146.05 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid c7f0c070-35ca-41fb-b76b-fcc6d893b517))
+  (wire (pts (xy 152.40 149.86) (xy 149.86 149.86)) (stroke (width 0) (type default)) (uuid 6699ad13-46ed-4b57-ac1f-7e77e714d81e))
+  (label "DITH" (at 149.86 149.86 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid e3094639-dfcf-4c03-8db2-f61a0a961f1e))
+  (wire (pts (xy 152.40 153.67) (xy 149.86 153.67)) (stroke (width 0) (type default)) (uuid 5fe265a5-bc50-4ff5-9179-00df121ad14c))
+  (label "COMP" (at 149.86 153.67 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 866eed61-a984-4961-afcb-6488aab4fafa))
+  (no_connect (at 152.40 157.48) (uuid 9a89ddbb-c35a-4a9f-8f5f-507231cdbf81))
+  (wire (pts (xy 152.40 161.29) (xy 149.86 161.29)) (stroke (width 0) (type default)) (uuid bd09053e-a8a9-499b-a2cc-de61936146ef))
+  (label "FB" (at 149.86 161.29 180) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid d755689a-77c2-40f9-9a21-45bce5b943ba))
+  (wire (pts (xy 182.88 130.81) (xy 185.42 130.81)) (stroke (width 0) (type default)) (uuid b1e28562-5d8a-40d4-9f9c-c889f1c614ce))
+  (label "DR1H" (at 185.42 130.81 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 2b1bfea8-8031-4a04-b714-72eb827d0883))
+  (wire (pts (xy 182.88 133.35) (xy 185.42 133.35)) (stroke (width 0) (type default)) (uuid 1c23dee2-014c-4f13-baa9-8c2db1480e93))
+  (label "BOOT1" (at 185.42 133.35 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 4b3b0c77-abb3-4027-a78e-c0b5654408ed))
+  (wire (pts (xy 182.88 135.89) (xy 185.42 135.89)) (stroke (width 0) (type default)) (uuid b9a7902f-37a3-4432-891f-2c925b9f577b))
+  (label "SW1" (at 185.42 135.89 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 0dc3f74b-fa40-49a5-9b5d-d230b883eed8))
+  (wire (pts (xy 182.88 138.43) (xy 185.42 138.43)) (stroke (width 0) (type default)) (uuid 2ef3d646-4e8f-4b8f-95d2-840aceab85b8))
+  (label "DR1L" (at 185.42 138.43 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 15d1723c-6b8f-4b5b-b44f-d89d6df1a436))
+  (wire (pts (xy 182.88 140.97) (xy 185.42 140.97)) (stroke (width 0) (type default)) (uuid c5df7614-acd6-47ce-8962-4bc7c0dfaea2))
+  (label "SW2" (at 185.42 140.97 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 061759f6-d9f5-4ee9-b542-37216e03e993))
+  (wire (pts (xy 182.88 143.51) (xy 185.42 143.51)) (stroke (width 0) (type default)) (uuid a546f17e-c21f-4734-a8fb-401f40404f93))
+  (label "SW2" (at 185.42 143.51 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid d9537508-9cc0-48ec-95cd-b83ce466497d))
+  (wire (pts (xy 182.88 146.05) (xy 185.42 146.05)) (stroke (width 0) (type default)) (uuid 6c285510-585d-44d6-984e-bc744a5fc48a))
+  (label "BOOT2" (at 185.42 146.05 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 9b4e5c35-04ea-4a96-82c4-61f4af3d77e3))
+  (wire (pts (xy 182.88 148.59) (xy 185.42 148.59)) (stroke (width 0) (type default)) (uuid 7bc2d0b0-cbd8-4fb9-9bd0-a66e66009f2b))
+  (label "VOUT" (at 185.42 148.59 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid f140f876-9d6a-437d-afdc-0d6bab34121d))
+  (wire (pts (xy 182.88 151.13) (xy 185.42 151.13)) (stroke (width 0) (type default)) (uuid b615de19-efbf-4b64-8330-5cd2eca0e0cd))
+  (label "VOUT" (at 185.42 151.13 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid c48f5786-ca75-4949-b66b-f19d98137cef))
+  (wire (pts (xy 182.88 153.67) (xy 185.42 153.67)) (stroke (width 0) (type default)) (uuid 1db67333-ce82-4fe3-b17d-2f2d694a72cf))
+  (label "VOUT" (at 185.42 153.67 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 2db1ced7-938d-4f46-af6b-3437d6027cfa))
+  (wire (pts (xy 182.88 156.21) (xy 185.42 156.21)) (stroke (width 0) (type default)) (uuid ef4073d5-0a24-4793-85ee-f919fea32032))
+  (label "VOUT" (at 185.42 156.21 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid da7d75df-6cb3-4b85-ab56-b3606af56f2e))
+  (wire (pts (xy 182.88 158.75) (xy 185.42 158.75)) (stroke (width 0) (type default)) (uuid c713dd67-0bf3-444d-a4a7-f455bea56ad8))
+  (label "VCC" (at 185.42 158.75 0) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid d5698bdb-4477-44e0-82b3-adef340354ac))
+  (no_connect (at 182.88 161.29) (uuid 7d261df2-f705-4b28-8770-7a736232af1b))
+  (no_connect (at 182.88 163.83) (uuid dd64423d-28ba-476e-9acc-38057eab512b))
+  (wire (pts (xy 162.56 168.91) (xy 162.56 171.45)) (stroke (width 0) (type default)) (uuid d0ee4e2d-6fe8-43c0-9429-65004e229447))
+  (label "GND" (at 162.56 171.45 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid e3b8c931-916a-4b7c-ab4e-d0775823c120))
+  (wire (pts (xy 167.64 168.91) (xy 167.64 171.45)) (stroke (width 0) (type default)) (uuid 02365d49-2d04-4934-8e20-e0360278f0f2))
+  (label "GND" (at 167.64 171.45 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 41d962a8-8074-4d25-abef-48eb138116b2))
+  (wire (pts (xy 172.72 168.91) (xy 172.72 171.45)) (stroke (width 0) (type default)) (uuid 81f5cbef-e225-4f05-b790-66268df37d89))
+  (label "GND" (at 172.72 171.45 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 065a6489-acd0-4926-986a-9a4380e95d31))
   (symbol (lib_id "Device:R") (at 86.36 119.38 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 17fda643-75a8-4fd9-a47a-b90faf31fe6b)
+    (uuid 20aa83cc-21ad-46f1-b239-40d4c483bde5)
     (property "Reference" "R3" (at 89.86 117.88 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "100k" (at 89.86 120.88 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 86.36 124.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1389,16 +1596,16 @@
     (property "MPN" "0402WGF1003TCE" (at 86.36 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C25741" (at 86.36 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "100k 1% 0402 UVLO top" (at 86.36 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 45362526-50a7-48df-9a8b-edf820323c82))
-    (pin "2" (uuid 793110d8-7564-4ba9-9604-d230c435f3ce))
+    (pin "1" (uuid eb569b74-5208-4f90-83f6-79d05eba7a8c))
+    (pin "2" (uuid 4c1eadf5-cc65-4cae-8a49-876d7ff63ab7))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "R3") (unit 1))))
   )
-  (wire (pts (xy 86.36 115.57) (xy 86.36 113.03)) (stroke (width 0) (type default)) (uuid 7b403870-4d60-4666-8bfc-4c89df878cf3))
-  (label "VIN" (at 86.36 113.03 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 6cf34d05-e681-4678-8aa1-5f42014f62c7))
-  (wire (pts (xy 86.36 123.19) (xy 86.36 125.73)) (stroke (width 0) (type default)) (uuid 6bc4d215-3ccb-4301-a92d-fea9d95eccc4))
-  (label "EN" (at 86.36 125.73 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 6b8c7a7b-2ad2-42a8-a536-f958d4774122))
+  (wire (pts (xy 86.36 115.57) (xy 86.36 113.03)) (stroke (width 0) (type default)) (uuid afa3bbba-b1de-409f-9954-657cac5460e6))
+  (label "VIN" (at 86.36 113.03 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 3da052e0-ba79-42af-a41c-30a8cdc30258))
+  (wire (pts (xy 86.36 123.19) (xy 86.36 125.73)) (stroke (width 0) (type default)) (uuid 8dd52ceb-2a23-4fbe-9d05-6a4eccbf1742))
+  (label "EN" (at 86.36 125.73 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid a0b01b2f-db7c-47a0-aaf8-367ad507bd12))
   (symbol (lib_id "Device:R") (at 96.52 119.38 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 04ea9acb-d5e5-4c10-8cf0-7dac14251b77)
+    (uuid 54c8fc4a-f1ac-4568-aee1-ccfc3f2e950e)
     (property "Reference" "R4" (at 100.02 117.88 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "26.1k" (at 100.02 120.88 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 96.52 124.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1406,16 +1613,16 @@
     (property "MPN" "0402WGF2612TCE" (at 96.52 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C25875" (at 96.52 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "26.1k 1% 0402 UVLO bottom (~5.9V rising)" (at 96.52 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 048c9e27-d5ae-42fd-9d4d-b3b459261e95))
-    (pin "2" (uuid 623b1d94-d63a-441f-a983-9ff92a3cb5b5))
+    (pin "1" (uuid 0fb5a951-91fa-4178-a193-52017222ca54))
+    (pin "2" (uuid 55706aac-3166-4a8b-bac2-078b53ecb62d))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "R4") (unit 1))))
   )
-  (wire (pts (xy 96.52 115.57) (xy 96.52 113.03)) (stroke (width 0) (type default)) (uuid 768ec882-eb32-4196-93aa-6062daf1b109))
-  (label "EN" (at 96.52 113.03 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 262c6ef4-7cc5-42f0-949b-effd0004da3b))
-  (wire (pts (xy 96.52 123.19) (xy 96.52 125.73)) (stroke (width 0) (type default)) (uuid 69a8a010-285a-44a1-a6ac-820f92a2e2b4))
-  (label "GND" (at 96.52 125.73 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 28d71d70-8ed3-4c79-a9b6-91c318f4467d))
+  (wire (pts (xy 96.52 115.57) (xy 96.52 113.03)) (stroke (width 0) (type default)) (uuid 794c0057-75bb-486c-bbb9-b80631e008ea))
+  (label "EN" (at 96.52 113.03 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid cdb36091-c087-4b1d-92e3-76719ed4c657))
+  (wire (pts (xy 96.52 123.19) (xy 96.52 125.73)) (stroke (width 0) (type default)) (uuid 433f60aa-6a72-4f51-89f0-1b6b7416d8f6))
+  (label "GND" (at 96.52 125.73 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 5dd34909-c5bc-41db-9b87-1c8dad373cb7))
   (symbol (lib_id "Device:C") (at 116.84 147.32 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 20fbb665-4dcb-4528-b03d-fb178147615e)
+    (uuid a1346267-73f9-4e4d-997d-b97868286773)
     (property "Reference" "C11" (at 120.34 145.82 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "10nF" (at 120.34 148.82 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 116.84 152.32 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1423,16 +1630,16 @@
     (property "MPN" "CL05B103KB5NNNC" (at 116.84 147.32 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C15195" (at 116.84 147.32 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "10nF 0402 spread-spectrum dither" (at 116.84 147.32 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 5db7cb24-a6d4-4045-ba3a-7966e1709fa0))
-    (pin "2" (uuid f8311ec6-3e99-437e-bf6d-6717fb877cf9))
+    (pin "1" (uuid def0551e-1330-4e8b-a1a7-9feecde9abcd))
+    (pin "2" (uuid 603f941f-ff4f-4e02-9338-450b1b88c1b2))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "C11") (unit 1))))
   )
-  (wire (pts (xy 116.84 143.51) (xy 116.84 140.97)) (stroke (width 0) (type default)) (uuid 454e86ac-4bcd-4b4c-9aea-a9cd80618073))
-  (label "DITH" (at 116.84 140.97 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid b1952b39-2d02-494c-96a2-c47624c7e428))
-  (wire (pts (xy 116.84 151.13) (xy 116.84 153.67)) (stroke (width 0) (type default)) (uuid c6ca87c8-ab3b-46c2-8ce5-14742b50c358))
-  (label "GND" (at 116.84 153.67 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 16e1a6ce-c445-47af-a95c-0740543dc3a8))
+  (wire (pts (xy 116.84 143.51) (xy 116.84 140.97)) (stroke (width 0) (type default)) (uuid b8c8c653-ef64-43f5-b00b-53888f288180))
+  (label "DITH" (at 116.84 140.97 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid f0603d1c-5ff1-49d0-8b07-b71313f08fef))
+  (wire (pts (xy 116.84 151.13) (xy 116.84 153.67)) (stroke (width 0) (type default)) (uuid 4a5d7227-836d-4439-bc64-512296be86a4))
+  (label "GND" (at 116.84 153.67 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 0104b115-d51e-4f30-a4bc-e89476d54e84))
   (symbol (lib_id "Device:R") (at 86.36 147.32 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid d0fc0701-f142-44c3-926e-2f8b75db9d0c)
+    (uuid 6a696385-08a9-4f8e-94a6-83d69469e3d5)
     (property "Reference" "R5" (at 89.86 145.82 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "49.9k" (at 89.86 148.82 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 86.36 152.32 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1440,16 +1647,16 @@
     (property "MPN" "RC0402FR-0749K9L" (at 86.36 147.32 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C137969" (at 86.36 147.32 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "49.9k 1% 0402 -> 400 kHz" (at 86.36 147.32 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid c9fe295f-745d-4ebd-84c5-2803585c6d3e))
-    (pin "2" (uuid 938fbcfc-aa6b-4335-a5f9-c1958c1a6acc))
+    (pin "1" (uuid ffe6cbb0-5744-4537-bd86-5bfbfae2b742))
+    (pin "2" (uuid ee33ff93-f12d-4f33-bcb3-4cf2acfa4464))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "R5") (unit 1))))
   )
-  (wire (pts (xy 86.36 143.51) (xy 86.36 140.97)) (stroke (width 0) (type default)) (uuid 4a936c2f-bf84-4905-9de1-3f4d8d576885))
-  (label "FSW" (at 86.36 140.97 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid fb9fbbdd-a127-4f84-a823-2b98ace060de))
-  (wire (pts (xy 86.36 151.13) (xy 86.36 153.67)) (stroke (width 0) (type default)) (uuid bdf6d5f0-97cd-4782-9c8a-6e5b1b1122c0))
-  (label "GND" (at 86.36 153.67 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid db394a3a-902a-45cd-82b2-4302d62b6dfe))
+  (wire (pts (xy 86.36 143.51) (xy 86.36 140.97)) (stroke (width 0) (type default)) (uuid 2bb1a375-8daf-43a5-b1de-bb5ff500caff))
+  (label "FSW" (at 86.36 140.97 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 71dc71d9-a96a-4bca-8184-47778d943c8f))
+  (wire (pts (xy 86.36 151.13) (xy 86.36 153.67)) (stroke (width 0) (type default)) (uuid b460530c-6fc4-47c2-b06c-a08a5198fe1f))
+  (label "GND" (at 86.36 153.67 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 13e895ec-128e-4bef-b134-49143f7ea5de))
   (symbol (lib_id "Device:R") (at 116.84 172.72 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid db322f72-5267-4de0-aa59-c27ee8ed9ca6)
+    (uuid 6a7ca02b-aee4-4bab-abf1-0c5bae03eec9)
     (property "Reference" "R6" (at 120.34 171.22 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "100k" (at 120.34 174.22 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 116.84 177.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1457,16 +1664,16 @@
     (property "MPN" "0402WGF1003TCE" (at 116.84 172.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C25741" (at 116.84 172.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "100k 1% 0402 FB top" (at 116.84 172.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 363f5dd4-8dd0-4097-8733-cf25b29caa0e))
-    (pin "2" (uuid 5cca1a9d-65b4-43cc-8193-3dfe5d570011))
+    (pin "1" (uuid 97d14e04-35fd-4474-b06a-297bf2851d17))
+    (pin "2" (uuid 03ce7188-82d5-4e1f-ae9e-95c04f43a096))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "R6") (unit 1))))
   )
-  (wire (pts (xy 116.84 168.91) (xy 116.84 166.37)) (stroke (width 0) (type default)) (uuid 5698a62f-bdf4-4a3c-8001-a977c951e30b))
-  (label "VOUT" (at 116.84 166.37 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 7470f97d-a45e-48fa-a5fe-265374460cc4))
-  (wire (pts (xy 116.84 176.53) (xy 116.84 179.07)) (stroke (width 0) (type default)) (uuid 8e296e87-ecb9-4411-ab53-973e983bc92f))
-  (label "FB" (at 116.84 179.07 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid c14f6921-ad67-443d-b00f-98ffde1bea66))
+  (wire (pts (xy 116.84 168.91) (xy 116.84 166.37)) (stroke (width 0) (type default)) (uuid 64708e2e-152f-487d-8647-256b01f1fa9e))
+  (label "VOUT" (at 116.84 166.37 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid d0eaf53a-8cfd-4c33-bab7-06d777220654))
+  (wire (pts (xy 116.84 176.53) (xy 116.84 179.07)) (stroke (width 0) (type default)) (uuid 17da175e-e845-4ba5-b03b-caf5dbbe5c93))
+  (label "FB" (at 116.84 179.07 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid ada8f443-0696-4628-8ad8-62180b3dae38))
   (symbol (lib_id "Device:R") (at 116.84 190.50 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid ed267860-0286-40d7-9eef-79c34fec9103)
+    (uuid 5ce6eb4b-ccec-4be3-addf-9d2882fa318d)
     (property "Reference" "R7" (at 120.34 189.00 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "11k" (at 120.34 192.00 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 116.84 195.50 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1474,16 +1681,16 @@
     (property "MPN" "0402WGF1102TCE" (at 116.84 190.50 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C25749" (at 116.84 190.50 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "11k 1% 0402 FB bottom -> 12.1 V" (at 116.84 190.50 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid d4f8bb3d-e295-40aa-8d6d-153ca13f2c94))
-    (pin "2" (uuid 35f399a2-ad2b-4c82-a9b7-11516c795d1e))
+    (pin "1" (uuid 57bb2fee-64ff-46af-b526-890dd72b1954))
+    (pin "2" (uuid 2fc27943-c8e9-4745-94fd-f7c534b9a920))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "R7") (unit 1))))
   )
-  (wire (pts (xy 116.84 186.69) (xy 116.84 184.15)) (stroke (width 0) (type default)) (uuid cc32c107-35e5-4067-b35a-ad92cb39f307))
-  (label "FB" (at 116.84 184.15 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 96459749-474a-4c2e-92f7-d9cd0860fcef))
-  (wire (pts (xy 116.84 194.31) (xy 116.84 196.85)) (stroke (width 0) (type default)) (uuid 588b00fe-a51b-444c-8dd8-85298f519a0e))
-  (label "GND" (at 116.84 196.85 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid b944106e-3a62-431e-8d6b-f3b93c1976c5))
+  (wire (pts (xy 116.84 186.69) (xy 116.84 184.15)) (stroke (width 0) (type default)) (uuid ad1685b8-d8f5-4642-9fd3-007720f313cd))
+  (label "FB" (at 116.84 184.15 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid eec5aeb6-23ce-46de-8b7e-1edd94b80121))
+  (wire (pts (xy 116.84 194.31) (xy 116.84 196.85)) (stroke (width 0) (type default)) (uuid 173c598d-c65e-4d83-8215-47ce2df4e68e))
+  (label "GND" (at 116.84 196.85 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid fa9cebc1-100d-4a50-a3e0-6c39d2d4de93))
   (symbol (lib_id "Device:R") (at 106.68 147.32 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 367e1eab-312b-458a-9d45-de167eb02b79)
+    (uuid 8e265304-d433-4047-bd53-ff4436ef9260)
     (property "Reference" "R9" (at 110.18 145.82 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "26.7k" (at 110.18 148.82 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 106.68 152.32 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1491,16 +1698,16 @@
     (property "MPN" "CRCW040226K7FKEDC" (at 106.68 147.32 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C4198231" (at 106.68 147.32 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "26.7k 1% 0402 -> ~12.4 A inductor limit" (at 106.68 147.32 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid ef069e95-274e-42f4-bc70-fc7f462d3da0))
-    (pin "2" (uuid 106d29fb-b22f-40d8-8f3c-b73fd544e342))
+    (pin "1" (uuid a4bafbc1-2581-4550-8e4a-b2c69005bfaf))
+    (pin "2" (uuid 636f5dd0-35e0-44d7-b9d8-1468f68194f1))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "R9") (unit 1))))
   )
-  (wire (pts (xy 106.68 143.51) (xy 106.68 140.97)) (stroke (width 0) (type default)) (uuid 51bcd9c8-0f9b-42d8-b96b-549f7368b8b1))
-  (label "ILIM" (at 106.68 140.97 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid d07dddb6-54f1-4520-a3d4-aa167f2f2fe7))
-  (wire (pts (xy 106.68 151.13) (xy 106.68 153.67)) (stroke (width 0) (type default)) (uuid bd01dc7a-b049-4c68-8c5f-1917e4cdd9e9))
-  (label "GND" (at 106.68 153.67 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid cd95aeca-6d4a-4f67-8ed2-86e6c25d9416))
+  (wire (pts (xy 106.68 143.51) (xy 106.68 140.97)) (stroke (width 0) (type default)) (uuid 5da00ffc-93b3-4f1e-b85a-7d886e10621a))
+  (label "ILIM" (at 106.68 140.97 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 5c7c3403-dd39-46a9-92d3-44c224d3db14))
+  (wire (pts (xy 106.68 151.13) (xy 106.68 153.67)) (stroke (width 0) (type default)) (uuid c6407167-245d-430c-97f9-3a5a856e964b))
+  (label "GND" (at 106.68 153.67 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 3f41d1df-1acb-4eae-abb9-74921535f147))
   (symbol (lib_id "Device:R") (at 86.36 175.26 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid b2309b40-c1b2-4399-869c-e67d88692f84)
+    (uuid bdad549b-7dab-4444-83b8-9aac6ff40825)
     (property "Reference" "R10" (at 89.86 173.76 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "15k" (at 89.86 176.76 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 86.36 180.26 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1508,16 +1715,16 @@
     (property "MPN" "0402WGF1502TCE" (at 86.36 175.26 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C25756" (at 86.36 175.26 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "15k 1% 0402 compensation" (at 86.36 175.26 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid fa260f15-7af1-41e3-9da2-2e73005d1aa5))
-    (pin "2" (uuid d70ffb9a-6d60-41f0-a3e3-b2399733287f))
+    (pin "1" (uuid 4f383038-7ac8-4b8c-ac1b-e4e6b9c10cb3))
+    (pin "2" (uuid a9ef77a2-a84f-4846-9417-1c4645fd4c9a))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "R10") (unit 1))))
   )
-  (wire (pts (xy 86.36 171.45) (xy 86.36 168.91)) (stroke (width 0) (type default)) (uuid 0241d818-6941-4b72-af46-5c76a3a76bbb))
-  (label "COMP" (at 86.36 168.91 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid be82c025-916b-4814-abc3-be3e342707a1))
-  (wire (pts (xy 86.36 179.07) (xy 86.36 181.61)) (stroke (width 0) (type default)) (uuid c80ae49f-f250-4feb-88b0-9ddeefd95809))
-  (label "COMP_RC" (at 86.36 181.61 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid d09365b3-ccd9-404f-9651-be7e97d6aa95))
+  (wire (pts (xy 86.36 171.45) (xy 86.36 168.91)) (stroke (width 0) (type default)) (uuid 32ac4325-7ab7-4eaf-8411-35371cf55514))
+  (label "COMP" (at 86.36 168.91 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid b6266354-eeda-49ed-8d17-73dd3817a3b3))
+  (wire (pts (xy 86.36 179.07) (xy 86.36 181.61)) (stroke (width 0) (type default)) (uuid b0693ab9-f9b8-4ef0-9cf2-e4bc5888b091))
+  (label "COMP_RC" (at 86.36 181.61 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid b2ffa9f8-ea4a-43ea-aad2-565417eac9c4))
   (symbol (lib_id "Device:C") (at 86.36 193.04 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid c98eaade-40a1-496e-beab-66d716009205)
+    (uuid 3b61a1e3-23f1-4b3f-90ae-c372d43b165c)
     (property "Reference" "C12" (at 89.86 191.54 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "10nF" (at 89.86 194.54 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 86.36 198.04 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1525,16 +1732,16 @@
     (property "MPN" "CL05B103KB5NNNC" (at 86.36 193.04 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C15195" (at 86.36 193.04 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "10nF 50V X7R 0402 compensation" (at 86.36 193.04 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid c7f29fc1-a391-4160-a37c-03c21acdc9b7))
-    (pin "2" (uuid fecf29ee-bee4-48d4-aea7-202c48828551))
+    (pin "1" (uuid 505c4001-f756-48b5-896d-ae14cfaaba53))
+    (pin "2" (uuid 360a18ff-8cdc-4d7a-9df4-e0dd409875e8))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "C12") (unit 1))))
   )
-  (wire (pts (xy 86.36 189.23) (xy 86.36 186.69)) (stroke (width 0) (type default)) (uuid 5995adac-c4d5-4b80-9013-e65df9616c6f))
-  (label "COMP_RC" (at 86.36 186.69 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 74d28605-b996-4f8d-a0dc-1a317fba7b92))
-  (wire (pts (xy 86.36 196.85) (xy 86.36 199.39)) (stroke (width 0) (type default)) (uuid 567336ee-d116-48bc-bdee-6dad67637051))
-  (label "GND" (at 86.36 199.39 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 2415337f-28e4-4821-a726-1c2a6d2e67e1))
+  (wire (pts (xy 86.36 189.23) (xy 86.36 186.69)) (stroke (width 0) (type default)) (uuid 8f0bdb84-c72b-4bfd-9e14-bcc0a5b19a9c))
+  (label "COMP_RC" (at 86.36 186.69 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid ca56642e-e9e2-4dc2-9a6f-46d21ad8b8f2))
+  (wire (pts (xy 86.36 196.85) (xy 86.36 199.39)) (stroke (width 0) (type default)) (uuid 3af8a2fb-b7c4-4eda-a1ed-6528fbe32f0b))
+  (label "GND" (at 86.36 199.39 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 540eb4c5-7d92-4e54-859e-c99419243452))
   (symbol (lib_id "Device:C") (at 101.60 175.26 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid e2be6883-acdc-48cd-819f-7056bac77301)
+    (uuid 80e3b6c1-39af-404c-9958-49e00fa0024c)
     (property "Reference" "C13" (at 105.10 173.76 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "100pF C0G" (at 105.10 176.76 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 101.60 180.26 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1542,16 +1749,16 @@
     (property "MPN" "0402CG101J500NT" (at 101.60 175.26 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C1546" (at 101.60 175.26 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "100pF 50V C0G 0402 compensation" (at 101.60 175.26 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 11b70cb6-77aa-4ae7-96db-2654c4b3195a))
-    (pin "2" (uuid 751d5071-d20d-4100-ba1b-ec19f70a4621))
+    (pin "1" (uuid 3ec8bfc1-ed4b-4f30-817a-7c8dbb074c1d))
+    (pin "2" (uuid ab7400d7-fdec-41e1-9835-f777f3d4c071))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "C13") (unit 1))))
   )
-  (wire (pts (xy 101.60 171.45) (xy 101.60 168.91)) (stroke (width 0) (type default)) (uuid ef990b07-9efe-4c0f-9f97-162baa6c9990))
-  (label "COMP" (at 101.60 168.91 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 2f6edca3-ec88-495d-8fd1-db46b78fcc29))
-  (wire (pts (xy 101.60 179.07) (xy 101.60 181.61)) (stroke (width 0) (type default)) (uuid bfaf4a24-8821-4d26-808e-11a32add9424))
-  (label "GND" (at 101.60 181.61 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 887a178d-6584-44b0-9d1d-3b999c2cd2d2))
+  (wire (pts (xy 101.60 171.45) (xy 101.60 168.91)) (stroke (width 0) (type default)) (uuid 133483b9-ec77-4f99-8b71-23536a6829aa))
+  (label "COMP" (at 101.60 168.91 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid cc68a7d6-7047-4f19-aedc-8963909fce37))
+  (wire (pts (xy 101.60 179.07) (xy 101.60 181.61)) (stroke (width 0) (type default)) (uuid 7b23d221-6d28-4c37-aeb1-d86f8c43e46c))
+  (label "GND" (at 101.60 181.61 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 860bb385-9353-49db-b4dd-db80cbb71750))
   (symbol (lib_id "Device:C") (at 232.41 172.72 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 23023e6f-4274-4071-872b-19e3851d7c6c)
+    (uuid a3583ecb-9cde-4df5-a161-43248c0f3fee)
     (property "Reference" "C14" (at 235.91 171.22 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "22uF 25V" (at 235.91 174.22 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_1206_3216Metric" (at 232.41 177.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1559,16 +1766,16 @@
     (property "MPN" "CL31A226KAHNNNE" (at 232.41 172.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C12891" (at 232.41 172.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "22uF 25V X5R 1206 (VCC, needs >4.7uF effective)" (at 232.41 172.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 8e572f8f-7975-470f-a878-218402618852))
-    (pin "2" (uuid 33deaf45-5531-4c6b-a850-5ac66ec681cc))
+    (pin "1" (uuid f3c70bbf-d18c-4b60-93d2-19a6121bf60e))
+    (pin "2" (uuid a677edb4-8a2a-4fdf-9662-d037f3fbdee0))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "C14") (unit 1))))
   )
-  (wire (pts (xy 232.41 168.91) (xy 232.41 166.37)) (stroke (width 0) (type default)) (uuid 635bae4f-9a7e-4ecc-890a-f896e6030d98))
-  (label "VCC" (at 232.41 166.37 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 116f8e3a-dc8a-473b-8425-fc01706f360b))
-  (wire (pts (xy 232.41 176.53) (xy 232.41 179.07)) (stroke (width 0) (type default)) (uuid 8aef2570-abc3-416e-b9eb-9ebb9f904014))
-  (label "GND" (at 232.41 179.07 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid a06e4b5f-cb25-43ad-8a99-7868c1bf3038))
+  (wire (pts (xy 232.41 168.91) (xy 232.41 166.37)) (stroke (width 0) (type default)) (uuid eec8a74d-1431-4c89-bfdb-b2cab08d8014))
+  (label "VCC" (at 232.41 166.37 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 7fb626b4-20a3-4559-8a7c-2f90429c3979))
+  (wire (pts (xy 232.41 176.53) (xy 232.41 179.07)) (stroke (width 0) (type default)) (uuid 7f255146-a5ec-4283-8446-95240f01befe))
+  (label "GND" (at 232.41 179.07 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid bf7de01c-4d34-419e-8ba4-e76b314f9423))
   (symbol (lib_id "Device:C") (at 242.57 172.72 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid b533eaa1-f00c-41d1-adbe-20d03f1f72b8)
+    (uuid e32f6bda-ad0b-438e-a983-f7053f9965ec)
     (property "Reference" "C15" (at 246.07 171.22 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "100nF 50V" (at 246.07 174.22 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 242.57 177.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1576,16 +1783,16 @@
     (property "MPN" "CL05B104KB54PNC" (at 242.57 172.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C307331" (at 242.57 172.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "100nF 0402 VCC HF" (at 242.57 172.72 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid ea515b45-32f9-47a5-afbf-6c20f58d6472))
-    (pin "2" (uuid e5aed9fc-b104-462a-bdec-a9f7c71aef99))
+    (pin "1" (uuid c632406d-6a52-4ba4-8e66-23673c1a3a1c))
+    (pin "2" (uuid 2e16fb78-3440-4725-985a-d6bf1ad67d7b))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "C15") (unit 1))))
   )
-  (wire (pts (xy 242.57 168.91) (xy 242.57 166.37)) (stroke (width 0) (type default)) (uuid 64bdb881-5882-42dc-951a-595d2477b253))
-  (label "VCC" (at 242.57 166.37 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 81e5ebee-5067-4ade-98f1-08723a32372b))
-  (wire (pts (xy 242.57 176.53) (xy 242.57 179.07)) (stroke (width 0) (type default)) (uuid eda840fd-12e8-44be-b6fa-0f83eaaa7b3b))
-  (label "GND" (at 242.57 179.07 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 484f59cd-8856-4cc8-86d1-1dfea6cbe91a))
+  (wire (pts (xy 242.57 168.91) (xy 242.57 166.37)) (stroke (width 0) (type default)) (uuid 74fd21dc-b5f0-460c-a675-ee7fbc6319f0))
+  (label "VCC" (at 242.57 166.37 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 732cfe1a-effe-454e-87a0-ad17305096ae))
+  (wire (pts (xy 242.57 176.53) (xy 242.57 179.07)) (stroke (width 0) (type default)) (uuid 84aba9fa-2c79-4439-bf41-114026302dee))
+  (label "GND" (at 242.57 179.07 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 947f9bc2-82de-419e-bbc8-cf4a5ce1c22e))
   (symbol (lib_id "Device:C") (at 264.16 119.38 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 51f13221-07fb-46f1-97dc-6fe09e9a44f7)
+    (uuid fe673019-f5db-4929-a77a-c3dd721c827a)
     (property "Reference" "C16" (at 267.66 117.88 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "22uF 25V X7R" (at 267.66 120.88 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_1210_3225Metric" (at 264.16 124.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1593,16 +1800,16 @@
     (property "MPN" "GRM32ER71E226KE15L" (at 264.16 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C21397" (at 264.16 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "22uF 25V X7R 1210" (at 264.16 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 94c61125-ffc9-43d5-b629-70e9aa43eb46))
-    (pin "2" (uuid ca79cab0-8bb6-41ca-9641-d24a27bcf706))
+    (pin "1" (uuid 1f55f3b1-5fdc-4315-973e-779c4a9b481a))
+    (pin "2" (uuid 78c0df28-75e8-4e4f-89f3-0eae93bc56ed))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "C16") (unit 1))))
   )
-  (wire (pts (xy 264.16 115.57) (xy 264.16 113.03)) (stroke (width 0) (type default)) (uuid c604a765-e6dd-4430-abc6-4d975f7da978))
-  (label "VOUT" (at 264.16 113.03 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid d6cc69a8-ad60-4367-b335-aafe2ff28bf8))
-  (wire (pts (xy 264.16 123.19) (xy 264.16 125.73)) (stroke (width 0) (type default)) (uuid 1a09152d-c971-4bad-bd86-0fd7472d40f1))
-  (label "GND" (at 264.16 125.73 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 5654758e-41a6-4528-9bf7-8614620f1448))
+  (wire (pts (xy 264.16 115.57) (xy 264.16 113.03)) (stroke (width 0) (type default)) (uuid e4d953e3-9ea3-497b-811c-ed19305d7a57))
+  (label "VOUT" (at 264.16 113.03 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid a376a766-3fce-4f64-99a5-85ca4a204cd7))
+  (wire (pts (xy 264.16 123.19) (xy 264.16 125.73)) (stroke (width 0) (type default)) (uuid 900776fb-5052-4596-88c6-e6537efe066a))
+  (label "GND" (at 264.16 125.73 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid f15e0d8e-6795-4dc5-b236-bc851dd4e541))
   (symbol (lib_id "Device:C") (at 274.32 119.38 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 2ab7caae-2033-4eb6-8d75-4b10a51e00fd)
+    (uuid efb5a6e8-eb03-4259-9302-e49639d9841c)
     (property "Reference" "C17" (at 277.82 117.88 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "22uF 25V X7R" (at 277.82 120.88 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_1210_3225Metric" (at 274.32 124.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1610,16 +1817,16 @@
     (property "MPN" "GRM32ER71E226KE15L" (at 274.32 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C21397" (at 274.32 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "22uF 25V X7R 1210" (at 274.32 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid fab7de69-435e-4d34-9b46-6057606550a7))
-    (pin "2" (uuid 4ab4b14e-ba1b-4467-bb97-9edfc8558ecd))
+    (pin "1" (uuid 682715c7-9059-4bb3-9b80-10b11d8587ae))
+    (pin "2" (uuid 331ee8ee-4781-46c5-8b4f-524c9e7b8371))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "C17") (unit 1))))
   )
-  (wire (pts (xy 274.32 115.57) (xy 274.32 113.03)) (stroke (width 0) (type default)) (uuid 1332b911-94d2-4a60-91ac-306ca31ce83f))
-  (label "VOUT" (at 274.32 113.03 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 3d58e2e9-e9a4-4ef3-a90c-3d29568438cc))
-  (wire (pts (xy 274.32 123.19) (xy 274.32 125.73)) (stroke (width 0) (type default)) (uuid 7a24d3b9-a00d-4099-ab61-5ea1ee843575))
-  (label "GND" (at 274.32 125.73 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 9ceb7a29-974a-4e33-9205-9aeddc09bddd))
+  (wire (pts (xy 274.32 115.57) (xy 274.32 113.03)) (stroke (width 0) (type default)) (uuid e398493b-77b5-49fe-bd44-8410105f87c8))
+  (label "VOUT" (at 274.32 113.03 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 2a607a67-80eb-48cf-8804-1ac4b6d30e95))
+  (wire (pts (xy 274.32 123.19) (xy 274.32 125.73)) (stroke (width 0) (type default)) (uuid 78e9ce3b-0cba-43eb-a03a-aca36e1f2f4d))
+  (label "GND" (at 274.32 125.73 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 890db633-2038-4864-b534-c54e4e41e7de))
   (symbol (lib_id "Device:C") (at 284.48 119.38 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid cb1ffcf1-2467-467b-80d4-8f0b66d7f37a)
+    (uuid 268c3ece-d80a-449c-b504-35b396187a3e)
     (property "Reference" "C18" (at 287.98 117.88 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "22uF 25V X7R" (at 287.98 120.88 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_1210_3225Metric" (at 284.48 124.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1627,16 +1834,16 @@
     (property "MPN" "GRM32ER71E226KE15L" (at 284.48 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C21397" (at 284.48 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "22uF 25V X7R 1210" (at 284.48 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 6956a2d3-b571-42db-95c7-25d07d34be60))
-    (pin "2" (uuid 95c596dd-55d4-4c5c-9761-bbaa2c738f12))
+    (pin "1" (uuid 2a10f19f-b07b-4554-9a27-029ec94e4fd4))
+    (pin "2" (uuid 297a6401-74fd-477f-986b-d55e0d726655))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "C18") (unit 1))))
   )
-  (wire (pts (xy 284.48 115.57) (xy 284.48 113.03)) (stroke (width 0) (type default)) (uuid fabca3df-e673-4f08-88cd-a4ee5bedaa4e))
-  (label "VOUT" (at 284.48 113.03 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid de9047e2-7280-4d76-b813-9dd5e7c3b3e1))
-  (wire (pts (xy 284.48 123.19) (xy 284.48 125.73)) (stroke (width 0) (type default)) (uuid 10808a0f-b934-4e3b-a507-411148509863))
-  (label "GND" (at 284.48 125.73 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 54cb522b-975c-4a7d-8c1e-807da1ca6791))
+  (wire (pts (xy 284.48 115.57) (xy 284.48 113.03)) (stroke (width 0) (type default)) (uuid 6cf4f8d6-9cb6-4fa5-8c3e-3730f536947d))
+  (label "VOUT" (at 284.48 113.03 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 2f68ce0e-30fd-4d40-b481-08c9b2678fc7))
+  (wire (pts (xy 284.48 123.19) (xy 284.48 125.73)) (stroke (width 0) (type default)) (uuid d1c3df66-926b-412f-9c24-ce8232c55061))
+  (label "GND" (at 284.48 125.73 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 3d177692-ec77-4bb8-b713-7575adb9ec28))
   (symbol (lib_id "Device:C") (at 294.64 119.38 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 9e0f6346-fff0-464c-a9e6-412022141931)
+    (uuid 5e171347-c44a-49c8-940a-6c6e0696dcdc)
     (property "Reference" "C19" (at 298.14 117.88 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "22uF 25V X7R" (at 298.14 120.88 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_1210_3225Metric" (at 294.64 124.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1644,16 +1851,16 @@
     (property "MPN" "GRM32ER71E226KE15L" (at 294.64 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C21397" (at 294.64 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "22uF 25V X7R 1210" (at 294.64 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 8ff102cd-eb81-408f-8928-4bea28cb1064))
-    (pin "2" (uuid f0e440df-bc96-429a-8f97-de25dcdc2b56))
+    (pin "1" (uuid 48c3b92c-2063-4756-87a1-0c412e25b1c1))
+    (pin "2" (uuid 44817035-9312-4182-a3e6-83e09535a32f))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "C19") (unit 1))))
   )
-  (wire (pts (xy 294.64 115.57) (xy 294.64 113.03)) (stroke (width 0) (type default)) (uuid 0a07ea19-4bd3-40e0-a538-d2c6abb09a83))
-  (label "VOUT" (at 294.64 113.03 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid a7225185-b607-457c-8b5b-fe4ccfd79244))
-  (wire (pts (xy 294.64 123.19) (xy 294.64 125.73)) (stroke (width 0) (type default)) (uuid 4df5decf-a819-41b9-a8d0-8748be5375b2))
-  (label "GND" (at 294.64 125.73 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid e21319ed-a4c4-476b-bd3e-2797e7cd1bee))
+  (wire (pts (xy 294.64 115.57) (xy 294.64 113.03)) (stroke (width 0) (type default)) (uuid ce6ed191-e9aa-4e74-bc59-a4ee60c11bd2))
+  (label "VOUT" (at 294.64 113.03 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid f73bad12-5e96-4fc6-8748-0a564a8d5450))
+  (wire (pts (xy 294.64 123.19) (xy 294.64 125.73)) (stroke (width 0) (type default)) (uuid c8b93cd7-7396-4599-8149-5dadc3ead596))
+  (label "GND" (at 294.64 125.73 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid e8c4679c-fde3-467e-bf51-9aa4d34a21e3))
   (symbol (lib_id "Device:C_Polarized") (at 304.80 119.38 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 0bfc0bf0-02e2-4d61-be9c-8fd0248fc6bb)
+    (uuid e04a4c36-ca92-441e-9747-497e9827c0b5)
     (property "Reference" "C20" (at 308.30 117.88 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "100uF 35V hybrid" (at 308.30 120.88 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:CP_Elec_6.3x7.7" (at 304.80 124.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1661,16 +1868,16 @@
     (property "MPN" "EEH-ZK1V101XP" (at 304.80 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C454360" (at 304.80 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "100uF 35V polymer-hybrid, 6.3x7.7 (output bulk, sets ESR zero)" (at 304.80 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 15c47d7f-a024-4589-9350-b0a56f5e8d02))
-    (pin "2" (uuid 31fef91c-2172-45b6-b314-bec24033b697))
+    (pin "1" (uuid 2875a73a-82ba-45ff-96c9-1cab9aeb5bf8))
+    (pin "2" (uuid 4b92b280-6910-4353-a3ac-ea541ea73e0b))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "C20") (unit 1))))
   )
-  (wire (pts (xy 304.80 115.57) (xy 304.80 113.03)) (stroke (width 0) (type default)) (uuid 475e23e3-31ea-47aa-b46c-481560521f2f))
-  (label "VOUT" (at 304.80 113.03 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 75fb6cf2-8460-45d3-9818-8bfdc86b7d67))
-  (wire (pts (xy 304.80 123.19) (xy 304.80 125.73)) (stroke (width 0) (type default)) (uuid 94832623-14aa-4b51-8db8-5342979dc38d))
-  (label "GND" (at 304.80 125.73 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 4658cff8-93c5-4608-86dd-0691f401f9b0))
+  (wire (pts (xy 304.80 115.57) (xy 304.80 113.03)) (stroke (width 0) (type default)) (uuid b3070da3-057f-4b6e-acf7-80a0f36fcd77))
+  (label "VOUT" (at 304.80 113.03 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 242534e7-25e4-4a00-b4f2-c5028ceda1d3))
+  (wire (pts (xy 304.80 123.19) (xy 304.80 125.73)) (stroke (width 0) (type default)) (uuid 0c163d77-e3e6-4f38-a6e1-97b5c8cc2e3c))
+  (label "GND" (at 304.80 125.73 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid a3bc176c-1554-4bf3-a69b-47d94d5ae0b9))
   (symbol (lib_id "Device:C") (at 314.96 119.38 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 1b71c0ab-6fc1-4824-ba5e-cd49eaca2c62)
+    (uuid a4dbda94-b933-4463-862e-43ddf235bd65)
     (property "Reference" "C21" (at 318.46 117.88 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "100nF 50V" (at 318.46 120.88 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 314.96 124.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1678,16 +1885,16 @@
     (property "MPN" "CL05B104KB54PNC" (at 314.96 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C307331" (at 314.96 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "100nF 50V X7R 0402" (at 314.96 119.38 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 1a3d9cd8-8fe4-41a8-b25f-7ee20eae3043))
-    (pin "2" (uuid 7cda372a-c8b2-43f1-8215-04ae7f15b6ae))
+    (pin "1" (uuid eca0f9b9-44c9-4641-bc94-602be2559674))
+    (pin "2" (uuid be1e03bc-2070-4991-bf25-875264540cbb))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "C21") (unit 1))))
   )
-  (wire (pts (xy 314.96 115.57) (xy 314.96 113.03)) (stroke (width 0) (type default)) (uuid f3165725-de99-4ab6-bd17-9f6fc625e87e))
-  (label "VOUT" (at 314.96 113.03 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid 07604393-6088-4722-9e42-639a44b50b1e))
-  (wire (pts (xy 314.96 123.19) (xy 314.96 125.73)) (stroke (width 0) (type default)) (uuid 064a92c1-006e-4205-a0c0-d9189635b47d))
-  (label "GND" (at 314.96 125.73 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 206a7fc7-b878-41cc-ab3e-62ab000014d5))
+  (wire (pts (xy 314.96 115.57) (xy 314.96 113.03)) (stroke (width 0) (type default)) (uuid 346e6bca-03d7-4655-bc52-ae4584000821))
+  (label "VOUT" (at 314.96 113.03 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid e70788ab-8894-4a07-8852-24755c1cb2b2))
+  (wire (pts (xy 314.96 123.19) (xy 314.96 125.73)) (stroke (width 0) (type default)) (uuid f13dc1af-5430-4ae7-a8d4-cbba98eeeda5))
+  (label "GND" (at 314.96 125.73 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 9ccb40fe-b270-424b-ba5f-be56be031b86))
   (symbol (lib_id "Device:R") (at 330.20 116.84 0) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid 3d55b775-612a-4cc8-bd7b-71991177ca8d)
+    (uuid 54e544b9-2c4d-45c7-9f7c-cf5b092b6160)
     (property "Reference" "R11" (at 333.70 115.34 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "4.7k" (at 333.70 118.34 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 330.20 121.84 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1695,16 +1902,16 @@
     (property "MPN" "0603WAF4701T5E" (at 330.20 116.84 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C23162" (at 330.20 116.84 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "4.7k 0603 LED resistor" (at 330.20 116.84 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid 237650ad-dd3e-4b2f-96a4-581da1c2af4b))
-    (pin "2" (uuid 95ad1157-a7b1-4b29-8520-8c5ccc04a532))
+    (pin "1" (uuid 1a133440-b85c-43d2-84b6-c6a9d8a3efa2))
+    (pin "2" (uuid bfd1c447-0cb0-45f0-948a-df7edac82b43))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "R11") (unit 1))))
   )
-  (wire (pts (xy 330.20 113.03) (xy 330.20 110.49)) (stroke (width 0) (type default)) (uuid fff44cb1-6f1f-49d8-b245-14db44766c23))
-  (label "VOUT" (at 330.20 110.49 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid f2bae07f-2718-42b4-adb4-b25b90780dee))
-  (wire (pts (xy 330.20 120.65) (xy 330.20 123.19)) (stroke (width 0) (type default)) (uuid 30a1529c-c315-4534-9ec7-e2a8a3eff86b))
-  (label "LED_A" (at 330.20 123.19 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 09b1b363-7975-4487-9280-2f914b8644d9))
+  (wire (pts (xy 330.20 113.03) (xy 330.20 110.49)) (stroke (width 0) (type default)) (uuid 2f909db1-e662-4b6b-aa57-076c9db04b2f))
+  (label "VOUT" (at 330.20 110.49 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid ff6472b1-dd98-47df-95e0-7755444f1ea0))
+  (wire (pts (xy 330.20 120.65) (xy 330.20 123.19)) (stroke (width 0) (type default)) (uuid b8e21865-8b73-4fa3-817e-0f122b8ecdd9))
+  (label "LED_A" (at 330.20 123.19 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 01323e68-89cc-4c90-a8e1-aa8e348106da))
   (symbol (lib_id "Device:LED") (at 330.20 132.08 90) (unit 1) (in_bom yes) (on_board yes) (dnp no)
-    (uuid ba541bd7-b7b4-404c-b29d-77a229b0d5a0)
+    (uuid 99f0cd4a-2468-43a7-9600-6f9e6c81be95)
     (property "Reference" "D2" (at 333.70 130.58 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "GREEN" (at 333.70 133.58 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "LED_SMD:LED_0603_1608Metric" (at 330.20 137.08 0) (effects (font (size 1.27 1.27)) (justify left) hide))
@@ -1712,19 +1919,19 @@
     (property "MPN" "KT-0603G" (at 330.20 132.08 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "LCSC" "C12624" (at 330.20 132.08 0) (effects (font (size 1.27 1.27)) (justify left) hide))
     (property "Description" "Green LED 0603 - 12V output on" (at 330.20 132.08 0) (effects (font (size 1.27 1.27)) (justify left) hide))
-    (pin "1" (uuid d62a2821-5adc-4707-9f94-1b780621272a))
-    (pin "2" (uuid 62910843-b1ee-4365-9291-badbe1ddf21c))
+    (pin "1" (uuid 41d47511-57fc-4e56-96d9-0ac51ae06193))
+    (pin "2" (uuid 482912bb-5726-4d89-b373-724938213143))
     (instances (project "frc-poe-buckboost" (path "/6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001" (reference "D2") (unit 1))))
   )
-  (wire (pts (xy 330.20 135.89) (xy 330.20 138.43)) (stroke (width 0) (type default)) (uuid 7ea83413-c9fa-4ac0-909d-eb6fc913fdaa))
-  (label "GND" (at 330.20 138.43 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 414e3dd0-68ee-4e65-93a9-aaf1f5b14459))
-  (wire (pts (xy 330.20 128.27) (xy 330.20 125.73)) (stroke (width 0) (type default)) (uuid b4b38645-595b-4dfd-b039-908fe602fc4a))
-  (label "LED_A" (at 330.20 125.73 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid b9594135-e21b-4954-ac34-e029968e5e6d))
-  (text "FRC 12 V PoE-switch supply  -  TPS552882 4-switch buck-boost, 6-16 V in -> 12.1 V / 5 A out" (at 20 25 0) (effects (font (size 2.5 2.5)) (justify left bottom)) (uuid eb4d77da-f599-470c-a660-6a6a20546481))
-  (text "Input: WAGO J1 from a PDH/PDP breaker slot (10-20 A).  Q3 = low-side reverse-polarity FET, D1 = 16 V TVS." (at 20 32 0) (effects (font (size 1.6 1.6)) (justify left bottom)) (uuid cffb7cfc-ac9b-4ed0-a682-11119b14cd01))
-  (text "Buck leg uses external FETs Q1/Q2; boost leg FETs are inside U1." (at 160 32 0) (effects (font (size 1.6 1.6)) (justify left bottom)) (uuid d42bdc6c-f677-4db7-962c-1dda0d139787))
-  (text "UVLO rising = 1.23 V x (1 + R3/R4) = 5.9 V    FSW: R5 49.9k = 400 kHz    ILIM: R9 26.7k ~ 12.4 A    MODE: R8 0R = internal LDO, forced PWM" (at 60 105 0) (effects (font (size 1.6 1.6)) (justify left bottom)) (uuid 8bcefacf-265e-438e-afdd-1a787480d0fa))
-  (text "VOUT = 1.2 V x (1 + R6/R7) = 12.1 V.   ISP/ISN tied to VOUT (output current sense unused).   PG, CC_N, CDC not used." (at 60 205 0) (effects (font (size 1.6 1.6)) (justify left bottom)) (uuid d3d32f2d-4cc7-4c5e-9bc6-f6a7b20082d1))
-  (text "Output: to Linovision POE-Switch0504GDF PWR1 (DC 9-57 V).  At 12 V input the switch's PoE budget is 60 W." (at 255 105 0) (effects (font (size 1.6 1.6)) (justify left bottom)) (uuid 793f6b29-565f-45ee-9b5a-1c29840c414a))
+  (wire (pts (xy 330.20 135.89) (xy 330.20 138.43)) (stroke (width 0) (type default)) (uuid 883c117d-33a0-40b8-87ae-d9efff878967))
+  (label "GND" (at 330.20 138.43 270) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid 79f4cb37-6cc4-40f1-ad99-61f64e4e409f))
+  (wire (pts (xy 330.20 128.27) (xy 330.20 125.73)) (stroke (width 0) (type default)) (uuid 615ae3bf-4d31-43b1-9cca-b8da1cc9290a))
+  (label "LED_A" (at 330.20 125.73 90) (fields_autoplaced) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid e7c59b35-6773-4fc9-9e22-6d6fb534dc7b))
+  (text "FRC 12 V PoE-switch supply  -  TPS552882 4-switch buck-boost, 6-16 V in -> 12.1 V / 5 A out" (at 20 25 0) (effects (font (size 2.5 2.5)) (justify left bottom)) (uuid d9bb7bd8-3e1a-46f0-9c82-f86f8329f4d2))
+  (text "Input: WAGO J1 from a PDH/PDP breaker slot (10-20 A).  Q3 = low-side reverse-polarity FET, D1 = 16 V TVS." (at 20 32 0) (effects (font (size 1.6 1.6)) (justify left bottom)) (uuid 5133eb21-d176-4417-8825-1b586a0dacff))
+  (text "Buck leg uses external FETs Q1/Q2; boost leg FETs are inside U1." (at 160 32 0) (effects (font (size 1.6 1.6)) (justify left bottom)) (uuid e1ba1078-d2d7-4a3e-ac90-a325bf431b8e))
+  (text "UVLO rising = 1.23 V x (1 + R3/R4) = 5.9 V    FSW: R5 49.9k = 400 kHz    ILIM: R9 26.7k ~ 12.4 A    MODE: R8 0R = internal LDO, forced PWM" (at 60 105 0) (effects (font (size 1.6 1.6)) (justify left bottom)) (uuid c9d38b1b-2556-4bc5-9423-0439d5ac4960))
+  (text "VOUT = 1.2 V x (1 + R6/R7) = 12.1 V.   ISP/ISN tied to VOUT (output current sense unused).   PG, CC_N, CDC not used." (at 60 205 0) (effects (font (size 1.6 1.6)) (justify left bottom)) (uuid 8c67079b-a339-4dcb-8693-eeec1aa4b6e7))
+  (text "Output: to Linovision POE-Switch0504GDF PWR1 (DC 9-57 V).  At 12 V input the switch's PoE budget is 60 W." (at 255 105 0) (effects (font (size 1.6 1.6)) (justify left bottom)) (uuid 5c5d1d2c-ce30-4606-896d-4a2d94c9ed2d))
   (sheet_instances (path "/" (page "1")))
 )

@@ -1,9 +1,19 @@
-"""Generate the KiCad 7 schematic from design.py (label-connected, one sheet)."""
+"""Generate the KiCad schematic from design.py (label-connected, one sheet)."""
 import math, os, uuid
 from sexp import find_symbol, dump
 import design
 
-SYM = "/usr/share/kicad/symbols"
+
+def _kicad_share(sub):
+    """Stock KiCad library dir: $KICAD_SHARE, Linux /usr/share/kicad, or macOS KiCad.app."""
+    for base in (os.environ.get("KICAD_SHARE"), "/usr/share/kicad",
+                 "/Applications/KiCad/KiCad.app/Contents/SharedSupport"):
+        if base and os.path.isdir(os.path.join(base, sub)):
+            return os.path.join(base, sub)
+    raise SystemExit(f"KiCad {sub} library not found; set KICAD_SHARE")
+
+
+SYM = _kicad_share("symbols")
 OUT = os.path.join(os.path.dirname(__file__), "..", f"{design.PROJECT}.kicad_sch")
 U = lambda: str(uuid.uuid4())
 ROOT = "6f1c3c4e-2b1a-4d61-9a55-5a7d0c0f0001"
@@ -44,14 +54,26 @@ def lib_symbol_text(lib_id):
     if lib_id == "frc_poe:TPS552882":
         return tps552882()
     lib, name = lib_id.split(":")
-    src = name
-    if name == "CSD17577Q3A":
-        src = "CSD19537Q3"           # KiCad lib defines it via 'extends'; flatten
-    tree = find_symbol(f"{SYM}/{lib}.kicad_sym", src)
+    path = f"{SYM}/{lib}.kicad_sym"
+    tree = find_symbol(path, name)
+    # A derived symbol ('extends') has no graphics or pins of its own: start from the
+    # base symbol's body and lay the derived symbol's properties over it.
+    while any(isinstance(e, list) and e[0] == "extends" for e in tree):
+        base_name = next(e[1] for e in tree if isinstance(e, list) and e[0] == "extends").strip('"')
+        base = find_symbol(path, base_name)
+        props = {e[1]: e for e in tree if isinstance(e, list) and e[0] == "property"}
+        merged = []
+        for e in base:
+            if isinstance(e, list) and e[0] == "property" and e[1] in props:
+                merged.append(props.pop(e[1]))
+            elif isinstance(e, list) and e[0] == "symbol":
+                e[1] = e[1].replace(base_name, name)
+                merged.append(e)
+            else:
+                merged.append(e)
+        tree = merged + list(props.values())
     tree[1] = q(lib_id)
     for e in tree:
-        if isinstance(e, list) and e[0] == "symbol":
-            e[1] = e[1].replace(src, name)
         if isinstance(e, list) and e[:2] == ["property", '"Value"']:
             e[2] = q(name)
     return dump(tree)
@@ -62,7 +84,7 @@ def lib_pins(lib_id):
     import re
     txt = lib_symbol_text(lib_id)
     out = []
-    for m in re.finditer(r'\(pin\s+\w+\s+\w+\s+\(at\s+([-\d.]+)\s+([-\d.]+)\s+(\d+)\)\s+\(length\s+[\d.]+\)(?:\s+hide)?\s+\(name\s+"[^"]*".*?\(number\s+"([^"]*)"', txt, re.S):
+    for m in re.finditer(r'\(pin\s+\w+\s+\w+\s+\(at\s+([-\d.]+)\s+([-\d.]+)\s+(\d+)\)\s+\(length\s+[\d.]+\)(?:\s+hide|\s+\(hide\s+\w+\))?\s+\(name\s+"[^"]*".*?\(number\s+"([^"]*)"', txt, re.S):
         out.append((m.group(4), float(m.group(1)), float(m.group(2)), int(m.group(3))))
     return out
 

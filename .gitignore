@@ -2,3 +2,5 @@ __pycache__/
 *.kicad_prl
 *-backups/
 fp-info-cache
+.DS_Store
+drc.rpt

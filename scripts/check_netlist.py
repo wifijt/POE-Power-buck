@@ -2,7 +2,7 @@
 import re, sys
 sys.path.insert(0, __import__("os").path.dirname(__file__))
 import design
-t = open(sys.argv[1]).read()
+t = re.sub(r"\s+", " ", open(sys.argv[1]).read())   # KiCad 7 one-line or KiCad 8+ multi-line
 got = {}
 for blk in t.split("(net (code")[1:]:
     name = re.search(r'\(name "([^"]*)"', blk).group(1).lstrip("/")
