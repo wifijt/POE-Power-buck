@@ -1,5 +1,5 @@
 Designator,Mid X,Mid Y,Layer,Rotation
-C1,31.300mm,15.500mm,Top,90
+C1,31.300mm,15.500mm,Top,270
 C2,21.900mm,26.800mm,Top,270
 C3,19.600mm,26.800mm,Top,270
 C4,29.300mm,25.200mm,Top,270
@@ -16,7 +16,7 @@ C16,12.600mm,31.000mm,Top,0
 C17,8.000mm,31.000mm,Top,180
 C18,12.600mm,34.300mm,Top,0
 C19,8.000mm,34.300mm,Top,180
-C20,5.000mm,13.400mm,Top,90
+C20,5.000mm,13.400mm,Top,270
 C21,12.400mm,37.100mm,Top,0
 D1,34.200mm,27.400mm,Top,90
 D2,3.000mm,34.300mm,Top,90

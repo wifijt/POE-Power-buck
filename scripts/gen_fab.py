@@ -35,6 +35,9 @@ with open(os.path.join(FAB, "BOM_hand_solder.csv"), "w", newline="") as f:
 
 _org = b.GetDesignSettings().GetAuxOrigin()   # board lower-left (set in gen_pcb.py); gerbers use it too
 ox, oy = pcbnew.ToMM(_org.x), pcbnew.ToMM(_org.y)   # JLC CPL: +Y up
+# JLC's model orientation vs KiCad's, per footprint, checked in JLC's placement preview
+# (2026-11-10): U1, Q1-Q3, D1-D3 match at 0; the polarized caps' + mark lands on the wrong pad.
+JLC_ROT = {"CP_Elec_6.3x7.7": 180}
 with open(os.path.join(FAB, "CPL_JLCPCB.csv"), "w", newline="") as f:
     w = csv.writer(f)
     w.writerow(["Designator", "Mid X", "Mid Y", "Layer", "Rotation"])
@@ -45,5 +48,6 @@ with open(os.path.join(FAB, "CPL_JLCPCB.csv"), "w", newline="") as f:
         pos = fp.GetPosition()
         x = pcbnew.ToMM(pos.x) - ox
         y = oy - pcbnew.ToMM(pos.y)
-        w.writerow([r, f"{x:.3f}mm", f"{y:.3f}mm", "Top", f"{fp.GetOrientationDegrees() % 360:.0f}"])
+        rot = (fp.GetOrientationDegrees() + JLC_ROT.get(parts[r]["fp"].split(":")[1], 0)) % 360
+        w.writerow([r, f"{x:.3f}mm", f"{y:.3f}mm", "Top", f"{rot:.0f}"])
 print("BOM lines:", len(groups), " placed parts:", sum(len(v) for v in groups.values()))

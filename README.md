@@ -51,14 +51,18 @@ Silkscreen, left to right along the top edge: **OUT 12V (+ -)** then **IN (+ -)*
      Economic OK) instead of EEH-ZK1V101XP (C454360), and R9 is now UniOhm 0402WGF2672TCE (C25876).
      Fallback for C1/C20: Lelon HBV101M1VTR-0608 hybrid (C967098). L1 (C41422303) and
      Q1-Q3 (C201632) have only a few hundred in stock.
-   * **Check part rotations in JLC's placement preview**, especially U1 (pin 1 dot),
-     Q1-Q3, D1, D3, D2, C1 and C20. JLC's library orientations sometimes differ from KiCad's.
+   * Rotations were checked in JLC's placement preview (2026-11-10). C1/C20 needed 180° and
+     `gen_fab.py` now applies that; U1, Q1-Q3 and D1-D3 match. Still glance at the preview: the
+     magenta **+** on C1/C20 must sit on the bottom pad, next to the white silkscreen **+**.
 3. **Hand-solder** J1 and J2 (WAGO 2604-3102, `fab/BOM_hand_solder.csv`) after the board
    arrives. The pads are 2.6 mm with 1.4 mm drills, two pins per pole, and are connected solid to
    the copper planes, so use a big iron tip.
 
 ## First power-up
 
+0. Before any power, check D1 (the SMBJ16A TVS) isn't reversed: meter in diode mode, red probe on
+   OUT - (board GND), black on IN +. Expect ~0.6-0.7 V; swapped probes read open (or C1 charging).
+   ~0.6 V with red on IN + means D1 is backwards and would short the input.
 1. Bench supply at 12 V with a 0.5 A current limit and no load. Expect 12.1 V (±2 %) and the LED on.
 2. Sweep the input from 6 V to 16 V with a 1-2 A load and check the output stays at 12 V.
 3. Raise the load step by step to 5 A at 12 V input, then at 7 V input. Watch the temperatures of
