@@ -9,9 +9,10 @@ values were cross-checked: a 12 V output stage (EwoudVV/ducktop2) and a
 16 A booster (mikegoelzer/Homebrew-ECP5-SBC, pd-booster-16amps).
   Vref (FB)       = 1.2 V      (ref designs: 102k/11.3k -> 12.03 V; here 100k/11k -> 12.1 V)
   FSW  49.9k      = 400 kHz
-  ILIM 26.7k      ~ 12.4 A average inductor current limit
+  ILIM 22.1k      = 14.9 A typ average inductor current limit (330000/R; -15% min ~12.7 A)
   MODE tied to GND = internal VCC LDO, forced PWM
-  EN/UVLO rising  = 1.23 V * (1 + Rtop/Rbot)
+  EN/UVLO rising  = 1.23 V (1.20-1.26) * (1 + Rtop/Rbot); falling = rising - 5 uA * Rtop
+  Checked against TI datasheet SLVSFC5 (Nov 2020): pinout, land pattern, Eq 1-6.
 """
 
 PROJECT = "frc-poe-buckboost"
@@ -85,8 +86,8 @@ PARTS = [
          lcsc="C3188898", mpn="TPS552882RPMR", desc="36V 16A buck-boost controller, standalone (no I2C)"),
     dict(ref="R3", sym="Device:R", value="100k", fp=R0402, pins={"1": "VIN", "2": "EN"},
          lcsc="C25741", mpn="0402WGF1003TCE", desc="100k 1% 0402 UVLO top"),
-    dict(ref="R4", sym="Device:R", value="26.1k", fp=R0402, pins={"1": "EN", "2": "GND"},
-         lcsc="C25875", mpn="0402WGF2612TCE", desc="26.1k 1% 0402 UVLO bottom (~5.9V rising)"),
+    dict(ref="R4", sym="Device:R", value="28.7k", fp=R0402, pins={"1": "EN", "2": "GND"},
+         lcsc="C26972", mpn="0402WGF2872TCE", desc="28.7k 1% 0402 UVLO bottom (5.5V rising typ, 5.65V max; ~5.0V falling)"),
     dict(ref="C11", sym="Device:C", value="10nF", fp=C0402, pins={"1": "DITH", "2": "GND"},
          lcsc="C15195", mpn="CL05B103KB5NNNC", desc="10nF 0402 spread-spectrum dither"),
     dict(ref="R5", sym="Device:R", value="49.9k", fp=R0402, pins={"1": "FSW", "2": "GND"},
@@ -95,8 +96,8 @@ PARTS = [
          lcsc="C25741", mpn="0402WGF1003TCE", desc="100k 1% 0402 FB top"),
     dict(ref="R7", sym="Device:R", value="11k", fp=R0402, pins={"1": "FB", "2": "GND"},
          lcsc="C25749", mpn="0402WGF1102TCE", desc="11k 1% 0402 FB bottom -> 12.1 V"),
-    dict(ref="R9", sym="Device:R", value="26.7k", fp=R0402, pins={"1": "ILIM", "2": "GND"},
-         lcsc="C25876", mpn="0402WGF2672TCE", desc="26.7k 1% 0402 -> ~12.4 A inductor limit"),
+    dict(ref="R9", sym="Device:R", value="22.1k", fp=R0402, pins={"1": "ILIM", "2": "GND"},
+         lcsc="C43473", mpn="0402WGF2212TCE", desc="22.1k 1% 0402 -> 14.9 A typ (12.7 A min) avg inductor limit"),
     dict(ref="R10", sym="Device:R", value="15k", fp=R0402, pins={"1": "COMP", "2": "COMP_RC"},
          lcsc="C25756", mpn="0402WGF1502TCE", desc="15k 1% 0402 compensation"),
     dict(ref="C12", sym="Device:C", value="10nF", fp=C0402, pins={"1": "COMP_RC", "2": "GND"},

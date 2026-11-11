@@ -10,8 +10,8 @@ coprocessors alive when the battery sags below 9 V under heavy drive load.
 | | |
 |---|---|
 | Board | 36.0 x 49.5 mm, 4 layers, 1.6 mm, **2 oz outer copper**, rounded corners |
-| Input | 6-16 V (starts at ~5.9 V rising; 16 V TVS clamp), reverse-polarity protected |
-| Output | 12.1 V, 5 A continuous (60 W). Below ~7 V input it is limited by the ~12.4 A inductor-current limit |
+| Input | 6-16 V (starts at ~5.5 V rising, stops at ~5.0 V; 16 V TVS clamp), reverse-polarity protected |
+| Output | 12.1 V, 5 A continuous (60 W). Full power down to about 5.3 V input (14.9 A typ / 12.7 A min average inductor-current limit) |
 | Converter | TI **TPS552882** 4-switch buck-boost (standalone, no I2C), 400 kHz |
 | Connectors | 2x **WAGO 2604-3102** lever terminals (5.0 mm, up to 12 AWG / 4 mm²). Vertical wire entry; levers face the top edge |
 | Indicator | Green LED = 12 V output present |
@@ -106,7 +106,7 @@ KiCad 10 notes: the `pcbnew` scripts print harmless wxWidgets assert lines. Don'
 * **Layers**: top = parts, switch-node and power pours. Inner 1 = solid GND. Inner 2 = VOUT
   plane (left) and VIN plane (right). Bottom = GND plus the DR1H and EN traces.
 * **Reverse polarity**: Q3 (low-side N-FET, gate from VIN through R12, 12 V zener clamp D3).
-* **Values** (FB 100k/11k = 12.1 V; the reference used 102k/11.3k, FSW 49.9k, ILIM 26.7k, compensation 15k + 10 nF + 100 pF, VCC 22 µF,
+* **Values** (FB 100k/11k = 12.1 V; the reference used 102k/11.3k, FSW 49.9k, ILIM 22.1k (was 26.7k), UVLO 100k/28.7k (was 26.1k), compensation 15k + 10 nF + 100 pF, VCC 22 µF,
   6.8 µH inductor, external CSD17577Q3A buck FETs) follow two published TPS552882/TPS55288
   designs: a 12 V output stage in EwoudVV/ducktop2 and a 16 A booster in
   mikegoelzer/Homebrew-ECP5-SBC. The output bulk (100 µF hybrid + 4x 22 µF) is at least what
@@ -115,7 +115,14 @@ KiCad 10 notes: the `pcbnew` scripts print harmless wxWidgets assert lines. Don'
   reports 0 unconnected items and 0 clearance errors. What's left is courtyard overlap between
   deliberately tight parts (hot-loop caps next to the FETs, boot cap next to U1) and silkscreen
   clipping.
-* **Not yet verified**: there is no simulation and no built prototype. I couldn't reach TI's
-  datasheet from the design environment, so the U1 pinout and land pattern come from two
-  independent published footprints that agree with each other. Check both against the
-  TPS552882 datasheet before ordering.
+* **Checked against TI's TPS552882 datasheet (SLVSFC5, Nov 2020)**: all 26 pins, the RPM0026A
+  land pattern (pads match TI's example layout to <0.005 mm), and the FB, FSW, ILIM, EN/UVLO,
+  MODE, DITH, VCC and bootstrap values. Two values changed as a result: R9 26.7k -> 22.1k (the
+  old limit could fall to ~10.5 A, below the ~11 A needed at 6 V in / 60 W out) and R4 26.1k ->
+  28.7k (the old divider could need 6.09 V to start). PG, CC and CDC may float; ISP/ISN tied to
+  VOUT is TI's documented way to disable output current limiting.
+* **Compensation** (15k + 10 nF + 100 pF) puts crossover at roughly 3-4 kHz, close to the
+  datasheet's limit of 1/5 of the boost right-half-plane zero (~11-14 kHz at 6 V in, 5 A). It
+  relies on the C20 polymer cap counting toward Cout. If bench tests show ringing in boost mode,
+  drop R10 to about 12k.
+* **Not yet verified**: there is no simulation and no built prototype.
