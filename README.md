@@ -9,7 +9,7 @@ coprocessors alive when the battery sags below 9 V under heavy drive load.
 
 | | |
 |---|---|
-| Board | 36.0 x 49.5 mm, 4 layers, 1.6 mm, **2 oz outer copper**, rounded corners |
+| Board | 36.0 x 49.5 mm, 4 layers, 1.6 mm, 1 oz outer copper, rounded corners |
 | Input | 6-16 V (starts at ~5.5 V rising, stops at ~5.0 V; 16 V TVS clamp), reverse-polarity protected |
 | Output | 12.1 V, 5 A continuous (60 W). Full power down to about 5.3 V input (14.9 A typ / 12.7 A min average inductor-current limit) |
 | Converter | TI **TPS552882** 4-switch buck-boost (standalone, no I2C), 400 kHz |
@@ -30,15 +30,17 @@ Silkscreen, left to right along the top edge: **OUT 12V (+ -)** then **IN (+ -)*
 
 1. **PCB**: upload `fab/gerbers_JLCPCB.zip` with these options:
    * Layers: **4**, thickness **1.6 mm**
-   * **Outer copper weight: 2 oz**. Inner copper weight: 0.5 oz (default; 1 oz is fine too)
+   * Outer copper weight: **1 oz** (default). Inner copper weight: 0.5 oz (default)
    * Surface finish: ENIG recommended for the 0.5 mm-pitch U1 pads (HASL also works). Impedance control: off
    * **Via covering: Epoxy Filled & Capped** (a paid option on 4 layers). U1 has six 0.2 mm-drill
      vias inside its PGND and VOUT center pads; open vias there would wick solder away from the QFN.
      Set **min via hole size to 0.2 mm** (0.35 mm diameter) in the quote.
 
-   The board is sized for 2 oz outer copper: the planned load (two Raspberry Pi 5s and an
-   Orange Pi 5 on PoE) is about 40-55 W, close to the 60 W rating. The layout already meets
-   JLC's 2 oz rules (0.2 mm minimum track and spacing), so their DFM check should pass.
+   1 oz outer copper is enough for the planned 40-55 W load (two Raspberry Pi 5s and an
+   Orange Pi 5 on PoE). VIN, VOUT and GND each have a full inner plane alongside the top pour, and
+   the top-only runs (GND_IN, SW1, SW2) are short: about a 10 °C rise at 12 V in, about 35 °C only
+   with a sustained 6 V input. Avoid 2 oz: JLC then asks for a 0.254 mm annular ring on plated
+   holes, and this board's vias have 0.15 mm (0.6/0.3) and 0.075 mm (0.35/0.2 via-in-pad) rings.
 2. **Assembly**: top side only. Upload `fab/BOM_JLCPCB.csv` and `fab/CPL_JLCPCB.csv`.
    * Every line has a JLCPCB/LCSC part number, taken from jlcpcb.com part pages (Nov 2026).
      Stock changes daily, so re-run JLC's matching before you pay and swap anything out of stock
@@ -89,9 +91,9 @@ $KPY scripts/gen_fab.py            # BOM / CPL / hand-solder BOM
 
 # gerbers + drill -> fab/gerbers_JLCPCB.zip
 rm -f fab/gerbers/* fab/gerbers_JLCPCB.zip
-$KCLI pcb export gerbers -o fab/gerbers/ \
+$KCLI pcb export gerbers -o fab/gerbers/ --use-drill-file-origin \
   -l F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts frc-poe-buckboost.kicad_pcb
-$KCLI pcb export drill -o fab/gerbers/ --format excellon -u mm --excellon-separate-th frc-poe-buckboost.kicad_pcb
+$KCLI pcb export drill -o fab/gerbers/ --drill-origin plot --format excellon -u mm --excellon-separate-th frc-poe-buckboost.kicad_pcb
 (cd fab/gerbers && zip -q ../gerbers_JLCPCB.zip *)
 
 # check the schematic against design.py
@@ -105,7 +107,7 @@ KiCad 10 notes: the `pcbnew` scripts print harmless wxWidgets assert lines. Don'
 
 ## Design notes
 
-* **Copper**: 2 oz outer layers, 0.2 mm minimum track and clearance throughout.
+* **Copper**: 1 oz outer layers, 0.2 mm minimum track and clearance throughout (more than JLC's 1 oz minimum).
 * **Layers**: top = parts, switch-node and power pours. Inner 1 = solid GND. Inner 2 = VOUT
   plane (left) and VIN plane (right). Bottom = GND plus the DR1H and EN traces.
 * **U1 grounding** (TI SLVSFC5 sec. 10.1): three filled-and-capped vias in each of U1's center pads

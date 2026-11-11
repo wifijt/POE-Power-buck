@@ -53,7 +53,7 @@ assert set(part) == set(PL), set(part) ^ set(PL)
 # ------------------------------------------------------------------ rules
 ds = B.b.GetDesignSettings()
 ds.m_TrackMinWidth = pcbnew.FromMM(0.2)
-ds.m_MinClearance = pcbnew.FromMM(0.2)      # JLC 2 oz outer copper: 8 mil
+ds.m_MinClearance = pcbnew.FromMM(0.2)      # 8 mil; fine for 1 oz (and would meet JLC's 2 oz track rule)
 ds.m_ViasMinSize = pcbnew.FromMM(0.35)      # 0.35/0.2 via-in-pad under U1 (JLC: filled & capped)
 ds.m_MinThroughDrill = pcbnew.FromMM(0.2)
 ds.m_ViasMinAnnularWidth = pcbnew.FromMM(0.075)  # JLC multilayer min via 0.15/0.25 -> 0.05 ring
@@ -203,6 +203,9 @@ for ref, (x, y) in {"J1": (22.2, 17.9), "J2": (7.6, 17.9), "U1": (12.4, 27.95), 
     B.fp[ref].Reference().SetTextAngleDegrees(0)
 B.fp["U1"].Reference().SetLayer(pcbnew.F_Fab)
 B.outline(r=1.5)
+# drill/place origin at the board's lower-left corner: gerbers exported with
+# --use-drill-file-origin then share CPL_JLCPCB.csv's frame (0..36 x 0..49.5 mm, +Y up)
+B.b.GetDesignSettings().SetAuxOrigin(pcbnew.VECTOR2I(pcbnew.FromMM(100), pcbnew.FromMM(100 + H)))
 out = os.path.join(PROJ, f"{design.PROJECT}.kicad_pcb")
 if __name__ == "__main__":
     pass
