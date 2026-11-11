@@ -4,8 +4,10 @@ TI_RPM0026A: pad geometry is TI's recommended land pattern for RPM0026A
 (VQFN-HR-26, 4.0 x 3.5 mm), cross-checked against two independent published
 footprints (LCSC/EasyEDA export and EwoudVV/ducktop2).
 WAGO 2604-3102: 2 solder pins per pole, 5.0 mm pole pitch, 8.2 mm pin pair,
-cross-checked against frc971, MLAB and DPIclimate footprints.  The wire-entry
-face is the -Y side (about 5 mm in front of the first pin row).
+checked against WAGO's 2604-3102 data sheet (23.12.2024): Ø1.3 (+0.1) drill,
+front face 4.9 mm in front of pin row 1, body 16.7 deep.  Wires enter VERTICALLY
+(conductor axis 90° to the PCB) from the top of the block; the orange levers are
+on the front face, which is the -Y side and swings ~9 mm further out when opened.
 """
 import os
 D = os.path.join(os.path.dirname(__file__), "..", "frc_poe.pretty")
@@ -69,7 +71,7 @@ def tps():
 
 
 def wago():
-    L = header("WAGO_2604-3102_1x02_P5.00mm", "WAGO 2604-3102 PCB terminal block, lever, push-in, 2-pole, 5.0mm pitch, 4mm2. Wire entry on -Y face.", smd=False)
+    L = header("WAGO_2604-3102_1x02_P5.00mm", "WAGO 2604-3102 PCB terminal block, lever, push-in, 2-pole, 5.0mm pitch, 4mm2. Vertical wire entry; levers on -Y face.", smd=False)
     for n, x in (("1", 0.0), ("2", 5.0)):
         for y in (0.0, 8.2):
             shape = "rect" if n == "1" else "circle"
@@ -79,7 +81,7 @@ def wago():
     L.append(line(-3.9, 11.9, 8.9, 11.9, "F.SilkS", 0.12))
     L.append(line(-3.9, 11.9, -3.9, -5.0, "F.SilkS", 0.12))
     L.append(line(8.9, 11.9, 8.9, -5.0, "F.SilkS", 0.12))
-    for x in (0, 5):   # wire entry marks
+    for x in (0, 5):   # lever marks (front face)
         L.append(box(x - 1.2, -5.0, x + 1.2, -4.0, "F.Fab", 0.1))
     L.append(")")
     return "\n".join(L)

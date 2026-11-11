@@ -13,7 +13,7 @@ coprocessors alive when the battery sags below 9 V under heavy drive load.
 | Input | 6-16 V (starts at ~5.9 V rising; 16 V TVS clamp), reverse-polarity protected |
 | Output | 12.1 V, 5 A continuous (60 W). Below ~7 V input it is limited by the ~12.4 A inductor-current limit |
 | Converter | TI **TPS552882** 4-switch buck-boost (standalone, no I2C), 400 kHz |
-| Connectors | 2x **WAGO 2604-3102** lever terminals (5.0 mm, up to 12 AWG / 4 mm²). Wires enter from the top edge |
+| Connectors | 2x **WAGO 2604-3102** lever terminals (5.0 mm, up to 12 AWG / 4 mm²). Vertical wire entry; levers face the top edge |
 | Indicator | Green LED = 12 V output present |
 
 Silkscreen, left to right along the top edge: **OUT 12V (+ -)** then **IN (+ -)**.
@@ -40,8 +40,11 @@ Silkscreen, left to right along the top edge: **OUT 12V (+ -)** then **IN (+ -)*
    * Every line has a JLCPCB/LCSC part number, taken from jlcpcb.com part pages (Nov 2026).
      Stock changes daily, so re-run JLC's matching before you pay and swap anything out of stock
      for the same value, package and voltage rating.
-   * C1/C20 (Panasonic EEH-ZK1V101XP, C454360) are listed by JLC as **Standard PCBA only**.
-     For Economic assembly, use the polymer MA35V100M6X8 (C46550467, same 6.3x7.7 size).
+   * Stock was checked against JLC's live matching on 2026-11-11. Two lines had none, so they
+     were swapped: C1/C20 are now the MA35V100M6X8 polymer (C46550467, 100 µF 35 V, 30 mΩ,
+     Economic OK) instead of EEH-ZK1V101XP (C454360), and R9 is now UniOhm 0402WGF2672TCE (C25876).
+     Fallback for C1/C20: Lelon HBV101M1VTR-0608 hybrid (C967098). L1 (C41422303) and
+     Q1-Q3 (C201632) have only a few hundred in stock.
    * **Check part rotations in JLC's placement preview**, especially U1 (pin 1 dot),
      Q1-Q3, D1, D3, D2, C1 and C20. JLC's library orientations sometimes differ from KiCad's.
 3. **Hand-solder** J1 and J2 (WAGO 2604-3102, `fab/BOM_hand_solder.csv`) after the board

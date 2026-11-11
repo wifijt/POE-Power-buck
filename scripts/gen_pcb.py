@@ -17,7 +17,7 @@ B = Board(W, H)
 part = {p["ref"]: p for p in design.PARTS}
 
 PL = {
-    # terminals, wire entry on the top edge.  OUT: + at x10.4, - at x15.4 ; IN: + x24.9, - x29.9
+    # terminals: vertical wire entry, levers face the top edge (they swing past it).  OUT: + at x10.4, - at x15.4 ; IN: + x24.9, - x29.9
     "J2": (10.4, 5.3, 0), "J1": (24.9, 5.3, 0),
     "L1": (18.0, 42.6, 180),                       # SW2 pad west, SW1 pad east
     "U1": (12.4, 31.0, 180),                       # switch pins face the inductor
