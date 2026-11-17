@@ -196,5 +196,9 @@ module lid() {
 }
 
 if (part == "tray") tray();
-else if (part == "lid") translate([0, 0, top_z + lid_t]) mirror([0, 0, 1]) lid();   // flipped for printing
-else { tray(); translate([out_w + 30, 0, top_z + lid_t]) mirror([0, 0, 1]) lid(); }
+// lid flipped face-down for printing: a ROTATION about x (a mirror would print the text and the
+// whole lid as a mirror image)
+module lid_print() translate([0, out_l, top_z + lid_t]) rotate([180, 0, 0]) lid();
+if (part == "tray") tray();
+else if (part == "lid") lid_print();
+else { tray(); translate([out_w + 30, 0, 0]) lid_print(); }
