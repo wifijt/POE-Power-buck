@@ -56,7 +56,7 @@ and vents cut out:
 |---|---|
 | `lid_sticker.svg` / `.pdf` | Black artwork with no background, plus cut lines (red), aligned, 1:1 in mm. For white or clear vinyl. The SVG needs Silhouette Studio Designer Edition or later |
 | `lid_sticker_black.svg` / `.pdf` | White artwork on a black background, plus the same cut lines. Print on white vinyl. The black runs 1 mm past every cut line (bleed), so a slightly off cut leaves no white edge |
-| `lid_sticker_cut.dxf` | Cut lines only (both versions), for Silhouette Studio Basic |
+| `lid_sticker_cut_inch.dxf`, `lid_sticker_cut.dxf` | Cut lines only (both versions), in inches / in mm, for Silhouette Studio Basic |
 | `lid_sticker_print.png`, `lid_sticker_black_print.png` | Artwork only, 600 dpi, for Silhouette Studio Basic. Pair with the DXF (see below) |
 
 1. In Silhouette Studio, open `lid_sticker.svg` (or `lid_sticker_black.svg`) and check that it is **42 x 63 mm**. Turn on
@@ -70,8 +70,11 @@ and vents cut out:
 
 **Silhouette Studio Basic** (it can't open SVG or PDF): use the DXF for the cut and a PNG for the print.
 
-1. Open `lid_sticker_cut.dxf`. Check that it is **42.00 x 63.00 mm**; if not, set that size in
-   the Scale/Transform panel with the aspect ratio locked.
+1. Open `lid_sticker_cut_inch.dxf` (Studio tends to read DXF numbers as inches; the mm file then
+   comes in huge and gets shrunk to the page). Check that it is **42.00 x 63.00 mm**
+   (1.654 x 2.480 in). If Studio still scales it to the page, look in Preferences > Import for a
+   DXF "original size" option, or just set the size in the Scale/Transform panel with the aspect
+   ratio locked: the shape is right, only the scale is off.
 2. File > Merge (or drag in) `lid_sticker_print.png` (or `lid_sticker_black_print.png`). Set its
    size to **42.00 x 63.00 mm** (the black one **44.00 x 65.00 mm**, which includes 1 mm of bleed).
 3. Select both, then Align > **Center** and Align > **Middle**. The PNG is cropped so its centre is
