@@ -7,6 +7,8 @@ onto three beefy standoffs in the tray, and the lid is held on with four M3 scre
 
 ![lid label, assembled, top view](../docs/case_lid_label.png)
 
+![dimensions in inches and mm](../docs/case_dimensions.png)
+
 | | |
 |---|---|
 | Outside (tray + lid) | 43 x 64 x 22.6 mm; 78.5 mm wide across the mounting ears |
