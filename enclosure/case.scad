@@ -146,18 +146,23 @@ label_depth = 0.6;
 label_font  = "Liberation Sans:style=Bold";
 // [pole x on the board, "+" or "-"]: J2 = OUT (10.4 +, 15.4 -), J1 = IN (24.9 +, 29.9 -)
 poles = [[10.4, "+"], [15.4, "-"], [24.9, "+"], [29.9, "-"]];
-pole_y = 20.2;   mark = 4.0;  bar = 1.0;                    // board y of the +/- marks, mark size
+pole_y = 20.4;   mark = 3.6;  bar = 1.2;                    // board y of the +/- marks, mark size
 module engrave_at(p) translate([C(p)[0], C(p)[1], top_z + lid_t - label_depth]) linear_extrude(label_depth + 1) children();
+// Sizes are set for a 0.4 mm nozzle: Liberation Sans Bold strokes are 0.2 x the text size, so 3.0 mm text
+// gives 0.6 mm strokes (about 1.5 lines). Smaller text closes up and the letter counters fill in.
 module lid_label() {
     for (q = poles) engrave_at([q[0], pole_y]) {
         square([mark, bar], center=true);                   // drawn, not a font glyph: bold and even
         if (q[1] == "+") square([bar, mark], center=true);
     }
-    engrave_at([12.4, 23.9]) text("OUT 12V",  size=2.2, font=label_font, halign="center", valign="center");
-    engrave_at([28.6, 23.9]) text("IN 6-16V", size=2.2, font=label_font, halign="center", valign="center");
-    engrave_at([34.4, 27.6]) text("20A",      size=2.2, font=label_font, halign="center", valign="center");   // input rating, beside the FET vents
+    // OUT column over J2, IN column over J1; the input rating sits under IN
+    engrave_at([12.9, 24.6]) text("OUT",   size=3.6, font=label_font, halign="center", valign="center");
+    engrave_at([12.9, 28.6]) text("12V",   size=3.0, font=label_font, halign="center", valign="center");
+    engrave_at([27.4, 24.6]) text("IN",    size=3.6, font=label_font, halign="center", valign="center");
+    engrave_at([27.4, 28.6]) text("6-16V", size=3.0, font=label_font, halign="center", valign="center");
+    engrave_at([24.6, 32.8]) text("20A",   size=3.6, font=label_font, halign="center", valign="center");
     engrave_at([18.0, 51.6]) text("TURNER VISION",  size=3.2, font=label_font, halign="center", valign="center");
-    engrave_at([18.0, 55.4]) text("POE BUCK BOOST", size=2.6, font=label_font, halign="center", valign="center");
+    engrave_at([18.0, 55.6]) text("POE BUCK BOOST", size=3.0, font=label_font, halign="center", valign="center");
 }
 
 module lid() {
@@ -184,11 +189,17 @@ module lid() {
         translate([C([3.0, 22.7])[0], C([3.0, 22.7])[1], top_z - lip_h - 1]) cylinder(d=3.0, h=lid_t + lip_h + 2, $fn=24);
         // vent slots over the inductor and the FETs
         for (i=[0:5]) translate([bx0 + 9 + i*3.6, by0 + B(0, 49)[1], top_z - 1]) cube([1.6, 13, lid_t + 2]);
-        for (i=[0:3]) translate([bx0 + 17 + i*3.6, by0 + B(0, 34.5)[1], top_z - 1]) cube([1.6, 8.0, lid_t + 2]);
+        // FET vents: two slots right of the IN / 20A text (board x 30.6-34.6, y 31-40), clear of the lid lip
+        for (x=[30.6, 33.0]) translate([bx0 + x, by0 + B(0, 40)[1], top_z - 1]) cube([1.6, 9.0, lid_t + 2]);
         for (sx=[-1, 1], y=boss_ys)                             // lid screw holes (counterbored)
             translate([boss_x(sx), by0 + B(0, y)[1], top_z - 1]) {
                 cylinder(d=3.4, h=lid_t + 2, $fn=24);
                 translate([0, 0, lid_t - 0.8]) cylinder(d=6.2, h=2, $fn=32);
+                // the lid prints face-down, so the plastic above each counterbore prints over air. Two
+                // 0.2 mm bridge layers give it something to stand on: first a slot (bridged across),
+                // then a square (bridged across the slot), then the round hole.
+                translate([0, 0, lid_t - 0.8 - 0.2]) translate([-3.4/2, -6.2/2, 0]) cube([3.4, 6.2, 0.2 + 0.01]);
+                translate([0, 0, lid_t - 0.8 - 0.4]) translate([-3.4/2, -3.4/2, 0]) cube([3.4, 3.4, 0.2 + 0.01]);
             }
         // label: polarity marks over each terminal pole, terminal names, branding
         lid_label();

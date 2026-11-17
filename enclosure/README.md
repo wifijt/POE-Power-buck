@@ -17,8 +17,8 @@ onto three beefy standoffs in the tray, and the lid is held on with four M3 scre
 | Terminal support | 2 pillars under the WAGO terminals, 0.15 mm below the board. Pushing a lever or a wire presses the board onto them instead of bending it |
 | Robot mounting | 4 ears, 6 mm thick and 15 mm wide out to the hole, one at each end on each side. Each ear is fused to the wall all the way from the case end to the next lid-screw boss, with a 3 mm root fillet and two 3 mm gussets 12 mm up the wall. #10 clearance holes (5.3 mm), **2.500" (63.5 mm) apart across the case and 1.890" (48 mm) along it**; a #10 SAE washer (11.1 mm) fits under the bolt head without touching the gussets. Two zip-tie slots in the floor as a backup |
 | Lid fixing | 4x M3 x 10 screws (counterbored) into M3 heat-set inserts in the side bosses |
-| Lid label | Engraved 0.6 mm: **+ / −** over each terminal pole, `OUT 12V`, `IN 6-16V` and `20A` (input side), and `TURNER VISION / POE BUCK BOOST`. Prints face-down, so the letters are holes in the first three layers. For colored letters on one extruder, see *Two-color lid* below |
-| Openings | Lid open above both WAGO terminals: the wires enter the terminals **vertically** from the top, and the levers swing out over the open front wall. LED window, vents over the FETs and inductor, side vents |
+| Lid label | Engraved 0.6 mm: **+ / −** over each terminal pole, an **OUT / 12V** column over the output terminal and an **IN / 6-16V / 20A** column over the input terminal, and `TURNER VISION / POE BUCK BOOST`. Text is 3.0-3.6 mm tall so the strokes are at least 0.6 mm (1.5 lines of a 0.4 mm nozzle); smaller text fills in. Prints face-down, so the letters are holes in the first three layers. For black letters on one extruder, see *Two-color lid* below |
+| Openings | Lid open above both WAGO terminals: the wires enter the terminals **vertically** from the top, and the levers swing out over the open front wall. LED window, vents over the inductor and beside the FETs, side vents |
 
 ## Files
 
@@ -49,6 +49,16 @@ of every letter.
 2. In PrusaSlicer, slice, then in the preview's vertical layer slider add a **color change (M600)
    at 0.80 mm** (the first layer above 0.6 mm) and another at **1.20 mm** (the first layer above 1.0 mm).
 3. Start in orange. At 0.8 mm the printer asks for black; at 1.2 mm swap back to orange.
+4. **Purge until the color is clean** at each swap. When the MK4 asks whether the color is
+   correct, answer *No* and let it purge again until pure black (then pure orange) comes out.
+   Leftover orange in the first black layer is what makes the letters look muddy.
+5. Keep PrusaSlicer's elephant-foot compensation on (default 0.2 mm). The face is the first layer,
+   and without it the squished first layer shrinks the letter holes.
+
+The screw counterbores are on the face too, so they print first and the plastic above them would
+print over air (stringy loops in the holes). The model has two 0.2 mm bridge layers above each one,
+a slot and then a square, so the slicer bridges across them cleanly. Don't drill them out: the
+round hole through them is already open.
 
 What it looks like: orange face, black letters, + / − marks and vent-slot floors, and a thin
 (0.4 mm) black line around the lid edge 0.6 mm below the top. With an MMU3 instead, model the
