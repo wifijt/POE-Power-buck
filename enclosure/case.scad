@@ -5,7 +5,7 @@
 // pushing a lever or a wire presses the board onto them instead of flexing it.
 // Lid: open above the terminals (wires leave upward, levers swing out over the open front).
 // Built tough for a robot: 3 mm walls/floor/lid, standoffs fused into the walls,
-// 4 lid screws, 4 braced mounting ears on the FRC 1/2" grid.
+// 4 lid screws, 4 braced mounting ears for #10 bolts.
 // Prusa MK4: PETG (or Prusament PC Blend / ASA with an enclosure), 0.4 mm nozzle, 0.2 mm layers,
 // 6 perimeters, 5 top/bottom layers, 40 % gyroid infill, no supports.
 // Print the tray floor-down and the lid top-down (flat face on the sheet). Set part="tray" or "lid".
@@ -50,7 +50,7 @@ term_depth = 17.6;                   // terminal bodies end at board y 17.1
 
 // lid screws: 4x M3 x 10 into M3 heat-set inserts in bosses on the side walls
 boss = 9.0;  boss_ys = [20.0, 40.0];   // board y of each boss pair
-// robot mounting: 4 ears, #10 clearance holes, 2.5" apart across, on the 1/2" grid
+// robot mounting: 4 ears, #10 clearance holes, 2.5" apart across
 ear_hole = 5.3;  ear_pitch = 63.5;  ear_t = 6.0;  ear_ys = [4.0, 52.0];
 // ear bracing: 3 mm gussets up the wall, kept clear of a #10 SAE washer (11.1 mm OD) under the bolt
 gus_t = 3.0;  gus_h = 12.0;  gus_l = 6.5;  gus_dy = [4.5, 7.5];   // gusset y span from the hole centre
