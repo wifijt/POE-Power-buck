@@ -5,7 +5,7 @@ onto three beefy standoffs in the tray, and the lid is held on with four M3 scre
 
 ![print layout](../docs/case_print_layout.png)
 
-![lid label, assembled, top view](../docs/case_lid_label.png)
+![lid with its sticker, top view](../docs/lid_sticker_preview.png)
 
 ![dimensions in inches and mm](../docs/case_dimensions.png)
 
@@ -17,8 +17,8 @@ onto three beefy standoffs in the tray, and the lid is held on with four M3 scre
 | Terminal support | 2 pillars under the WAGO terminals, 0.15 mm below the board. Pushing a lever or a wire presses the board onto them instead of bending it |
 | Robot mounting | 4 ears, 6 mm thick and 15 mm wide out to the hole, one at each end on each side. Each ear is fused to the wall all the way from the case end to the next lid-screw boss, with a 3 mm root fillet and two 3 mm gussets 12 mm up the wall. #10 clearance holes (5.3 mm), **2.500" (63.5 mm) apart across the case and 1.890" (48 mm) along it**; a #10 SAE washer (11.1 mm) fits under the bolt head without touching the gussets. Two zip-tie slots in the floor as a backup |
 | Lid fixing | 4x M3 x 10 screws (counterbored) into M3 heat-set inserts in the side bosses |
-| Lid label | Engraved 0.6 mm: **+ / −** over each terminal pole, `OUT 12V`, `IN 6-16V` and `20A` (input side), and `TURNER VISION / POE BUCK BOOST`. Prints face-down, so the letters are holes in the first three layers. For colored letters on one extruder, see *Two-color lid* below |
-| Openings | Lid open above both WAGO terminals: the wires enter the terminals **vertically** from the top, and the levers swing out over the open front wall. LED window, vents over the FETs and inductor, side vents |
+| Lid label | Flat top with a full-size print-and-cut sticker: **+ / −** over each terminal pole, **OUT / 12V** and **IN / 6-16V / 20A** over the terminals, and `TURNER VISION / POE BUCK BOOST`. See *Lid sticker* below |
+| Openings | Lid open above both WAGO terminals: the wires enter the terminals **vertically** from the top, and the levers swing out over the open front wall. LED window, vents over the inductor and beside the FETs, side vents |
 
 ## Files
 
@@ -36,23 +36,43 @@ onto three beefy standoffs in the tray, and the lid is held on with four M3 scre
 * No supports. Print the tray floor-down and the lid as exported (outer face on the sheet).
 * Both parts fit on the sheet together.
 
-### Two-color lid (e.g. orange body, black letters) on a single-extruder MK4
+* The screw counterbores are on the lid's face, so they print first. The model has two 0.2 mm
+  bridge layers above each one (a slot, then a square) so the plastic above them doesn't print over
+  air. Don't drill them out: the round hole through them is already open.
 
-![two-color lid preview](../docs/case_two_color.png)
+## Lid sticker (print and cut)
 
-The letters are 0.6 mm deep and the lid prints face-down, so the first three 0.2 mm layers are the
-face with the letters cut out of it. Swap to black for the next two layers and they form the floor
-of every letter.
+![lid sticker on the lid](../docs/lid_sticker_preview.png)
 
-1. Print the **lid on its own** (a color change applies to the whole sheet, so the tray would get a
-   black stripe too). Use a 0.2 mm first layer and 0.2 mm layers so the swaps land exactly at 0.6 and 1.0 mm.
-2. In PrusaSlicer, slice, then in the preview's vertical layer slider add a **color change (M600)
-   at 0.80 mm** (the first layer above 0.6 mm) and another at **1.20 mm** (the first layer above 1.0 mm).
-3. Start in orange. At 0.8 mm the printer asks for black; at 1.2 mm swap back to orange.
+The lid top is flat. Its markings are one 42 x 63 mm sticker with the terminal opening, LED window
+and vents cut out:
 
-What it looks like: orange face, black letters, + / − marks and vent-slot floors, and a thin
-(0.4 mm) black line around the lid edge 0.6 mm below the top. With an MMU3 instead, model the
-letters as a separate part to get flush inlays with no line.
+* **+ / −** over each terminal pole
+* **OUT / 12V** over the output and **IN / 6-16V** over the input
+* **20A** in a black box, the breaker size to match
+* `TURNER VISION / POE BUCK BOOST`
+
+| File (in `docs/`) | Use |
+|---|---|
+| `lid_sticker.svg` | Artwork (black) and cut lines (red) in one file, aligned, 1:1 in mm. For Silhouette Studio Designer Edition or later |
+| `lid_sticker.pdf` | The same as a PDF |
+| `lid_sticker_cut.dxf` | Cut lines only, for Silhouette Studio Basic |
+
+1. In Silhouette Studio, open `lid_sticker.svg` and check that it is **42 x 63 mm**. Turn on
+   registration marks (Print & Cut) and place the sticker inside them.
+2. Ungroup it, select the red outlines and set their **line color to none** so they don't print. They
+   still cut. Set the cut to **cut by line/selection** for those paths only.
+3. Print on **white vinyl** for black on white, or on **clear vinyl** so the orange case shows
+   through. Laser or pigment ink lasts best. A clear laminate on top protects it on a robot.
+4. Cut, weed the opening, the LED window and the vent slots, and apply.
+
+The sticker is inset 0.5 mm from the lid edges and every hole is 0.5 mm bigger than the lid's, so
+small placement errors don't cover a vent. Line up the terminal opening first.
+
+The cut outline comes straight from the lid model. If you change the lid, run
+`python3 scripts/gen_lid_sticker.py` (it needs OpenSCAD and matplotlib) to regenerate all three
+files. To engrave the markings in the plastic instead, set `lid_engrave = true` in `case.scad`
+(0.6 mm deep; text of 3 mm or more for a 0.4 mm nozzle).
 
 ## Hardware
 

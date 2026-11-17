@@ -10,7 +10,7 @@
 // 6 perimeters, 5 top/bottom layers, 40 % gyroid infill, no supports.
 // Print the tray floor-down and the lid top-down (flat face on the sheet). Set part="tray" or "lid".
 
-part = "both";            // "tray", "lid", "both" (both = print layout)
+part = "both";            // "tray", "lid", "both" (both = print layout), "sticker" (2D lid sticker outline)
 
 // ---- board -----------------------------------------------------------------
 pcb_w = 36.0;  pcb_l = 57.0;  pcb_t = 1.6;
@@ -141,23 +141,39 @@ module tray() {
     }
 }
 
-// ---- lid label (engraved label_depth into the top face) --------------------
+// ---- lid label ---------------------------------------------------------------
+// Default: the lid top is flat and carries a full-size printed sticker, cut on a Silhouette (or similar)
+// with holes for the vents, LED window, screws and terminal opening. scripts/gen_lid_sticker.py makes it
+// from lid_sticker() below, so the sticker always matches the lid.
+// lid_engrave = true engraves the +/- marks and text instead (0.6 mm deep; text >= 3 mm for a 0.4 nozzle).
+lid_engrave   = false;
+sticker_inset = 0.5;    // sticker edge sits this far inside the lid edge, and every hole grows by this much
 label_depth = 0.6;
 label_font  = "Liberation Sans:style=Bold";
 // [pole x on the board, "+" or "-"]: J2 = OUT (10.4 +, 15.4 -), J1 = IN (24.9 +, 29.9 -)
 poles = [[10.4, "+"], [15.4, "-"], [24.9, "+"], [29.9, "-"]];
-pole_y = 20.2;   mark = 4.0;  bar = 1.0;                    // board y of the +/- marks, mark size
+pole_y = 20.4;   mark = 3.6;  bar = 1.2;                    // board y of the +/- marks, mark size
 module engrave_at(p) translate([C(p)[0], C(p)[1], top_z + lid_t - label_depth]) linear_extrude(label_depth + 1) children();
-module lid_label() {
+
+module lid_label() if (lid_engrave) {
     for (q = poles) engrave_at([q[0], pole_y]) {
-        square([mark, bar], center=true);                   // drawn, not a font glyph: bold and even
+        square([mark, bar], center=true);
         if (q[1] == "+") square([bar, mark], center=true);
     }
-    engrave_at([12.4, 23.9]) text("OUT 12V",  size=2.2, font=label_font, halign="center", valign="center");
-    engrave_at([28.6, 23.9]) text("IN 6-16V", size=2.2, font=label_font, halign="center", valign="center");
-    engrave_at([34.4, 27.6]) text("20A",      size=2.2, font=label_font, halign="center", valign="center");   // input rating, beside the FET vents
+    engrave_at([12.9, 24.6]) text("OUT",   size=3.6, font=label_font, halign="center", valign="center");
+    engrave_at([12.9, 28.6]) text("12V",   size=3.0, font=label_font, halign="center", valign="center");
+    engrave_at([27.4, 24.6]) text("IN",    size=3.6, font=label_font, halign="center", valign="center");
+    engrave_at([27.4, 28.6]) text("6-16V", size=3.0, font=label_font, halign="center", valign="center");
+    engrave_at([24.6, 32.8]) text("20A",   size=3.6, font=label_font, halign="center", valign="center");
     engrave_at([18.0, 51.6]) text("TURNER VISION",  size=3.2, font=label_font, halign="center", valign="center");
-    engrave_at([18.0, 55.4]) text("POE BUCK BOOST", size=2.6, font=label_font, halign="center", valign="center");
+    engrave_at([18.0, 55.6]) text("POE BUCK BOOST", size=3.0, font=label_font, halign="center", valign="center");
+}
+
+// 2D sticker shape in case coordinates (assembled, seen from above): the lid's top face without the
+// screw tabs, shrunk by sticker_inset, which also grows every hole by sticker_inset
+module lid_sticker() offset(delta=-sticker_inset) intersection() {
+    projection(cut=true) translate([0, 0, -(top_z + lid_t - 0.05)]) lid();
+    hull() for (x=[3, out_w-3], y=[3, out_l-3]) translate([x, y]) circle(r=3, $fn=32);   // main top, no screw tabs
 }
 
 module lid() {
@@ -184,11 +200,17 @@ module lid() {
         translate([C([3.0, 22.7])[0], C([3.0, 22.7])[1], top_z - lip_h - 1]) cylinder(d=3.0, h=lid_t + lip_h + 2, $fn=24);
         // vent slots over the inductor and the FETs
         for (i=[0:5]) translate([bx0 + 9 + i*3.6, by0 + B(0, 49)[1], top_z - 1]) cube([1.6, 13, lid_t + 2]);
-        for (i=[0:3]) translate([bx0 + 17 + i*3.6, by0 + B(0, 34.5)[1], top_z - 1]) cube([1.6, 8.0, lid_t + 2]);
+        // FET vents: two slots right of the IN / 20A text (board x 30.6-34.6, y 31-40), clear of the lid lip
+        for (x=[30.6, 33.0]) translate([bx0 + x, by0 + B(0, 40)[1], top_z - 1]) cube([1.6, 9.0, lid_t + 2]);
         for (sx=[-1, 1], y=boss_ys)                             // lid screw holes (counterbored)
             translate([boss_x(sx), by0 + B(0, y)[1], top_z - 1]) {
                 cylinder(d=3.4, h=lid_t + 2, $fn=24);
                 translate([0, 0, lid_t - 0.8]) cylinder(d=6.2, h=2, $fn=32);
+                // the lid prints face-down, so the plastic above each counterbore prints over air. Two
+                // 0.2 mm bridge layers give it something to stand on: first a slot (bridged across),
+                // then a square (bridged across the slot), then the round hole.
+                translate([0, 0, lid_t - 0.8 - 0.2]) translate([-3.4/2, -6.2/2, 0]) cube([3.4, 6.2, 0.2 + 0.01]);
+                translate([0, 0, lid_t - 0.8 - 0.4]) translate([-3.4/2, -3.4/2, 0]) cube([3.4, 3.4, 0.2 + 0.01]);
             }
         // label: polarity marks over each terminal pole, terminal names, branding
         lid_label();
@@ -201,4 +223,5 @@ if (part == "tray") tray();
 module lid_print() translate([0, out_l, top_z + lid_t]) rotate([180, 0, 0]) lid();
 if (part == "tray") tray();
 else if (part == "lid") lid_print();
+else if (part == "sticker") lid_sticker();   // 2D: export as .svg / .dxf
 else { tray(); translate([out_w + 30, 0, 0]) lid_print(); }

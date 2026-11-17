@@ -21,7 +21,7 @@ Silkscreen, left to right along the top edge: **OUT 12V (+ -)** then **IN (+ -)*
 
 ## Wiring on the robot
 
-* **IN**: from a PDH/PDP channel through a **20 A breaker** (the `20A` engraved on the case lid), 14-16 AWG.
+* **IN**: from a PDH/PDP channel through a **20 A breaker** (the `20A` on the case lid sticker), 14-16 AWG.
   Don't go smaller: at full load on a sagging battery the input draws 11-12 A, enough to trip a 10 A
   breaker. The converter caps its own input at about 15 A (12.7-17.2 A), so a 20 A breaker only trips on a wiring fault.
 * **OUT**: to the switch's PWR1 terminal (9-57 V). The switch's PoE budget is 60 W at
