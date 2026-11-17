@@ -10,7 +10,7 @@
 // 6 perimeters, 5 top/bottom layers, 40 % gyroid infill, no supports.
 // Print the tray floor-down and the lid top-down (flat face on the sheet). Set part="tray" or "lid".
 
-part = "both";            // "tray", "lid", "both" (both = print layout)
+part = "both";            // "tray", "lid", "both" (both = print layout), "sticker" (2D lid sticker outline)
 
 // ---- board -----------------------------------------------------------------
 pcb_w = 36.0;  pcb_l = 57.0;  pcb_t = 1.6;
@@ -141,21 +141,25 @@ module tray() {
     }
 }
 
-// ---- lid label (engraved label_depth into the top face) --------------------
+// ---- lid label ---------------------------------------------------------------
+// Default: the lid top is flat and carries a full-size printed sticker, cut on a Silhouette (or similar)
+// with holes for the vents, LED window, screws and terminal opening. scripts/gen_lid_sticker.py makes it
+// from lid_sticker() below, so the sticker always matches the lid.
+// lid_engrave = true engraves the +/- marks and text instead (0.6 mm deep; text >= 3 mm for a 0.4 nozzle).
+lid_engrave   = false;
+sticker_inset = 0.5;    // sticker edge sits this far inside the lid edge, and every hole grows by this much
 label_depth = 0.6;
 label_font  = "Liberation Sans:style=Bold";
 // [pole x on the board, "+" or "-"]: J2 = OUT (10.4 +, 15.4 -), J1 = IN (24.9 +, 29.9 -)
 poles = [[10.4, "+"], [15.4, "-"], [24.9, "+"], [29.9, "-"]];
 pole_y = 20.4;   mark = 3.6;  bar = 1.2;                    // board y of the +/- marks, mark size
 module engrave_at(p) translate([C(p)[0], C(p)[1], top_z + lid_t - label_depth]) linear_extrude(label_depth + 1) children();
-// Sizes are set for a 0.4 mm nozzle: Liberation Sans Bold strokes are 0.2 x the text size, so 3.0 mm text
-// gives 0.6 mm strokes (about 1.5 lines). Smaller text closes up and the letter counters fill in.
-module lid_label() {
+
+module lid_label() if (lid_engrave) {
     for (q = poles) engrave_at([q[0], pole_y]) {
-        square([mark, bar], center=true);                   // drawn, not a font glyph: bold and even
+        square([mark, bar], center=true);
         if (q[1] == "+") square([bar, mark], center=true);
     }
-    // OUT column over J2, IN column over J1; the input rating sits under IN
     engrave_at([12.9, 24.6]) text("OUT",   size=3.6, font=label_font, halign="center", valign="center");
     engrave_at([12.9, 28.6]) text("12V",   size=3.0, font=label_font, halign="center", valign="center");
     engrave_at([27.4, 24.6]) text("IN",    size=3.6, font=label_font, halign="center", valign="center");
@@ -163,6 +167,13 @@ module lid_label() {
     engrave_at([24.6, 32.8]) text("20A",   size=3.6, font=label_font, halign="center", valign="center");
     engrave_at([18.0, 51.6]) text("TURNER VISION",  size=3.2, font=label_font, halign="center", valign="center");
     engrave_at([18.0, 55.6]) text("POE BUCK BOOST", size=3.0, font=label_font, halign="center", valign="center");
+}
+
+// 2D sticker shape in case coordinates (assembled, seen from above): the lid's top face without the
+// screw tabs, shrunk by sticker_inset, which also grows every hole by sticker_inset
+module lid_sticker() offset(delta=-sticker_inset) intersection() {
+    projection(cut=true) translate([0, 0, -(top_z + lid_t - 0.05)]) lid();
+    hull() for (x=[3, out_w-3], y=[3, out_l-3]) translate([x, y]) circle(r=3, $fn=32);   // main top, no screw tabs
 }
 
 module lid() {
@@ -212,4 +223,5 @@ if (part == "tray") tray();
 module lid_print() translate([0, out_l, top_z + lid_t]) rotate([180, 0, 0]) lid();
 if (part == "tray") tray();
 else if (part == "lid") lid_print();
+else if (part == "sticker") lid_sticker();   // 2D: export as .svg / .dxf
 else { tray(); translate([out_w + 30, 0, 0]) lid_print(); }
