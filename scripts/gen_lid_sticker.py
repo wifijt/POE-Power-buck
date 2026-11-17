@@ -5,7 +5,10 @@ Writes, all at exact 1:1 scale in millimetres, in case coordinates seen from abo
 the top), into docs/:
     lid_sticker.svg / .pdf              black artwork, no background (white or clear vinyl)
     lid_sticker_black.svg / .pdf        white artwork on a black background (white vinyl)
-    lid_sticker_cut.dxf                 cut lines only (straight from OpenSCAD), same for both
+    lid_sticker_cut.dxf / _inch.dxf     cut lines only, in mm / in inches, same for both
+    lid_sticker_print.png, lid_sticker_black_print.png
+                                        artwork only, 600 dpi, for Silhouette Studio Basic (which
+                                        cannot open SVG or PDF): pair with the DXF, align centres
     lid_sticker_preview.png, lid_sticker_black_preview.png
 Each SVG/PDF has the artwork and the cut lines (red hairline) in one file, already aligned.
 
@@ -137,12 +140,52 @@ def main():
         fig.savefig(os.path.join(DOCS, name + "_preview.png"), dpi=100, facecolor="#f07d1a")
         plt.close(fig)
 
-    dxf = openscad("dxf")
-    os.replace(dxf, os.path.join(DOCS, "lid_sticker_cut.dxf"))
-    os.chmod(os.path.join(DOCS, "lid_sticker_cut.dxf"), 0o644)
-    print("sticker %.1f x %.1f mm -> docs/lid_sticker{,_black}.{svg,pdf,_preview.png}, lid_sticker_cut.dxf"
-          % (ext.width, ext.height))
+        # Silhouette Studio Basic opens only DXF (cut lines) and images (artwork). This PNG is cropped
+        # so its centre is the cut outline's centre: the white one to the outline's box, the black one
+        # to the bleed box (1 mm bigger all round). Aligning the two centres lines them up exactly.
+        box = (bg if bg is not None else outline).get_extents()
+        fig = plt.figure(figsize=(box.width / 25.4, box.height / 25.4))
+        ax = fig.add_axes([0, 0, 1, 1])
+        ax.set_xlim(box.x0, box.x1); ax.set_ylim(box.y0, box.y1); ax.set_aspect("equal"); ax.axis("off")
+        if bg is not None:
+            ax.add_patch(PathPatch(bg, fc=paper, ec="none", lw=0))
+        artwork(ax, ink, paper)
+        fig.savefig(os.path.join(DOCS, name + "_print.png"), dpi=600, transparent=True)
+        plt.close(fig)
+        print("%s_print.png: %.2f x %.2f mm" % (name, box.width, box.height))
 
+    # Cut lines as DXF, written here (not by OpenSCAD) so each hole is one closed polyline, the
+    # drawing starts at 0,0 and the header names its units. Silhouette Studio Basic can read DXF
+    # numbers as inches and then shrinks a "42 inch" drawing to the page, so there is an inch copy.
+    write_dxf(os.path.join(DOCS, "lid_sticker_cut.dxf"), outline, 1.0, 4)            # millimetres
+    write_dxf(os.path.join(DOCS, "lid_sticker_cut_inch.dxf"), outline, 1 / 25.4, 1)  # inches
+    print("sticker %.1f x %.1f mm -> docs/lid_sticker{,_black}.{svg,pdf,_preview.png,_print.png}, "
+          "lid_sticker_cut{,_inch}.dxf" % (ext.width, ext.height))
+
+
+def write_dxf(path, outline, scale, insunits):
+    """R12 DXF of the outline: one closed POLYLINE per loop, origin at the bottom-left corner."""
+    e = outline.get_extents()
+    loops = [[((x - e.x0) * scale, (y - e.y0) * scale) for x, y in poly[:-1]]
+             for poly in outline.to_polygons(closed_only=True)]
+    w, h = e.width * scale, e.height * scale
+    out = ["0", "SECTION", "2", "HEADER",
+           "9", "$ACADVER", "1", "AC1009",
+           "9", "$INSUNITS", "70", str(insunits),
+           "9", "$MEASUREMENT", "70", "1" if insunits == 4 else "0",
+           "9", "$EXTMIN", "10", "0.0", "20", "0.0",
+           "9", "$EXTMAX", "10", "%.4f" % w, "20", "%.4f" % h,
+           "9", "$LIMMIN", "10", "0.0", "20", "0.0",
+           "9", "$LIMMAX", "10", "%.4f" % w, "20", "%.4f" % h,
+           "0", "ENDSEC", "0", "SECTION", "2", "ENTITIES"]
+    for loop in loops:
+        out += ["0", "POLYLINE", "8", "CUT", "66", "1", "70", "1"]
+        for x, y in loop:
+            out += ["0", "VERTEX", "8", "CUT", "10", "%.4f" % x, "20", "%.4f" % y]
+        out += ["0", "SEQEND", "8", "CUT"]
+    out += ["0", "ENDSEC", "0", "EOF"]
+    with open(path, "w") as f:
+        f.write("\n".join(out) + "\n")
 
 if __name__ == "__main__":
     main()
