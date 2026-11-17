@@ -79,7 +79,7 @@ module ear(sx, cy) {
     y_end  = cy - inward*7.5;                    // case-end side of the root
     y_boss = ear_boss_y(cy);
     hull() {
-        translate([cx, cy, 0]) cylinder(d=13, h=ear_t, $fn=48);
+        translate([cx, cy, 0]) cylinder(d=15, h=ear_t, $fn=48);   // full 15 mm width out to the hole: gussets sit on plate
         translate([wx - (sx < 0 ? 0 : 1), min(y_end, y_boss), 0]) cube([1, abs(y_boss - y_end), ear_t]);
     }
     // root fillet along the flat part of the wall (stops at the 3 mm corner radius); sunk 0.5 mm into
@@ -88,8 +88,9 @@ module ear(sx, cy) {
     translate([wx - sx*0.5, f_y0, ear_t - 0.5]) rotate([-90, 0, 0])
         linear_extrude(f_y1 - f_y0) polygon([[0, 0], [sx*(fillet + 1), 0], [0, -(fillet + 1)]]);
     // gussets: triangles in the x-z plane, tall at the wall, ending gus_l out
-    for (side = [-1, 1]) translate([wx - sx*0.5, side > 0 ? cy + gus_dy[1] : cy - gus_dy[0], ear_t - 0.5])
-        rotate([90, 0, 0]) linear_extrude(gus_t) polygon([[0, 0], [sx*(gus_l + 0.5), 0], [0, gus_h + 0.5]]);
+    // sunk 1 mm into the wall: the case-end gusset sits where the 3 mm corner radius starts to curve away
+    for (side = [-1, 1]) translate([wx - sx*1.0, side > 0 ? cy + gus_dy[1] : cy - gus_dy[0], ear_t - 0.5])
+        rotate([90, 0, 0]) linear_extrude(gus_t) polygon([[0, 0], [sx*(gus_l + 1.0), 0], [0, gus_h + 0.5]]);
 }
 
 module tray() {

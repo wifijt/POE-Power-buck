@@ -9,11 +9,11 @@ onto three beefy standoffs in the tray, and the lid is held on with four M3 scre
 
 | | |
 |---|---|
-| Outside (tray + lid) | 43 x 64 x 22.6 mm; 76.5 mm wide across the mounting ears |
+| Outside (tray + lid) | 43 x 64 x 22.6 mm; 78.5 mm wide across the mounting ears |
 | Walls / floor / lid | 3.0 / 3.0 / 3.0 mm, 3 mm corner radius |
 | Board mounting | 3 standoffs under the board's M3 holes: 8 mm across at the top, flared to 13 mm at the floor, fused into the case walls. M3 heat-set insert in each; the board screws down from the top |
 | Terminal support | 2 pillars under the WAGO terminals, 0.15 mm below the board. Pushing a lever or a wire presses the board onto them instead of bending it |
-| Robot mounting | 4 ears, 6 mm thick, one at each end on each side. Each ear is fused to the wall all the way from the case end to the next lid-screw boss, with a 3 mm root fillet and two 3 mm gussets 12 mm up the wall. #10 clearance holes (5.3 mm), **2.5" apart** across the case (FRC ½" hole grid); a #10 SAE washer (11.1 mm) fits under the bolt head without touching the gussets. Two zip-tie slots in the floor as a backup |
+| Robot mounting | 4 ears, 6 mm thick and 15 mm wide out to the hole, one at each end on each side. Each ear is fused to the wall all the way from the case end to the next lid-screw boss, with a 3 mm root fillet and two 3 mm gussets 12 mm up the wall. #10 clearance holes (5.3 mm), **2.5" apart** across the case (FRC ½" hole grid); a #10 SAE washer (11.1 mm) fits under the bolt head without touching the gussets. Two zip-tie slots in the floor as a backup |
 | Lid fixing | 4x M3 x 10 screws (counterbored) into M3 heat-set inserts in the side bosses |
 | Lid label | Engraved 0.6 mm: **+ / −** over each terminal pole, `OUT 12V`, `IN 6-16V` and `20A` (input side), and `TURNER VISION / POE BUCK BOOST`. Prints face-down, so it comes out on the first layer; fill with paint, or change filament color at 0.6 mm |
 | Openings | Lid open above both WAGO terminals: the wires enter the terminals **vertically** from the top, and the levers swing out over the open front wall. LED window, vents over the FETs and inductor, side vents |
