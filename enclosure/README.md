@@ -42,7 +42,7 @@ onto three beefy standoffs in the tray, and the lid is held on with four M3 scre
 
 ## Lid sticker (print and cut)
 
-![lid sticker on the lid](../docs/lid_sticker_preview.png)
+![lid sticker on the lid](../docs/lid_sticker_preview.png) ![black version](../docs/lid_sticker_black_preview.png)
 
 The lid top is flat. Its markings are one 42 x 63 mm sticker with the terminal opening, LED window
 and vents cut out:
@@ -54,16 +54,17 @@ and vents cut out:
 
 | File (in `docs/`) | Use |
 |---|---|
-| `lid_sticker.svg` | Artwork (black) and cut lines (red) in one file, aligned, 1:1 in mm. For Silhouette Studio Designer Edition or later |
-| `lid_sticker.pdf` | The same as a PDF |
+| `lid_sticker.svg` / `.pdf` | Black artwork with no background, plus cut lines (red), aligned, 1:1 in mm. For white or clear vinyl. The SVG needs Silhouette Studio Designer Edition or later |
+| `lid_sticker_black.svg` / `.pdf` | White artwork on a black background, plus the same cut lines. Print on white vinyl. The black runs 1 mm past every cut line (bleed), so a slightly off cut leaves no white edge |
 | `lid_sticker_cut.dxf` | Cut lines only, for Silhouette Studio Basic |
 
-1. In Silhouette Studio, open `lid_sticker.svg` and check that it is **42 x 63 mm**. Turn on
+1. In Silhouette Studio, open `lid_sticker.svg` (or `lid_sticker_black.svg`) and check that it is **42 x 63 mm**. Turn on
    registration marks (Print & Cut) and place the sticker inside them.
 2. Ungroup it, select the red outlines and set their **line color to none** so they don't print. They
    still cut. Set the cut to **cut by line/selection** for those paths only.
 3. Print on **white vinyl** for black on white, or on **clear vinyl** so the orange case shows
-   through. Laser or pigment ink lasts best. A clear laminate on top protects it on a robot.
+   through. The black version needs white vinyl, and its large black area takes longer to dry with
+   inkjet ink, so leave it before laminating or cutting. Laser or pigment ink lasts best. A clear laminate on top protects it on a robot.
 4. Cut, weed the opening, the LED window and the vent slots, and apply.
 
 The sticker is inset 0.5 mm from the lid edges and every hole is 0.5 mm bigger than the lid's, so

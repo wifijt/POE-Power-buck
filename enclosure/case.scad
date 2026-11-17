@@ -10,7 +10,7 @@
 // 6 perimeters, 5 top/bottom layers, 40 % gyroid infill, no supports.
 // Print the tray floor-down and the lid top-down (flat face on the sheet). Set part="tray" or "lid".
 
-part = "both";            // "tray", "lid", "both" (both = print layout), "sticker" (2D lid sticker outline)
+part = "both";            // "tray", "lid", "both" (both = print layout), "sticker" / "sticker_bleed" (2D lid sticker)
 
 // ---- board -----------------------------------------------------------------
 pcb_w = 36.0;  pcb_l = 57.0;  pcb_t = 1.6;
@@ -148,6 +148,7 @@ module tray() {
 // lid_engrave = true engraves the +/- marks and text instead (0.6 mm deep; text >= 3 mm for a 0.4 nozzle).
 lid_engrave   = false;
 sticker_inset = 0.5;    // sticker edge sits this far inside the lid edge, and every hole grows by this much
+sticker_bleed = 1.0;    // printed background runs this far past the cut line (black-background sticker)
 label_depth = 0.6;
 label_font  = "Liberation Sans:style=Bold";
 // [pole x on the board, "+" or "-"]: J2 = OUT (10.4 +, 15.4 -), J1 = IN (24.9 +, 29.9 -)
@@ -224,4 +225,5 @@ module lid_print() translate([0, out_l, top_z + lid_t]) rotate([180, 0, 0]) lid(
 if (part == "tray") tray();
 else if (part == "lid") lid_print();
 else if (part == "sticker") lid_sticker();   // 2D: export as .svg / .dxf
+else if (part == "sticker_bleed") offset(delta=sticker_bleed) lid_sticker();   // 2D: background print area
 else { tray(); translate([out_w + 30, 0, 0]) lid_print(); }
