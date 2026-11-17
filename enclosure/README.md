@@ -15,7 +15,7 @@ onto three beefy standoffs in the tray, and the lid is held on with four M3 scre
 | Terminal support | 2 pillars under the WAGO terminals, 0.15 mm below the board. Pushing a lever or a wire presses the board onto them instead of bending it |
 | Robot mounting | 4 ears with gussets, one at each end on each side. #10 clearance holes (5.3 mm), **2.5" apart** across the case (FRC ½" hole grid). Two zip-tie slots in the floor as a backup |
 | Lid fixing | 4x M3 x 10 screws (counterbored) into M3 heat-set inserts in the side bosses |
-| Lid label | Engraved 0.6 mm: **+ / −** over each terminal pole, `OUT 12V` and `IN 6-16V`, and `TURNER VISION / POE BUCK BOOST`. Prints face-down, so it comes out on the first layer; fill with paint, or change filament color at 0.6 mm |
+| Lid label | Engraved 0.6 mm: **+ / −** over each terminal pole, `OUT 12V`, `IN 6-16V` and `20A` (input side), and `TURNER VISION / POE BUCK BOOST`. Prints face-down, so it comes out on the first layer; fill with paint, or change filament color at 0.6 mm |
 | Openings | Lid open above both WAGO terminals: the wires enter the terminals **vertically** from the top, and the levers swing out over the open front wall. LED window, vents over the FETs and inductor, side vents |
 
 ## Files

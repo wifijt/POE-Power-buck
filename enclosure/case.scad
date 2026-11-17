@@ -136,6 +136,7 @@ module lid_label() {
     }
     engrave_at([12.4, 23.9]) text("OUT 12V",  size=2.2, font=label_font, halign="center", valign="center");
     engrave_at([28.6, 23.9]) text("IN 6-16V", size=2.2, font=label_font, halign="center", valign="center");
+    engrave_at([34.4, 27.6]) text("20A",      size=2.2, font=label_font, halign="center", valign="center");   // input rating, beside the FET vents
     engrave_at([18.0, 51.6]) text("TURNER VISION",  size=3.2, font=label_font, halign="center", valign="center");
     engrave_at([18.0, 55.4]) text("POE BUCK BOOST", size=2.6, font=label_font, halign="center", valign="center");
 }
