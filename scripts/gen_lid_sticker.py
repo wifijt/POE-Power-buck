@@ -6,6 +6,9 @@ the top), into docs/:
     lid_sticker.svg / .pdf              black artwork, no background (white or clear vinyl)
     lid_sticker_black.svg / .pdf        white artwork on a black background (white vinyl)
     lid_sticker_cut.dxf                 cut lines only (straight from OpenSCAD), same for both
+    lid_sticker_print.png, lid_sticker_black_print.png
+                                        artwork only, 600 dpi, for Silhouette Studio Basic (which
+                                        cannot open SVG or PDF): pair with the DXF, align centres
     lid_sticker_preview.png, lid_sticker_black_preview.png
 Each SVG/PDF has the artwork and the cut lines (red hairline) in one file, already aligned.
 
@@ -136,6 +139,20 @@ def main():
         artwork(ax, ink, paper)
         fig.savefig(os.path.join(DOCS, name + "_preview.png"), dpi=100, facecolor="#f07d1a")
         plt.close(fig)
+
+        # Silhouette Studio Basic opens only DXF (cut lines) and images (artwork). This PNG is cropped
+        # so its centre is the cut outline's centre: the white one to the outline's box, the black one
+        # to the bleed box (1 mm bigger all round). Aligning the two centres lines them up exactly.
+        box = (bg if bg is not None else outline).get_extents()
+        fig = plt.figure(figsize=(box.width / 25.4, box.height / 25.4))
+        ax = fig.add_axes([0, 0, 1, 1])
+        ax.set_xlim(box.x0, box.x1); ax.set_ylim(box.y0, box.y1); ax.set_aspect("equal"); ax.axis("off")
+        if bg is not None:
+            ax.add_patch(PathPatch(bg, fc=paper, ec="none", lw=0))
+        artwork(ax, ink, paper)
+        fig.savefig(os.path.join(DOCS, name + "_print.png"), dpi=600, transparent=True)
+        plt.close(fig)
+        print("%s_print.png: %.2f x %.2f mm" % (name, box.width, box.height))
 
     dxf = openscad("dxf")
     os.replace(dxf, os.path.join(DOCS, "lid_sticker_cut.dxf"))
