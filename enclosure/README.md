@@ -7,15 +7,17 @@ onto three beefy standoffs in the tray, and the lid is held on with four M3 scre
 
 ![lid label, assembled, top view](../docs/case_lid_label.png)
 
+![dimensions in inches and mm](../docs/case_dimensions.png)
+
 | | |
 |---|---|
-| Outside (tray + lid) | 43 x 64 x 22.6 mm; 76.5 mm wide across the mounting ears |
+| Outside (tray + lid) | 43 x 64 x 22.6 mm; 78.5 mm wide across the mounting ears |
 | Walls / floor / lid | 3.0 / 3.0 / 3.0 mm, 3 mm corner radius |
 | Board mounting | 3 standoffs under the board's M3 holes: 8 mm across at the top, flared to 13 mm at the floor, fused into the case walls. M3 heat-set insert in each; the board screws down from the top |
 | Terminal support | 2 pillars under the WAGO terminals, 0.15 mm below the board. Pushing a lever or a wire presses the board onto them instead of bending it |
-| Robot mounting | 4 ears with gussets, one at each end on each side. #10 clearance holes (5.3 mm), **2.5" apart** across the case (FRC ½" hole grid). Two zip-tie slots in the floor as a backup |
+| Robot mounting | 4 ears, 6 mm thick and 15 mm wide out to the hole, one at each end on each side. Each ear is fused to the wall all the way from the case end to the next lid-screw boss, with a 3 mm root fillet and two 3 mm gussets 12 mm up the wall. #10 clearance holes (5.3 mm), **2.5" apart** across the case (FRC ½" hole grid); a #10 SAE washer (11.1 mm) fits under the bolt head without touching the gussets. Two zip-tie slots in the floor as a backup |
 | Lid fixing | 4x M3 x 10 screws (counterbored) into M3 heat-set inserts in the side bosses |
-| Lid label | Engraved 0.6 mm: **+ / −** over each terminal pole, `OUT 12V` and `IN 6-16V`, and `TURNER VISION / POE BUCK BOOST`. Prints face-down, so it comes out on the first layer; fill with paint, or change filament color at 0.6 mm |
+| Lid label | Engraved 0.6 mm: **+ / −** over each terminal pole, `OUT 12V`, `IN 6-16V` and `20A` (input side), and `TURNER VISION / POE BUCK BOOST`. Prints face-down, so the letters are holes in the first three layers. For colored letters on one extruder, see *Two-color lid* below |
 | Openings | Lid open above both WAGO terminals: the wires enter the terminals **vertically** from the top, and the levers swing out over the open front wall. LED window, vents over the FETs and inductor, side vents |
 
 ## Files
@@ -34,6 +36,24 @@ onto three beefy standoffs in the tray, and the lid is held on with four M3 scre
 * No supports. Print the tray floor-down and the lid as exported (outer face on the sheet).
 * Both parts fit on the sheet together.
 
+### Two-color lid (e.g. orange body, black letters) on a single-extruder MK4
+
+![two-color lid preview](../docs/case_two_color.png)
+
+The letters are 0.6 mm deep and the lid prints face-down, so the first three 0.2 mm layers are the
+face with the letters cut out of it. Swap to black for the next two layers and they form the floor
+of every letter.
+
+1. Print the **lid on its own** (a color change applies to the whole sheet, so the tray would get a
+   black stripe too). Use a 0.2 mm first layer and 0.2 mm layers so the swaps land exactly at 0.6 and 1.0 mm.
+2. In PrusaSlicer, slice, then in the preview's vertical layer slider add a **color change (M600)
+   at 0.80 mm** (the first layer above 0.6 mm) and another at **1.20 mm** (the first layer above 1.0 mm).
+3. Start in orange. At 0.8 mm the printer asks for black; at 1.2 mm swap back to orange.
+
+What it looks like: orange face, black letters, + / − marks and vent-slot floors, and a thin
+(0.4 mm) black line around the lid edge 0.6 mm below the top. With an MMU3 instead, model the
+letters as a separate part to get flush inlays with no line.
+
 ## Hardware
 
 * 7x M3 heat-set inserts (M3 x 5.7 mm, for a 4.0 mm hole): 3 in the standoffs, 4 in the lid
@@ -41,7 +61,8 @@ onto three beefy standoffs in the tray, and the lid is held on with four M3 scre
 * 3x M3 x 8 screws (socket or pan head, **no metal washers**) to hold the board. The heads (5.5 mm)
   sit inside the board's 6.6 mm copper-free ring, so the screws touch no circuit. Nylon washers are fine.
 * 4x M3 x 10 socket-head screws for the lid.
-* 4x #10-32 bolts + nylock nuts to mount to the robot (or zip ties through the floor slots).
+* 4x #10-32 bolts + nylock nuts to mount to the robot (or zip ties through the floor slots). Put a #10 SAE washer
+  under each bolt head to spread the load on the plastic.
 * No inserts? Set `insert_d = 2.6` in `case.scad` and use M3 self-tapping screws instead.
 
 ## Assembly

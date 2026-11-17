@@ -51,7 +51,10 @@ term_depth = 17.6;                   // terminal bodies end at board y 17.1
 // lid screws: 4x M3 x 10 into M3 heat-set inserts in bosses on the side walls
 boss = 9.0;  boss_ys = [20.0, 40.0];   // board y of each boss pair
 // robot mounting: 4 ears, #10 clearance holes, 2.5" apart across, on the 1/2" grid
-ear_hole = 5.3;  ear_pitch = 63.5;  ear_t = 5.0;  ear_ys = [4.0, 52.0];
+ear_hole = 5.3;  ear_pitch = 63.5;  ear_t = 6.0;  ear_ys = [4.0, 52.0];
+// ear bracing: 3 mm gussets up the wall, kept clear of a #10 SAE washer (11.1 mm OD) under the bolt
+gus_t = 3.0;  gus_h = 12.0;  gus_l = 6.5;  gus_dy = [4.5, 7.5];   // gusset y span from the hole centre
+fillet = 3.0;   // 45-degree fillet along the ear root
 
 module rounded_box(w, l, h, r=3.0) {
     hull() for (x=[r, w-r], y=[r, l-r]) translate([x, y, 0]) cylinder(r=r, h=h, $fn=32);
@@ -65,22 +68,38 @@ module standoff(p) {
     }
 }
 
+// mounting ear: plate fused to the wall from the case end to the next lid-screw boss, two gussets, root fillet
+function ear_boss_y(cy) = let(bys = [for (y = boss_ys) by0 + B(0, y)[1]],
+                              b = abs(bys[0] - cy) < abs(bys[1] - cy) ? bys[0] : bys[1])
+                          b + (b > cy ? -boss/2 + 1 : boss/2 - 1);   // reach 1 mm into the boss
+module ear(sx, cy) {
+    cx = out_w/2 + sx*ear_pitch/2;
+    wx = sx < 0 ? 0 : out_w;                     // wall face
+    inward = cy < out_l/2 ? 1 : -1;              // toward the case middle
+    y_end  = cy - inward*7.5;                    // case-end side of the root
+    y_boss = ear_boss_y(cy);
+    hull() {
+        translate([cx, cy, 0]) cylinder(d=15, h=ear_t, $fn=48);   // full 15 mm width out to the hole: gussets sit on plate
+        translate([wx - (sx < 0 ? 0 : 1), min(y_end, y_boss), 0]) cube([1, abs(y_boss - y_end), ear_t]);
+    }
+    // root fillet along the flat part of the wall (stops at the 3 mm corner radius); sunk 0.5 mm into
+    // the wall and the plate so the union stays a clean solid
+    f_y0 = min(y_end + inward*3, y_boss);  f_y1 = max(y_end + inward*3, y_boss);
+    translate([wx - sx*0.5, f_y0, ear_t - 0.5]) rotate([-90, 0, 0])
+        linear_extrude(f_y1 - f_y0) polygon([[0, 0], [sx*(fillet + 1), 0], [0, -(fillet + 1)]]);
+    // gussets: triangles in the x-z plane, tall at the wall, ending gus_l out
+    // sunk 1 mm into the wall: the case-end gusset sits where the 3 mm corner radius starts to curve away
+    for (side = [-1, 1]) translate([wx - sx*1.0, side > 0 ? cy + gus_dy[1] : cy - gus_dy[0], ear_t - 0.5])
+        rotate([90, 0, 0]) linear_extrude(gus_t) polygon([[0, 0], [sx*(gus_l + 1.0), 0], [0, gus_h + 0.5]]);
+}
+
 module tray() {
     difference() {
         union() {
             rounded_box(out_w, out_l, top_z);
             for (sx=[-1, 1], y=boss_ys)                         // lid screw bosses
                 translate([boss_x(sx) - boss/2, by0 + B(0, y)[1] - boss/2, 0]) cube([boss, boss, top_z]);
-            for (sx=[-1, 1], y=ear_ys) {                        // mounting ears
-                cx = out_w/2 + sx*ear_pitch/2;  cy = by0 + B(0, y)[1];
-                hull() {
-                    translate([cx, cy, 0]) cylinder(d=13, h=ear_t, $fn=48);
-                    translate([sx < 0 ? 0 : out_w - 1, cy - 7.5, 0]) cube([1, 15, ear_t]);
-                }
-                for (dy=[-7.5, 6.0]) translate([sx < 0 ? -8 : out_w, cy + dy, ear_t])   // gussets
-                    rotate([90, 0, 0]) translate([0, 0, -1.5]) linear_extrude(1.5)
-                        polygon(sx < 0 ? [[0,0],[8,0],[8,9]] : [[0,0],[8,0],[0,9]]);
-            }
+            for (sx=[-1, 1], y=ear_ys) ear(sx, by0 + B(0, y)[1]);   // mounting ears
         }
         // cavity: full board footprint + clearance, floor to rim
         translate([wall, wall, floor_t]) cube([cav_w, cav_l, top_z]);
@@ -136,6 +155,7 @@ module lid_label() {
     }
     engrave_at([12.4, 23.9]) text("OUT 12V",  size=2.2, font=label_font, halign="center", valign="center");
     engrave_at([28.6, 23.9]) text("IN 6-16V", size=2.2, font=label_font, halign="center", valign="center");
+    engrave_at([34.4, 27.6]) text("20A",      size=2.2, font=label_font, halign="center", valign="center");   // input rating, beside the FET vents
     engrave_at([18.0, 51.6]) text("TURNER VISION",  size=3.2, font=label_font, halign="center", valign="center");
     engrave_at([18.0, 55.4]) text("POE BUCK BOOST", size=2.6, font=label_font, halign="center", valign="center");
 }
