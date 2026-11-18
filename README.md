@@ -71,6 +71,51 @@ Silkscreen, left to right along the top edge: **OUT 12V (+ -)** then **IN (+ -)*
    L1, Q1 and Q2 (the buck-leg FETs) and U1.
 4. Reverse the input briefly at a low current limit and confirm nothing conducts.
 
+## What each part does
+
+In the order power flows, input to output. Positions are as seen in `docs/board_top.png`
+(terminals at the top). For a one-page summary of features and specs, see
+[`docs/board_overview.md`](docs/board_overview.md).
+
+**Input protection (right side, near IN)**
+
+| Part | What it does |
+|---|---|
+| **J1** WAGO terminal (top right) | Input from the robot's 20 A breaker. |
+| **Q3** MOSFET (below J1) | Reverse-polarity protection. It sits in the input's negative lead and only switches on when + is on the + pole; wired backwards, nothing conducts. R12/R13 bias its gate from the input, and **D3** (12 V zener) limits the gate voltage when the input is near 16 V. |
+| **D1** TVS diode (big black part, right edge) | Clamps spikes from motors and breakers above about 16-18 V so they don't reach U1. Check its direction before first power (see *First power-up*). |
+| **C1** 100 µF polymer can (bottom right) | Input reservoir: smooths the input and supplies the converter's current pulses. |
+| **C2-C5** 10 µF ceramics, **C7** 100 nF | Absorb the fast switching spikes right at the transistors. |
+
+**The converter (middle)**
+
+| Part | What it does |
+|---|---|
+| **U1** TI TPS552882 (centre-left) | The controller. A buck-boost: it steps down when the input is above 12 V and up when below, holding 12.1 V from about 5 V to 16 V in. It contains the boost-side switches, drives the external buck switches, and handles current limiting and undervoltage shutdown. |
+| **Q1, Q2** MOSFETs (right of U1) | Buck-side switches, switched 400,000 times a second. **R1/R2** (1 Ω) soften the switching edges. |
+| **L1** 6.8 µH inductor (bottom centre) | Stores and releases energy every cycle; this is what makes stepping up and down possible. It carries the full input current. |
+| **C8, C9** | Bootstrap capacitors that let U1 drive the upper switches above the input voltage. |
+
+**Setting parts around U1**
+
+| Part | Sets |
+|---|---|
+| **R6 / R7** (100k / 11k) | Output voltage: 12.1 V. |
+| **R3 / R4** (100k / 28.7k) | Undervoltage lockout: off at about 5.0 V falling, on at about 5.5 V rising. |
+| **R9** (22.1k) | Current limit: about 15 A average in the inductor (12.7-17.2 A). This is why a 20 A breaker never trips from the board alone. |
+| **R5** (49.9k) | Switching frequency: 400 kHz. |
+| **C11** | Spread-spectrum dithering of that frequency, which spreads out the electrical noise. |
+| **R10, C12, C13** | Loop compensation: how fast and how stably the output recovers from load changes. |
+| **C14, C15** | Filter U1's internal 5 V (VCC) supply. **NT1** joins U1's quiet analog ground to power ground at one point, at C14. |
+
+**Output (left side, near OUT)**
+
+| Part | What it does |
+|---|---|
+| **C20** 100 µF polymer can (bottom left), **C16-C19** 22 µF ceramics, **C21** 100 nF | Output smoothing: hold 12 V steady and supply sudden load steps from the PoE switch. |
+| **D2** green LED with **R11** (left edge) | On when the 12 V output is present. |
+| **J2** WAGO terminal (top left) | Output to the PoE switch. |
+
 ## What's in here
 
 ```
@@ -144,4 +189,6 @@ KiCad 10 notes: the `pcbnew` scripts print harmless wxWidgets assert lines. Don'
   datasheet's limit of 1/5 of the boost right-half-plane zero (~11-14 kHz at 6 V in, 5 A). It
   relies on the C20 polymer cap counting toward Cout. If bench tests show ringing in boost mode,
   drop R10 to about 12k.
-* **Not yet verified**: there is no simulation and no built prototype.
+* **Bench tested** (Nov 2026, first built board): powers up with the output on; undervoltage lockout turns the
+  output off just below 5.0 V and back on at about 5.8 V on the bench supply display (5.35-5.7 V
+  expected at the terminals). Not yet measured: full 5 A load, efficiency and temperatures.
