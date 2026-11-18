@@ -75,7 +75,7 @@ Silkscreen, left to right along the top edge: **OUT 12V (+ -)** then **IN (+ -)*
 
 In the order power flows, input to output. Positions are as seen in `docs/board_top.png`
 (terminals at the top). For a one-page summary of features and specs, see
-[`docs/board_overview.md`](docs/board_overview.md).
+[`docs/board_overview.md`](docs/board_overview.md) (printable: [`docs/board_overview.pdf`](docs/board_overview.pdf), rebuilt with `python3 scripts/gen_overview_pdf.py`).
 
 **Input protection (right side, near IN)**
 
