@@ -66,8 +66,8 @@ to meet the usual custom-circuit requirements.
 
 * First board assembled and bench tested (Nov 2026):
   * Output comes on and holds 12 V.
-  * Runs the PoE switch with a Raspberry Pi and an Orange Pi from about 6 V in. The board stays
-    cool.
+  * Runs the PoE switch with a Raspberry Pi and an Orange Pi, stable down to 6.7 V in. The
+    board stays cool.
   * Undervoltage lockout confirmed on a scope: the output shuts off cleanly at 5.0 V in and
     soft-starts on its own when the input recovers.
 * Still to test:
