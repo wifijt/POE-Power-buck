@@ -71,6 +71,16 @@ Silkscreen, left to right along the top edge: **OUT 12V (+ -)** then **IN (+ -)*
    L1, Q1 and Q2 (the buck-leg FETs) and U1.
 4. Reverse the input briefly at a low current limit and confirm nothing conducts.
 
+**Bench-supply gotchas** (both caught out the first board's tests):
+
+* **Use real leads.** Run 16-18 AWG wire from the supply straight into J1. Jumper wires
+  (Dupont-style, about 24-28 AWG) lost more than 1 V at the 4-5 A the board draws at 6-7 V in.
+  Each load step then sagged the input to the 5.0 V cutoff, the board shut off and soft-started
+  again, and the Pi on the PoE switch rebooted. Measure the input at J1, not on the supply's display.
+* **Check the current limit covers the input current** at your lowest test voltage:
+  I = P_out / 0.9 / V_in. A 5 A bench supply can only test about 25-30 W at 6-6.5 V in. When it
+  hits its limit it drops into CC and pulls the input down, which looks like a board fault.
+
 ## What each part does
 
 In the order power flows, input to output. Positions are as seen in `docs/board_top.png`
@@ -189,6 +199,10 @@ KiCad 10 notes: the `pcbnew` scripts print harmless wxWidgets assert lines. Don'
   datasheet's limit of 1/5 of the boost right-half-plane zero (~11-14 kHz at 6 V in, 5 A). It
   relies on the C20 polymer cap counting toward Cout. If bench tests show ringing in boost mode,
   drop R10 to about 12k.
-* **Bench tested** (Nov 2026, first built board): powers up with the output on; undervoltage lockout turns the
-  output off just below 5.0 V and back on at about 5.8 V on the bench supply display (5.35-5.7 V
-  expected at the terminals). Not yet measured: full 5 A load, efficiency and temperatures.
+* **Bench tested** (Nov 2026, first built board):
+  * Powers up with the output on.
+  * Undervoltage lockout turns the output off at 5.0 V in and soft-starts it again when the input
+    recovers (scope-confirmed).
+  * Runs a PoE switch with a Raspberry Pi and an Orange Pi, staying cool, from about 6 V in once
+    fed with proper leads.
+  * Not yet measured: full 5 A load, efficiency and temperatures.

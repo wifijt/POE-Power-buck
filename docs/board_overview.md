@@ -65,13 +65,15 @@ to meet the usual custom-circuit requirements.
 ## Status
 
 * First board assembled and bench tested (Nov 2026):
-  * Output comes on.
-  * Undervoltage lockout turns the output off just below 5.0 V and back on at about 5.8 V on the
-    bench supply.
+  * Output comes on and holds 12 V.
+  * Runs the PoE switch with a Raspberry Pi and an Orange Pi from about 6 V in. The board stays
+    cool.
+  * Undervoltage lockout confirmed on a scope: the output shuts off cleanly at 5.0 V in and
+    soft-starts on its own when the input recovers.
 * Still to test:
-  * Full 5 A load across the 6-16 V input range.
+  * Full 5 A (60 W) load across the 6-16 V input range.
   * Efficiency.
-  * Temperatures in the case.
+  * Temperatures in the closed case.
 
 ## More detail
 
