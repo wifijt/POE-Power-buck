@@ -78,8 +78,9 @@ Silkscreen, left to right along the top edge: **OUT 12V (+ -)** then **IN (+ -)*
   Each load step then sagged the input to the 5.0 V cutoff, the board shut off and soft-started
   again, and the Pi on the PoE switch rebooted. Measure the input at J1, not on the supply's display.
 * **Check the current limit covers the input current** at your lowest test voltage:
-  I = P_out / 0.9 / V_in. A 5 A bench supply can only test about 25-30 W at 6-6.5 V in. When it
-  hits its limit it drops into CC and pulls the input down, which looks like a board fault.
+  I = P_out / 0.9 / V_in. The converter draws constant power, so lower voltage means more current.
+  A 3 A limit runs out at about 18 W at 6 V, a 5 A one at about 27 W. When the supply hits its
+  limit it drops into CC and pulls the input down, which looks like a board fault.
 
 ## What each part does
 
@@ -204,7 +205,7 @@ KiCad 10 notes: the `pcbnew` scripts print harmless wxWidgets assert lines. Don'
   * Undervoltage lockout turns the output off at 5.0 V in and soft-starts it again when the input
     recovers (scope-confirmed).
   * Runs a PoE switch with a Raspberry Pi and an Orange Pi, staying cool, stable with the bench
-    supply set to 6.7 V and proper leads. With the supply set to 5.8 V, the 5 A supply could not
-    carry the load: the board's input sagged to 4.4-4.9 V, under the 5.0 V cutoff and below the
-    rated 6 V minimum, and the board shut off and restarted, as designed.
+    supply set to 6.7 V and proper leads (about 16-18 W of load). Below about 6 V the bench supply
+    hit its 3 A current limit (CC: 6 V x 3 A = 18 W), its voltage collapsed to 4.4-4.9 V at the
+    board, under the 5.0 V cutoff, and the board shut off and restarted, as designed.
   * Not yet measured: full 5 A load, efficiency and temperatures.
