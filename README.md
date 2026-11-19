@@ -203,7 +203,8 @@ KiCad 10 notes: the `pcbnew` scripts print harmless wxWidgets assert lines. Don'
   * Powers up with the output on.
   * Undervoltage lockout turns the output off at 5.0 V in and soft-starts it again when the input
     recovers (scope-confirmed).
-  * Runs a PoE switch with a Raspberry Pi and an Orange Pi, staying cool, stable down to 6.7 V in
-    with proper leads. At 5.8 V on a 5 A bench supply the input sagged under the 5.0 V cutoff
-    (below the rated 6 V minimum) and the board shut off and restarted, as designed.
+  * Runs a PoE switch with a Raspberry Pi and an Orange Pi, staying cool, stable with the bench
+    supply set to 6.7 V and proper leads. With the supply set to 5.8 V, the 5 A supply could not
+    carry the load: the board's input sagged to 4.4-4.9 V, under the 5.0 V cutoff and below the
+    rated 6 V minimum, and the board shut off and restarted, as designed.
   * Not yet measured: full 5 A load, efficiency and temperatures.
